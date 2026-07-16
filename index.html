@@ -166,28 +166,15 @@
                                 <svg class="w-60 h-60 text-brand-water drop-shadow-[0_8px_16px_rgba(2,132,199,0.15)] transition-transform duration-500 group-hover:scale-105" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M18 2h-3s-1 1.5-3 1.5-3-1.5-3-1.5H6L2 6v3h3v13h14V9h3V6l-4-4z"/>
                                 </svg>
-                                
-                                <!-- ★デザイン参考画像アップローダー（クリックで追加・ドロップ可能） -->
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <label for="design-upload-hero" class="w-28 h-36 border-2 border-dashed border-brand-sky/40 hover:border-brand-sky rounded-xl flex flex-col items-center justify-center bg-white/70 backdrop-blur-[2px] cursor-pointer hover:bg-white/85 transition-all group/uploader shadow-inner overflow-hidden relative">
-                                        <input type="file" id="design-upload-hero" name="design_image" form="contact-form" accept="image/png,image/jpeg,image/webp,image/gif" class="hidden" onchange="handleImageUpload(event)">
-                                        
-                                        <!-- 未アップロード：プレースホルダー -->
-                                        <div id="upload-placeholder" class="flex flex-col items-center justify-center p-2 text-center select-none">
-                                            <i class="fa-solid fa-circle-plus text-brand-sky text-2xl mb-1 group-hover/uploader:scale-110 transition-transform"></i>
-                                            <span class="text-[9px] text-brand-sky font-bold leading-tight">参考画像を<br>ここに貼る</span>
-                                            <span class="text-[8px] text-brand-slate font-medium mt-1">(手書き・ラフ等)</span>
-                                            <span class="text-[8px] text-brand-slate mt-1">大きな画像は自動で約450KB以下に圧縮されます</span>
-                                        </div>
-
-                                        <!-- アップロード済：プレビュー画像表示 -->
-                                        <img id="upload-preview" class="hidden w-full h-full object-contain p-1.5" alt="ユーザーデザインプレビュー">
-                                        
-                                        <!-- アップロード済：削除ボタン -->
-                                        <button id="btn-remove-image" type="button" onclick="removeUploadedImage(event)" class="hidden absolute top-1 right-1 bg-rose-500 hover:bg-rose-600 text-white w-5 h-5 rounded-full flex items-center justify-center text-[10px] shadow z-20 transition-all">
-                                            <i class="fa-solid fa-xmark"></i>
-                                        </button>
-                                    </label>
+                                <!-- 参考画像は担当者からの返信メールへ送付 -->
+                                <div class="absolute inset-0 flex items-center justify-center p-6">
+                                    <div class="w-full max-w-xs bg-white/85 border border-brand-water rounded-2xl p-5 text-center shadow-inner">
+                                        <i class="fa-solid fa-envelope-open-text text-brand-sky text-3xl mb-3"></i>
+                                        <p class="text-sm font-bold text-brand-dark">参考画像は送信後でOK</p>
+                                        <p class="text-xs text-brand-slate mt-2 leading-relaxed">
+                                            お見積り送信後、担当者から届くメールへ返信してお送りください。
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                             
@@ -1082,7 +1069,6 @@
                 <input type="hidden" name="quantity" id="form-quantity">
                 <input type="hidden" name="estimated_total" id="form-estimated-total">
                 <input type="hidden" name="estimated_unit_price" id="form-estimated-unit-price">
-                <input type="hidden" name="image_filename" id="form-image-filename">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                         <label for="name" class="block text-sm font-bold text-brand-dark mb-2">お名前 <span class="text-brand-accent">*</span></label>
@@ -1136,6 +1122,59 @@
                     </button>
                 </div>
             </form>
+        </div>
+    </section>
+
+
+    <!-- ORDER CONTACT FLOW -->
+    <section id="contact-flow" class="py-20 bg-brand-ice border-y border-brand-water">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14 space-y-4">
+                <span class="text-brand-sky font-bold tracking-widest uppercase text-xs block">AFTER ESTIMATE</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark">
+                    お見積り送信後の流れ
+                </h2>
+                <p class="text-sm sm:text-base text-brand-slate">
+                    参考画像はフォームに添付しなくて大丈夫です。担当者からのメールへ返信してお送りください。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-5">
+                <div class="bg-white border border-brand-water rounded-2xl p-6 text-center shadow-sm">
+                    <div class="w-11 h-11 mx-auto rounded-full bg-brand-sky text-white flex items-center justify-center font-black mb-4">1</div>
+                    <i class="fa-solid fa-paper-plane text-brand-sky text-2xl mb-3"></i>
+                    <h3 class="font-bold text-brand-dark">お見積り送信</h3>
+                    <p class="text-xs text-brand-slate mt-2 leading-relaxed">フォームから必要事項と概算内容を送信します。</p>
+                </div>
+
+                <div class="bg-white border border-brand-water rounded-2xl p-6 text-center shadow-sm">
+                    <div class="w-11 h-11 mx-auto rounded-full bg-brand-sky text-white flex items-center justify-center font-black mb-4">2</div>
+                    <i class="fa-solid fa-envelope text-brand-sky text-2xl mb-3"></i>
+                    <h3 class="font-bold text-brand-dark">担当者からご挨拶</h3>
+                    <p class="text-xs text-brand-slate mt-2 leading-relaxed">担当者より確認とご挨拶のメールをお送りします。</p>
+                </div>
+
+                <div class="bg-white border border-brand-water rounded-2xl p-6 text-center shadow-sm">
+                    <div class="w-11 h-11 mx-auto rounded-full bg-brand-sky text-white flex items-center justify-center font-black mb-4">3</div>
+                    <i class="fa-solid fa-image text-brand-sky text-2xl mb-3"></i>
+                    <h3 class="font-bold text-brand-dark">参考画像を返信</h3>
+                    <p class="text-xs text-brand-slate mt-2 leading-relaxed">参考画像がある場合は、そのメールへ返信して送ってください。</p>
+                </div>
+
+                <div class="bg-white border border-brand-water rounded-2xl p-6 text-center shadow-sm">
+                    <div class="w-11 h-11 mx-auto rounded-full bg-brand-sky text-white flex items-center justify-center font-black mb-4">4</div>
+                    <i class="fa-solid fa-file-invoice-yen text-brand-sky text-2xl mb-3"></i>
+                    <h3 class="font-bold text-brand-dark">正確なお見積り</h3>
+                    <p class="text-xs text-brand-slate mt-2 leading-relaxed">画像・サイズ・枚数を確認し、正式な金額をご案内します。</p>
+                </div>
+
+                <div class="bg-white border border-brand-water rounded-2xl p-6 text-center shadow-sm">
+                    <div class="w-11 h-11 mx-auto rounded-full bg-brand-sky text-white flex items-center justify-center font-black mb-4">5</div>
+                    <i class="fa-solid fa-box-open text-brand-sky text-2xl mb-3"></i>
+                    <h3 class="font-bold text-brand-dark">お振込み後に製作・発送</h3>
+                    <p class="text-xs text-brand-slate mt-2 leading-relaxed">ご入金確認後に製作し、完成後に郵送します。</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1431,7 +1470,6 @@
             document.getElementById('form-quantity').value = `${qty}枚`;
             document.getElementById('form-estimated-total').value = `¥${total.toLocaleString()}`;
             document.getElementById('form-estimated-unit-price').value = `¥${unit.toLocaleString()} / 枚`;
-            document.getElementById('form-image-filename').value = uploadedFile ? uploadedFile.name : 'なし';
         }
 
         function fillContactForm() {
@@ -1457,74 +1495,6 @@
             }
         }
 
-        // --- アップロード画像を強力に自動圧縮 ---
-        async function compressImage(file) {
-            if (!file || !file.type.startsWith('image/')) return file;
-
-            const bitmap = await createImageBitmap(file);
-
-            // まず長辺を1200px以内に縮小
-            let width = bitmap.width;
-            let height = bitmap.height;
-            const maxDimension = 1200;
-            const scale = Math.min(1, maxDimension / Math.max(width, height));
-
-            width = Math.max(1, Math.round(width * scale));
-            height = Math.max(1, Math.round(height * scale));
-
-            const canvas = document.createElement('canvas');
-            canvas.width = width;
-            canvas.height = height;
-
-            const ctx = canvas.getContext('2d');
-            ctx.drawImage(bitmap, 0, 0, width, height);
-
-            // Formspree無料枠でも通りやすいよう、500KB以下を目標に段階圧縮
-            const targetBytes = 450 * 1024;
-            let quality = 0.72;
-            let blob = null;
-
-            while (quality >= 0.28) {
-                blob = await new Promise((resolve, reject) => {
-                    canvas.toBlob(
-                        result => result ? resolve(result) : reject(new Error('画像圧縮に失敗しました')),
-                        'image/jpeg',
-                        quality
-                    );
-                });
-
-                if (blob.size <= targetBytes) break;
-                quality -= 0.08;
-            }
-
-            // まだ大きい場合はさらに縮小
-            if (blob.size > targetBytes) {
-                const shrinkScale = Math.sqrt(targetBytes / blob.size);
-                const finalWidth = Math.max(1, Math.round(width * shrinkScale));
-                const finalHeight = Math.max(1, Math.round(height * shrinkScale));
-
-                const smallCanvas = document.createElement('canvas');
-                smallCanvas.width = finalWidth;
-                smallCanvas.height = finalHeight;
-
-                const smallCtx = smallCanvas.getContext('2d');
-                smallCtx.drawImage(canvas, 0, 0, finalWidth, finalHeight);
-
-                blob = await new Promise((resolve, reject) => {
-                    smallCanvas.toBlob(
-                        result => result ? resolve(result) : reject(new Error('画像圧縮に失敗しました')),
-                        'image/jpeg',
-                        0.55
-                    );
-                });
-            }
-
-            const baseName = file.name.replace(/\.[^/.]+$/, '');
-            return new File([blob], `${baseName}-compressed.jpg`, {
-                type: 'image/jpeg',
-                lastModified: Date.now()
-            });
-        }
 
         // --- Formspreeへ実際に送信 ---
         const contactForm = document.getElementById('contact-form');
@@ -1536,23 +1506,12 @@
             const successMsg = document.getElementById('submit-success');
 
             submitBtn.disabled = true;
-            submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> 画像を圧縮して送信中...`;
+            submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> 送信中...`;
             successMsg.classList.add('hidden');
 
             try {
                 calculateEstimate();
                 const formData = new FormData(contactForm);
-
-                // 最初に選択した画像を自動圧縮してから送信
-                if (uploadedFile) {
-                    const compressedFile = await compressImage(uploadedFile);
-                    formData.delete('design_image');
-                    formData.set('design_image', compressedFile, compressedFile.name);
-                    formData.set(
-                        'image_compression',
-                        `${(uploadedFile.size / 1024 / 1024).toFixed(2)}MB → ${(compressedFile.size / 1024 / 1024).toFixed(2)}MB`
-                    );
-                }
 
                 const response = await fetch(contactForm.action, {
                     method: 'POST',
@@ -1574,7 +1533,7 @@
 
                 submitBtn.innerHTML = `<i class="fa-solid fa-check"></i> 送信完了`;
             } catch (error) {
-                alert('送信できませんでした。画像サイズが大きすぎる場合は小さくして、もう一度お試しください。');
+                alert('送信できませんでした。通信状況を確認して、もう一度お試しください。');
                 submitBtn.disabled = false;
                 submitBtn.innerHTML =
                     `<i class="fa-solid fa-paper-plane"></i> この内容で本見積り（完全無料）`;
