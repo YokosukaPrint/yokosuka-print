@@ -177,7 +177,7 @@
                                             <i class="fa-solid fa-circle-plus text-brand-sky text-2xl mb-1 group-hover/uploader:scale-110 transition-transform"></i>
                                             <span class="text-[9px] text-brand-sky font-bold leading-tight">参考画像を<br>ここに貼る</span>
                                             <span class="text-[8px] text-brand-slate font-medium mt-1">(手書き・ラフ等)</span>
-                                            <span class="text-[8px] text-brand-slate mt-1">大きな画像は自動圧縮されます</span>
+                                            <span class="text-[8px] text-brand-slate mt-1">大きな画像は自動で約450KB以下に圧縮されます</span>
                                         </div>
 
                                         <!-- アップロード済：プレビュー画像表示 -->
@@ -1457,15 +1457,18 @@
             }
         }
 
-        // --- アップロード画像を自動圧縮 ---
-        async function compressImage(file, maxWidth = 1600, maxHeight = 1600, quality = 0.78) {
+        // --- アップロード画像を強力に自動圧縮 ---
+        async function compressImage(file) {
             if (!file || !file.type.startsWith('image/')) return file;
 
             const bitmap = await createImageBitmap(file);
+
+            // まず長辺を1200px以内に縮小
             let width = bitmap.width;
             let height = bitmap.height;
+            const maxDimension = 1200;
+            const scale = Math.min(1, maxDimension / Math.max(width, height));
 
-            const scale = Math.min(1, maxWidth / width, maxHeight / height);
             width = Math.max(1, Math.round(width * scale));
             height = Math.max(1, Math.round(height * scale));
 
@@ -1476,13 +1479,45 @@
             const ctx = canvas.getContext('2d');
             ctx.drawImage(bitmap, 0, 0, width, height);
 
-            const blob = await new Promise((resolve, reject) => {
-                canvas.toBlob(
-                    result => result ? resolve(result) : reject(new Error('画像圧縮に失敗しました')),
-                    'image/jpeg',
-                    quality
-                );
-            });
+            // Formspree無料枠でも通りやすいよう、500KB以下を目標に段階圧縮
+            const targetBytes = 450 * 1024;
+            let quality = 0.72;
+            let blob = null;
+
+            while (quality >= 0.28) {
+                blob = await new Promise((resolve, reject) => {
+                    canvas.toBlob(
+                        result => result ? resolve(result) : reject(new Error('画像圧縮に失敗しました')),
+                        'image/jpeg',
+                        quality
+                    );
+                });
+
+                if (blob.size <= targetBytes) break;
+                quality -= 0.08;
+            }
+
+            // まだ大きい場合はさらに縮小
+            if (blob.size > targetBytes) {
+                const shrinkScale = Math.sqrt(targetBytes / blob.size);
+                const finalWidth = Math.max(1, Math.round(width * shrinkScale));
+                const finalHeight = Math.max(1, Math.round(height * shrinkScale));
+
+                const smallCanvas = document.createElement('canvas');
+                smallCanvas.width = finalWidth;
+                smallCanvas.height = finalHeight;
+
+                const smallCtx = smallCanvas.getContext('2d');
+                smallCtx.drawImage(canvas, 0, 0, finalWidth, finalHeight);
+
+                blob = await new Promise((resolve, reject) => {
+                    smallCanvas.toBlob(
+                        result => result ? resolve(result) : reject(new Error('画像圧縮に失敗しました')),
+                        'image/jpeg',
+                        0.55
+                    );
+                });
+            }
 
             const baseName = file.name.replace(/\.[^/.]+$/, '');
             return new File([blob], `${baseName}-compressed.jpg`, {
