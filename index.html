@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YokosukaPrint | 1枚から丸投げOKのオリジナルTシャツプリント</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Noto Sans JP', 'Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            light: '#F8FAFC',    // ほぼ白に近い、明るいライトグレー
+                            ice: '#F0F9FF',      // さっぱりとした明るいアイスブルー（水色）
+                            water: '#E0F2FE',    // 明るい水色グレー
+                            sky: '#0284C7',      // クリーンな水色ブルー
+                            skyhover: '#0369A1',
+                            slate: '#64748B',    // 洗練されたスレートグレー
+                            dark: '#0F172A',     // 全体を引き締めるダークスレート
+                            accent: '#F97316'    // 親しみやすさを出すオレンジアクセント
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-padding-top: 80px;
+        }
+    </style>
+</head>
+<body class="bg-brand-light text-brand-dark font-sans antialiased selection:bg-brand-water selection:text-brand-dark">
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md text-brand-dark border-b border-brand-water transition-all duration-300 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- LOGO -->
+            <a href="#top" class="flex items-center space-x-2 group">
+                <div class="bg-brand-sky text-white p-2.5 rounded-xl font-black text-xl tracking-tighter group-hover:scale-105 transition-transform flex items-center justify-center shadow-sm">
+                    <i class="fa-solid fa-anchor"></i>
+                </div>
+                <div>
+                    <span class="font-extrabold text-xl tracking-wide block leading-none text-brand-dark group-hover:text-brand-sky transition-colors">YokosukaPrint</span>
+                    <span class="text-[9px] text-brand-slate block tracking-widest mt-1">1枚からできる丸投げプリント</span>
+                </div>
+            </a>
+
+            <!-- DESKTOP NAV -->
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                <a href="#features" class="hover:text-brand-sky transition-colors text-brand-slate">強み</a>
+                <a href="#flow" class="hover:text-brand-sky transition-colors text-brand-slate">注文手順</a>
+                <a href="#portfolio" class="hover:text-brand-sky transition-colors text-brand-slate">実績一覧</a>
+                <a href="#methods" class="hover:text-brand-sky transition-colors text-brand-slate">選べる加工</a>
+                <a href="#pricing" class="hover:text-brand-sky transition-colors text-brand-slate">コミコミ料金</a>
+                <a href="#support" class="hover:text-brand-sky transition-colors text-brand-slate">丸投げサポート</a>
+                <a href="#estimator" class="bg-brand-sky hover:bg-brand-skyhover text-white px-5 py-2.5 rounded-xl font-bold transition-all transform hover:scale-105 shadow-sm flex items-center gap-1.5">
+                    <i class="fa-solid fa-calculator"></i> かんたん自動見積り
+                </a>
+            </nav>
+
+            <!-- MOBILE MENU BUTTON -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-brand-slate hover:text-brand-dark focus:outline-none" aria-label="メニューを開く">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- MOBILE NAV MENU -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-brand-water px-4 pt-2 pb-6 space-y-3">
+            <a href="#features" class="block py-2 text-brand-slate hover:text-brand-sky font-medium border-b border-brand-light">Yokosukaの強み</a>
+            <a href="#flow" class="block py-2 text-brand-slate hover:text-brand-sky font-medium border-b border-brand-light">かんたん注文手順</a>
+            <a href="#portfolio" class="block py-2 text-brand-slate hover:text-brand-sky font-medium border-b border-brand-light">制作実績</a>
+            <a href="#methods" class="block py-2 text-brand-slate hover:text-brand-sky font-medium border-b border-brand-light">選べる加工</a>
+            <a href="#pricing" class="block py-2 text-brand-slate hover:text-brand-sky font-medium border-b border-brand-light">コミコミ料金</a>
+            <a href="#support" class="block py-2 text-brand-slate hover:text-brand-sky font-medium border-b border-brand-light">丸投げサポート</a>
+            <a href="#estimator" class="block text-center bg-brand-sky hover:bg-brand-skyhover text-white py-3 rounded-xl font-bold shadow-md">
+                <i class="fa-solid fa-calculator mr-1"></i> かんたん自動見積り
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="top" class="relative bg-gradient-to-b from-brand-ice via-brand-water to-brand-light overflow-hidden py-16 lg:py-24">
+        <div class="absolute bottom-0 left-0 right-0 w-full pointer-events-none opacity-40">
+            <svg class="w-full h-auto" viewBox="0 0 1440 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,96L60,80C120,64,240,32,360,42.7C480,53,600,107,720,128C840,149,960,139,1080,112C1200,85,1320,43,1380,21.3L1440,0L1440,180L1380,180C1320,180,1200,180,1080,180C960,180,840,180,720,180C600,180,480,180,360,180C240,180,120,180,60,180L0,180Z" fill="#F8FAFC"></path>
+            </svg>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- テキストエリア -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-brand-sky/10 border border-brand-sky/20 px-3 py-1.5 rounded-full text-xs text-brand-sky font-semibold tracking-wider">
+                        <span class="flex h-2 w-2 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-sky opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-sky"></span>
+                        </span>
+                        <span>個人・サークル・ブランド向け：1枚から全面歓迎！</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-brand-dark">
+                        デザインも在庫も不要。<br>
+                        <span class="text-brand-sky underline decoration-brand-sky/30 underline-offset-8">全部丸投げ</span>で、<br class="sm:hidden">理想のオリジナルウェアを。
+                    </h1>
+
+                    <p class="text-sm sm:text-base text-brand-slate max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        自社工場でA4サイズ極限プリントだから実現した<span class="font-bold text-brand-sky">「業界最安値」</span>。<br>
+                        スマホにある手書きラフ画を送るだけでOK。梱包・発送代行まで対応するので、個人アパレルブランドの立ち上げや、クラスT、友人へのギフトも完全ノーストレスで作れます。
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#estimator" class="bg-brand-sky hover:bg-brand-skyhover text-white px-8 py-4 rounded-xl font-bold text-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-calculator"></i> 10秒でわかる自動見積もり
+                        </a>
+                        <a href="#flow" class="bg-white hover:bg-brand-ice text-brand-dark border-2 border-brand-water px-8 py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2">
+                            ご注文までの流れ <i class="fa-solid fa-circle-play text-brand-sky"></i>
+                        </a>
+                    </div>
+
+                    <!-- トラストバッジ -->
+                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-brand-water max-w-md mx-auto lg:mx-0">
+                        <div class="text-center lg:text-left">
+                            <div class="text-brand-sky text-xl sm:text-2xl font-black">業界最安級</div>
+                            <div class="text-xs text-brand-slate mt-1">中間コストなし de 自社製造</div>
+                        </div>
+                        <div class="text-center lg:text-left border-x border-brand-water px-2">
+                            <div class="text-brand-sky text-xl sm:text-2xl font-black">デザイン無料</div>
+                            <div class="text-xs text-brand-slate mt-1">手書きのラフ画でOK</div>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <div class="text-brand-sky text-xl sm:text-2xl font-black">発送代行OK</div>
+                            <div class="text-xs text-brand-slate mt-1">在庫ゼロで直販スタート</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- プレビュー＆画像アップロードモックアップエリア -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-brand-sky to-brand-water opacity-25 blur-xl"></div>
+                        
+                        <div class="relative bg-white border border-brand-water rounded-3xl p-6 shadow-xl space-y-6">
+                            <!-- プレビュー画像スペース ＆ アップローダー -->
+                            <div class="aspect-square w-full rounded-2xl bg-brand-ice flex flex-col items-center justify-center p-4 relative overflow-hidden group border border-brand-water">
+                                <div class="absolute top-3 left-3 bg-brand-sky text-white text-[10px] font-black px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm z-10">
+                                    <i class="fa-solid fa-cube"></i> 自社標準規格 A4以内
+                                </div>
+                                
+                                <!-- TシャツSVG -->
+                                <svg class="w-60 h-60 text-brand-water drop-shadow-[0_8px_16px_rgba(2,132,199,0.15)] transition-transform duration-500 group-hover:scale-105" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M18 2h-3s-1 1.5-3 1.5-3-1.5-3-1.5H6L2 6v3h3v13h14V9h3V6l-4-4z"/>
+                                </svg>
+                                
+                                <!-- ★デザイン参考画像アップローダー（クリックで追加・ドロップ可能） -->
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <label for="design-upload-hero" class="w-28 h-36 border-2 border-dashed border-brand-sky/40 hover:border-brand-sky rounded-xl flex flex-col items-center justify-center bg-white/70 backdrop-blur-[2px] cursor-pointer hover:bg-white/85 transition-all group/uploader shadow-inner overflow-hidden relative">
+                                        <input type="file" id="design-upload-hero" accept="image/*" class="hidden" onchange="handleImageUpload(event)">
+                                        
+                                        <!-- 未アップロード：プレースホルダー -->
+                                        <div id="upload-placeholder" class="flex flex-col items-center justify-center p-2 text-center select-none">
+                                            <i class="fa-solid fa-circle-plus text-brand-sky text-2xl mb-1 group-hover/uploader:scale-110 transition-transform"></i>
+                                            <span class="text-[9px] text-brand-sky font-bold leading-tight">参考画像を<br>ここに貼る</span>
+                                            <span class="text-[8px] text-brand-slate font-medium mt-1">(手書き・ラフ等)</span>
+                                        </div>
+
+                                        <!-- アップロード済：プレビュー画像表示 -->
+                                        <img id="upload-preview" class="hidden w-full h-full object-contain p-1.5" alt="ユーザーデザインプレビュー">
+                                        
+                                        <!-- アップロード済：削除ボタン -->
+                                        <button id="btn-remove-image" type="button" onclick="removeUploadedImage(event)" class="hidden absolute top-1 right-1 bg-rose-500 hover:bg-rose-600 text-white w-5 h-5 rounded-full flex items-center justify-center text-[10px] shadow z-20 transition-all">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between px-1">
+                                <div>
+                                    <h3 class="font-bold text-brand-dark text-base">ハイクオリティ Tシャツ</h3>
+                                    <p class="text-xs text-brand-slate">しっかりした首元でヨレにくい定番モデル</p>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-[10px] text-brand-slate block">コミコミ1枚あたり</span>
+                                    <span class="text-2xl font-black text-brand-sky">¥850〜</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- QUICK ESTIMATOR TRIGGER BAR -->
+    <div class="bg-brand-water text-brand-dark font-semibold py-4 px-4 text-center sticky top-20 z-40 flex flex-wrap items-center justify-center gap-3 border-b border-brand-sky/20 shadow-sm backdrop-blur">
+        <span class="flex items-center gap-1 text-sm sm:text-base"><i class="fa-solid fa-circle-exclamation text-brand-sky"></i> 個人アパレル・クラスTに！その場で合計がわかる10秒シミュレーション</span>
+        <a href="#estimator" class="bg-brand-sky hover:bg-brand-skyhover text-white px-4 py-1 rounded-lg text-xs sm:text-sm font-bold transition-all inline-flex items-center gap-1 shadow-sm">
+            今すぐ自動見積もり <i class="fa-solid fa-arrow-down"></i>
+        </a>
+    </div>
+
+    <!-- FEATURES SECTION (強み) -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-brand-sky font-bold tracking-widest uppercase text-xs block">WHY YOKOSUKA PRINT</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-dark">
+                    「激安」なのに「高品質＆かんたん」な理由
+                </h2>
+                <p class="text-sm sm:text-base text-brand-slate">
+                    YokosukaPrintは、個人クリエイターやショップの「作りたい」に徹底して寄り添う専門ファクトリーです。
+                </p>
+            </div>
+
+            <!-- 自社工場アピール -->
+            <div class="bg-gradient-to-b from-brand-ice to-brand-water rounded-3xl p-8 lg:p-12 mb-16 shadow-inner relative overflow-hidden border border-brand-water">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                    <div class="lg:col-span-7 space-y-6">
+                        <span class="bg-brand-sky text-white px-3 py-1 rounded-full text-xs font-bold uppercase">自社一貫プレス製法</span>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-brand-dark leading-snug">
+                            需要の高い「A4サイズ以内」を<br>完全自社工場で一括最適化！
+                        </h3>
+                        <p class="text-sm sm:text-base text-brand-slate leading-relaxed">
+                            アパレルプリントで最もよく選ばれる「A4サイズ以内」に加工プロセス（DTF・インクジェット・シルクスクリーン）を最適化。
+                            中間マージンを一切排除し、セットアップ時間を極限まで削減したため、業界最高クラス of 低コストでの提供が可能になりました。
+                        </p>
+                        <div class="flex items-center gap-2 text-brand-sky text-xs sm:text-sm font-semibold">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>もちろん、A3以上のビッグサイズもオプションにて柔軟に対応可能です！</span>
+                        </div>
+                    </div>
+                    
+                    <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                        <div class="bg-white/80 p-5 rounded-2xl text-center space-y-2 shadow-sm border border-brand-water/50">
+                            <div class="w-10 h-10 rounded-full bg-brand-sky/10 text-brand-sky flex items-center justify-center text-lg mx-auto">
+                                <i class="fa-solid fa-circle-dollar-to-slot"></i>
+                            </div>
+                            <h4 class="font-bold text-sm text-brand-dark">中間コスト0</h4>
+                            <p class="text-xs text-brand-slate">直販だから、1枚だけでもお安くご提供。</p>
+                        </div>
+                        <div class="bg-white/80 p-5 rounded-2xl text-center space-y-2 shadow-sm border border-brand-water/50">
+                            <div class="w-10 h-10 rounded-full bg-brand-sky/10 text-brand-sky flex items-center justify-center text-lg mx-auto">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <h4 class="font-bold text-sm">自社プレス一貫生産</h4>
+                            <p class="text-xs text-brand-slate">横須賀の職人が責任を持って1点ずつ印刷。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 個人でも使いやすい3つの秘密 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 特長1 -->
+                <div class="bg-brand-ice rounded-2xl p-8 border border-brand-water hover:border-brand-sky transition-all duration-300 flex flex-col justify-between shadow-sm">
+                    <div class="space-y-4">
+                        <div class="text-4xl text-brand-sky font-black flex items-center justify-between">
+                            <span>01</span>
+                            <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark">手書き・スマホ画像から<br>デザイナーが完全データ化</h3>
+                        <p class="text-sm text-brand-slate leading-relaxed">
+                            「デザインアプリが使えない」「手書きのアイデアしかない」という個人のお客様も大歓迎！スマホでスケッチを撮影して送るだけで、デザイナーが綺麗にデータ化します。
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-brand-water">
+                        <span class="text-xs font-semibold text-brand-sky bg-white px-2.5 py-1 rounded shadow-sm">追加料金なしでプロが清書</span>
+                    </div>
+                </div>
+
+                <!-- 特長2 -->
+                <div class="bg-brand-ice rounded-2xl p-8 border border-brand-water hover:border-brand-sky transition-all duration-300 flex flex-col justify-between shadow-sm">
+                    <div class="space-y-4">
+                        <div class="text-4xl text-brand-sky font-black flex items-center justify-between">
+                            <span>02</span>
+                            <i class="fa-solid fa-truck-ramp-box text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark">梱包から購入者へ直接発送！<br>「発送代行」が全部無料</h3>
+                        <p class="text-sm text-brand-slate leading-relaxed">
+                            注文を受けたらこちらで印刷・梱包し、あなたのお客様へ直接発送します（送り主はご自身の名前に設定可能）。自宅に在庫を抱える必要がなく、発送作業の手間もありません。
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-brand-water">
+                        <span class="text-xs font-semibold text-brand-sky bg-white px-2.5 py-1 rounded shadow-sm">在庫・梱包作業のリスクゼロ</span>
+                    </div>
+                </div>
+
+                <!-- 特長3 -->
+                <div class="bg-brand-ice rounded-2xl p-8 border border-brand-water hover:border-brand-sky transition-all duration-300 flex flex-col justify-between shadow-sm">
+                    <div class="space-y-4">
+                        <div class="text-4xl text-brand-sky font-black flex items-center justify-between">
+                            <span>03</span>
+                            <i class="fa-solid fa-layer-group text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark">1枚のサンプル作りから<br>学祭、店舗用までフルカバー</h3>
+                        <p class="text-sm text-brand-slate leading-relaxed">
+                            個人の「まずは1枚試したい」から、学校行事、企業の大量オーダーまで。用途に合わせて最適な設備でプリントするため、いつでも最高レベルの安さで提供可能です。
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-brand-water">
+                        <span class="text-xs font-semibold text-brand-sky bg-white px-2.5 py-1 rounded shadow-sm">1枚〜数千枚まで最適単価</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW TO ORDER (かんたん注文手順) -->
+    <section id="flow" class="py-20 bg-brand-ice border-y border-brand-water">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-brand-sky font-bold tracking-widest uppercase text-xs block">EASY STEPS</span>
+                <h2 class="text-3xl font-extrabold tracking-tight text-brand-dark">
+                    初めてでも迷わない、かんたん4ステップ
+                </h2>
+                <p class="text-sm sm:text-base text-brand-slate">
+                    ネット注文が初めての学生さんや個人クリエイターさんでも、戸惑わずに作れる分かりやすい流れです。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- STEP 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-brand-water relative text-center">
+                    <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-brand-sky text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg shadow-md">
+                        1
+                    </div>
+                    <h3 class="font-extrabold text-base text-brand-dark mt-4 mb-2">概算をシミュレーション</h3>
+                    <p class="text-xs text-brand-slate leading-relaxed">
+                        ページ下の「かんたん自動見積り」にウェア、箇所、枚数を入力。すぐに合計金額が表示されます。
+                    </p>
+                </div>
+
+                <!-- STEP 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-brand-water relative text-center">
+                    <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-brand-sky text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg shadow-md">
+                        2
+                    </div>
+                    <h3 class="font-extrabold text-base text-brand-dark mt-4 mb-2">本見積もり・相談の送信</h3>
+                    <p class="text-xs text-brand-slate leading-relaxed">
+                        シミュレーション内容を引き継いだまま、お名前とメールアドレス、ラフ画の有無などを送信してください。
+                    </p>
+                </div>
+
+                <!-- STEP 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-brand-water relative text-center">
+                    <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-brand-sky text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg shadow-md">
+                        3
+                    </div>
+                    <h3 class="font-extrabold text-base text-brand-dark mt-4 mb-2">デザイン相談＆確定</h3>
+                    <p class="text-xs text-brand-slate leading-relaxed">
+                        専属デザイナーから確認メールをお送りします。手書きイラスト等のやり取りを重ね、仕上がりイメージを確定します。
+                    </p>
+                </div>
+
+                <!-- STEP 4 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-brand-water relative text-center">
+                    <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-brand-sky text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg shadow-md">
+                        4
+                    </div>
+                    <h3 class="font-extrabold text-base text-brand-dark mt-4 mb-2">自社加工・商品お届け</h3>
+                    <p class="text-xs text-brand-slate leading-relaxed">
+                        自社工場で丁寧にプリント。ご自宅への発送のほか、あなたのお客様への「直接発送代行」も可能です。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION (制作実績ギャラリー) -->
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-brand-sky font-bold tracking-widest uppercase text-xs block">PORTFOLIO</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-dark">
+                    YokosukaPrintの制作実績
+                </h2>
+                <p class="text-sm sm:text-base text-brand-slate">
+                    個人ブランド、飲食店ユニフォーム、クラスTシャツなど、当店で製作したアイテムをご紹介します。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- 実績1: 個人ブランド -->
+                <div class="bg-brand-ice rounded-2xl overflow-hidden border border-brand-water shadow-sm hover:shadow-md transition-all group">
+                    <div class="aspect-square bg-slate-100 flex items-center justify-center p-6 relative overflow-hidden">
+                        <!-- TシャツイラストSVG -->
+                        <svg class="w-48 h-48 text-brand-water/70 transition-transform duration-500 group-hover:scale-105" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18 2h-3s-1 1.5-3 1.5-3-1.5-3-1.5H6L2 6v3h3v13h14V9h3V6l-4-4z"/>
+                        </svg>
+                        <!-- 実績グラフィックプリント風SVG -->
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="w-20 h-28 border border-brand-sky/25 rounded bg-white/40 flex flex-col items-center justify-center shadow-inner">
+                                <i class="fa-solid fa-umbrella-beach text-brand-sky text-2xl animate-bounce" style="animation-duration: 3s;"></i>
+                                <span class="text-[7px] text-brand-slate font-bold uppercase mt-2">SURF LIFE</span>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-brand-sky text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm">
+                            個人アパレル
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex justify-between items-center text-xs text-brand-slate">
+                            <span>神奈川県 / クリエイター様</span>
+                            <span class="font-bold">1枚〜都度発注</span>
+                        </div>
+                        <h3 class="font-extrabold text-lg text-brand-dark group-hover:text-brand-sky transition-colors">
+                            オリジナルサーフブランド「SURF LIFE」
+                        </h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            「在庫を持たずに受注分だけ発送したい」とのご要望で発送代行まで対応。スマホの手書きラフ案から、デザイナーが完全なロゴへと清書・調整いたしました。
+                        </p>
+                        <div class="pt-3 border-t border-brand-water/50 flex justify-between items-center text-xs">
+                            <span class="bg-brand-water px-2.5 py-1 rounded text-brand-sky font-bold">フルカラー(DTF)</span>
+                            <span class="font-bold text-brand-dark">コミコミ単価 ¥950/枚</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 実績2: カフェユニフォーム -->
+                <div class="bg-brand-ice rounded-2xl overflow-hidden border border-brand-water shadow-sm hover:shadow-md transition-all group">
+                    <div class="aspect-square bg-slate-100 flex items-center justify-center p-6 relative overflow-hidden">
+                        <!-- TシャツイラストSVG -->
+                        <svg class="w-48 h-48 text-brand-water/70 transition-transform duration-500 group-hover:scale-105" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18 2h-3s-1 1.5-3 1.5-3-1.5-3-1.5H6L2 6v3h3v13h14V9h3V6l-4-4z"/>
+                        </svg>
+                        <!-- 実績グラフィックプリント風SVG -->
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="w-20 h-28 border border-brand-sky/25 rounded bg-white/40 flex flex-col items-center justify-center shadow-inner">
+                                <i class="fa-solid fa-mug-hot text-brand-sky text-2xl"></i>
+                                <span class="text-[7px] text-brand-slate font-bold uppercase mt-2">Port Coffee</span>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-brand-dark text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm">
+                            店舗スタッフ
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex justify-between items-center text-xs text-brand-slate">
+                            <span>東京都 / カフェ運営会社様</span>
+                            <span class="font-bold">合計15枚</span>
+                        </div>
+                        <h3 class="font-extrabold text-lg text-brand-dark group-hover:text-brand-sky transition-colors">
+                            「Port Coffee」スタッフユニフォーム
+                        </h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            「高級感を出したい」とのご要望を受け、インクプリントではなく上品なワンポイント刺繍でロゴを配置。毎日洗濯してもほつれにくく、スタッフ様にも好評です。
+                        </p>
+                        <div class="pt-3 border-t border-brand-water/50 flex justify-between items-center text-xs">
+                            <span class="bg-brand-water px-2.5 py-1 rounded text-brand-sky font-bold">高級ワンポイント刺繍</span>
+                            <span class="font-bold text-brand-dark">個別カスタム本見積り</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 実績3: クラスTシャツ -->
+                <div class="bg-brand-ice rounded-2xl overflow-hidden border border-brand-water shadow-sm hover:shadow-md transition-all group">
+                    <div class="aspect-square bg-slate-100 flex items-center justify-center p-6 relative overflow-hidden">
+                        <!-- TシャツイラストSVG -->
+                        <svg class="w-48 h-48 text-brand-water/70 transition-transform duration-500 group-hover:scale-105" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18 2h-3s-1 1.5-3 1.5-3-1.5-3-1.5H6L2 6v3h3v13h14V9h3V6l-4-4z"/>
+                        </svg>
+                        <!-- 実績グラフィックプリント風SVG -->
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="w-20 h-28 border border-brand-sky/25 rounded bg-white/40 flex flex-col items-center justify-center shadow-inner">
+                                <i class="fa-solid fa-graduation-cap text-brand-sky text-2xl"></i>
+                                <span class="text-[7px] text-brand-slate font-bold uppercase mt-2">CLASS 2-A</span>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-brand-accent text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm">
+                            サークル・クラスT
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex justify-between items-center text-xs text-brand-slate">
+                            <span>神奈川県 / 高校生実行委員様</span>
+                            <span class="font-bold">合計40枚</span>
+                        </div>
+                        <h3 class="font-extrabold text-lg text-brand-dark group-hover:text-brand-sky transition-colors">
+                            体育祭お揃い「CLASS 2-A」Tシャツ
+                        </h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            30枚以上の大口割引（20%OFF）を最大限に適用し、予算内にしっかり収めました。前面は共通デザインをシルクスクリーンで、背面は個別ネームで作成しました。
+                        </p>
+                        <div class="pt-3 border-t border-brand-water/50 flex justify-between items-center text-xs">
+                            <span class="bg-brand-water px-2.5 py-1 rounded text-brand-sky font-bold">単色(シルクスクリーン)</span>
+                            <span class="font-bold text-brand-dark">コミコミ単価 ¥680/枚</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PRINT METHODS SECTION (プリント方法) -->
+    <section id="methods" class="py-20 bg-brand-ice border-y border-brand-water relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-brand-sky font-bold tracking-widest uppercase text-xs block">PROCESSING METHODS</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-dark">
+                    作りたいウェアに一番合う加工方法
+                </h2>
+                <p class="text-brand-slate">
+                    難しい専門用語は不要！用途や枚数に合わせて、一番適したものがすぐにわかります。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- フルカラープリント -->
+                <div class="bg-white rounded-2xl p-8 border border-brand-water shadow-sm flex flex-col justify-between relative overflow-hidden transition-all hover:border-brand-sky">
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-brand-sky bg-brand-ice px-2.5 py-1 rounded-full shadow-sm">写真や多色のイラストに</span>
+                            <span class="text-xl text-brand-sky"><i class="fa-solid fa-image"></i></span>
+                        </div>
+                        <div class="space-y-1">
+                            <h3 class="text-2xl font-black text-brand-dark">フルカラープリント</h3>
+                            <p class="text-xs text-brand-slate">（DTF転写 / インクジェット方式）</p>
+                            <p class="text-brand-accent font-bold text-xs sm:text-sm">★1枚だけから抜群の安さ！</p>
+                        </div>
+                        <p class="text-xs sm:text-sm text-brand-slate leading-relaxed">
+                            写真、色鮮やかな手書きの絵、グラデーションなど、色数を気にせずすべて美しく再現。版代がかからないため、1枚からの作成や、アパレルブランドのスタートに最適です。
+                        </p>
+                        <ul class="space-y-2 text-xs text-brand-slate">
+                            <li class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-brand-sky"></i> 何色使っても追加料金は一切なし</li>
+                            <li class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-brand-sky"></i> 細かいディテールや細い線もしっかり印刷</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 単色プリント -->
+                <div class="bg-white rounded-2xl p-8 border border-brand-water shadow-sm flex flex-col justify-between relative overflow-hidden transition-all hover:border-brand-sky">
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-brand-sky bg-brand-ice px-2.5 py-1 rounded-full shadow-sm">サークル・お揃いTシャツに</span>
+                            <span class="text-xl text-brand-sky"><i class="fa-solid fa-brush"></i></span>
+                        </div>
+                        <div class="space-y-1">
+                            <h3 class="text-2xl font-black text-brand-dark">単色プリント</h3>
+                            <p class="text-xs text-brand-slate">（シルクスクリーン方式）</p>
+                            <p class="text-brand-accent font-bold text-xs sm:text-sm">★30枚以上のクラスT・イベント最強！</p>
+                        </div>
+                        <p class="text-xs sm:text-sm text-brand-slate leading-relaxed">
+                            同じデザインをたくさん刷る定番の手法。インクを直接刷り込むため耐久性がきわめて高く、飲食店の制服、学校の学園祭用クラスTシャツに最も選ばれています。
+                        </p>
+                        <ul class="space-y-2 text-xs text-brand-slate">
+                            <li class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-brand-sky"></i> 枚数が多いほど1枚あたりが急激に安く！</li>
+                            <li class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-brand-sky"></i> 洗濯に非常に強いタフな仕上がり質感</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 高級刺繍 -->
+                <div class="bg-white rounded-2xl p-8 border border-brand-water shadow-sm flex flex-col justify-between relative overflow-hidden transition-all hover:border-brand-sky">
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-brand-sky bg-brand-ice px-2.5 py-1 rounded-full shadow-sm">ブランドのワンランク上の質感</span>
+                            <span class="text-xl text-brand-sky"><i class="fa-solid fa-shirt"></i></span>
+                        </div>
+                        <div class="space-y-1">
+                            <h3 class="text-2xl font-black text-brand-dark">ワンポイント刺繍</h3>
+                            <p class="text-xs text-brand-slate">（胸元・袖口ワンポイント刺繍）</p>
+                            <p class="text-brand-accent font-bold text-xs sm:text-sm">★高級感をプラスしたいショップに最適！</p>
+                        </div>
+                        <p class="text-xs sm:text-sm text-brand-slate leading-relaxed">
+                            糸をしっかりと縫い重ねることで、プリントにはない立体感と圧倒的な高級感を表現。アパレルのこだわりタグ、カフェのユニフォーム、帽子などに。
+                        </p>
+                        <ul class="space-y-2 text-xs text-brand-slate">
+                            <li class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-brand-sky"></i> 糸ならではの独特な上品さと光沢感</li>
+                            <li class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-brand-sky"></i> シンプルなロゴがプレミアムな印象に格上げ</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION (料金表) -->
+    <section id="pricing" class="py-20 bg-brand-light relative border-t border-brand-water">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-brand-sky font-bold tracking-widest uppercase text-xs block">PRICING PLANS</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-dark">
+                    「ウェア本体代＋プリント代」のシンプルコミコミ価格
+                </h2>
+                <p class="text-sm sm:text-base text-brand-slate">
+                    余計なオプション料金を徹底的に省いたわかりやすいベース価格一覧です。
+                </p>
+            </div>
+
+            <!-- 自社標準サイズの案内 -->
+            <div class="bg-white border-2 border-brand-water rounded-2xl p-6 mb-12 flex flex-col md:flex-row items-center gap-6 shadow-sm">
+                <div class="bg-brand-sky text-white p-4 rounded-xl text-center font-black text-lg shrink-0 flex flex-col justify-center items-center shadow-sm">
+                    <span class="text-xs block mb-1 font-bold text-brand-water">自社標準規格</span>
+                    <span>A4サイズ以内</span>
+                </div>
+                <div class="space-y-1">
+                    <h4 class="font-extrabold text-lg text-brand-dark">一番お得に作成できるのは「A4サイズ以内」です！</h4>
+                    <p class="text-sm text-brand-slate leading-relaxed">
+                        胸中央、背面中央、左胸ロゴなど、おおかたのオリジナルTシャツのデザイン配置は「A4サイズ以内」で美しく収まります。
+                        この範囲を標準サイズとし、自社ファクトリーを徹底最適化。A3以上の大きなオーバーサイズは、外注オプションにて対応いたします。
+                    </p>
+                </div>
+            </div>
+
+            <!-- ウェアベース価格（3種類） -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Tシャツ -->
+                <div class="bg-white border border-brand-water rounded-2xl p-6 hover:shadow-lg hover:border-brand-sky transition-all flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="text-center pb-6 border-b border-brand-water">
+                            <span class="text-xs font-bold text-brand-sky bg-brand-ice px-2.5 py-1 rounded-full">お揃い＆サークルの定番</span>
+                            <h3 class="text-lg font-bold text-brand-dark mt-3">ハイクオリティ Tシャツ</h3>
+                            <div class="mt-4">
+                                <span class="text-xs text-brand-slate">ウェア本体代</span>
+                                <span class="text-3xl font-black text-brand-dark ml-1">¥600<span class="text-sm font-normal"> / 枚</span></span>
+                            </div>
+                        </div>
+                        <div class="py-4 space-y-3.5 text-xs sm:text-sm">
+                            <div class="flex justify-between text-brand-slate">
+                                <span>片面プリント(単色/A4内)</span>
+                                <span class="font-bold text-brand-dark">+ ¥250 / 枚</span>
+                            </div>
+                            <div class="flex justify-between text-brand-slate">
+                                <span>片面プリント(フルカラー/A4内)</span>
+                                <span class="font-bold text-brand-dark">+ ¥350 / 枚</span>
+                            </div>
+                            <div class="flex justify-between text-brand-accent font-semibold pt-2 border-t border-dashed border-brand-water">
+                                <span>背面（背中）にプリント追加</span>
+                                <span>胸価格 + ¥500 / 枚</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ロンT -->
+                <div class="bg-white border border-brand-water rounded-2xl p-6 hover:shadow-lg hover:border-brand-sky transition-all flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="text-center pb-6 border-b border-brand-water">
+                            <span class="text-xs font-bold text-brand-sky bg-brand-ice px-2.5 py-1 rounded-full">春秋冬に最適ストリート定番</span>
+                            <h3 class="text-lg font-bold text-brand-dark mt-3">ロングスリーブ Tシャツ</h3>
+                            <div class="mt-4">
+                                <span class="text-xs text-brand-slate">ウェア本体代</span>
+                                <span class="text-3xl font-black text-brand-dark ml-1">¥1,000<span class="text-sm font-normal"> / 枚</span></span>
+                            </div>
+                        </div>
+                        <div class="py-4 space-y-3.5 text-xs sm:text-sm">
+                            <div class="flex justify-between text-brand-slate">
+                                <span>片面プリント(単色/A4内)</span>
+                                <span class="font-bold text-brand-dark">+ ¥250 / 枚</span>
+                            </div>
+                            <div class="flex justify-between text-brand-slate">
+                                <span>片面プリント(フルカラー/A4内)</span>
+                                <span class="font-bold text-brand-dark">+ ¥350 / 枚</span>
+                            </div>
+                            <div class="flex justify-between text-brand-accent font-semibold pt-2 border-t border-dashed border-brand-water">
+                                <span>背面（背中）にプリント追加</span>
+                                <span>胸価格 + ¥500 / 枚</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- パーカー -->
+                <div class="bg-white border border-brand-water rounded-2xl p-6 hover:shadow-lg hover:border-brand-sky transition-all flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="text-center pb-6 border-b border-brand-water">
+                            <span class="text-xs font-bold text-brand-sky bg-brand-ice px-2.5 py-1 rounded-full">ブランドの主役アイテム</span>
+                            <h3 class="text-lg font-bold text-brand-dark mt-3">スウェット プルパーカー</h3>
+                            <div class="mt-4">
+                                <span class="text-xs text-brand-slate">ウェア本体代</span>
+                                <span class="text-3xl font-black text-brand-dark ml-1">¥2,200<span class="text-sm font-normal"> / 枚</span></span>
+                            </div>
+                        </div>
+                        <div class="py-4 space-y-3.5 text-xs sm:text-sm">
+                            <div class="flex justify-between text-brand-slate">
+                                <span>片面プリント(単色/A4内)</span>
+                                <span class="font-bold text-brand-dark">+ ¥250 / 枚</span>
+                            </div>
+                            <div class="flex justify-between text-brand-slate">
+                                <span>片面プリント(フルカラー/A4内)</span>
+                                <span class="font-bold text-brand-dark">+ ¥350 / 枚</span>
+                            </div>
+                            <div class="flex justify-between text-brand-accent font-semibold pt-2 border-t border-dashed border-brand-water">
+                                <span>背面（背中）にプリント追加</span>
+                                <span>胸価格 + ¥500 / 枚</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 補足案内 -->
+            <div class="mt-8 text-xs text-brand-slate text-center space-y-1">
+                <p>※ Tシャツ本体の指定カラーや、30枚以上・100枚以上などの大口まとめ割引率の適用によって実際の単価はさらに下がります。</p>
+                <p>※ 刺繍につきましてはデザイン of 針数により変動するため、お問い合わせいただいた後に速やかに本見積りをご案内します。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUPPORT SECTION (★一番の推し！) -->
+    <section id="support" class="py-20 bg-brand-dark text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-brand-sky/20 via-brand-dark to-[#0B0F19]"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-brand-sky font-bold tracking-widest uppercase text-xs px-3 py-1 bg-brand-sky/20 border border-brand-sky/30 rounded-full inline-block">★YokosukaPrintの最大のウリ</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                    クリエイター・ショップ支援丸投げプラン
+                </h2>
+                <p class="text-brand-water/85 text-sm sm:text-base">
+                    「デザインに自信がない」「梱包、発送する場所も時間もない」という方の手間を100%カットします。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- クリエイター/個人ショップ向け -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-8 lg:p-10 space-y-8 backdrop-blur-sm shadow-2xl">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-brand-sky/20 text-brand-sky rounded-2xl flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl sm:text-2xl font-black text-white">個人クリエイター・ブランドオーナー様</h3>
+                            <p class="text-xs text-brand-sky mt-1">「自分のオリジナルブランドを在庫リスクなしで立ち上げ」</p>
+                        </div>
+                    </div>
+
+                    <p class="text-xs sm:text-sm text-slate-350 leading-relaxed text-slate-300">
+                        イラストレーターやインフルエンサー、小規模ショップオーナー様向けに、リスクを排した最適なフローをご提供。
+                        版代が不要なDTF等デジタル印刷を用いることで、注文が入った分だけ都度製造する<strong>「完全受注生産型のD2Cストア」</strong>が簡単に構築可能です。
+                    </p>
+
+                    <div class="space-y-4 border-t border-white/10 pt-6">
+                        <div class="flex gap-3">
+                            <span class="text-brand-sky text-lg"><i class="fa-solid fa-circle-check"></i></span>
+                            <div>
+                                <h4 class="font-bold text-sm text-white">スマホのラフ画や文字から綺麗にデータ化</h4>
+                                <p class="text-xs text-slate-400 mt-1">手書きのイラストをスマホで撮影してお送りいただくか、「こういうロゴ文字を入れたい」と伝えるだけで、デザイナーが印刷専用データを清書作成します。</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3">
+                            <span class="text-brand-sky text-lg"><i class="fa-solid fa-circle-check"></i></span>
+                            <div>
+                                <h4 class="font-bold text-sm text-white">エンドユーザーへの「完全直接配送」の代行（ドロップシッピング）</h4>
+                                <p class="text-xs text-slate-400 mt-1">注文が入ったらプリントしてそのままお客様の顧客へ直送。梱包資材、発送の手間、保管スペースを気にする必要はもうありません。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 学校・サークル・一般企業向け -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-8 lg:p-10 space-y-8 backdrop-blur-sm shadow-2xl">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-brand-sky/20 text-brand-sky rounded-2xl flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl sm:text-2xl font-black text-white">学生・学校・部活・サークル・一般企業様</h3>
+                            <p class="text-xs text-brand-sky mt-1">「クラスTシャツ、部活のお揃いウェア、スタッフ用ユニフォーム」</p>
+                        </div>
+                    </div>
+
+                    <p class="text-xs sm:text-sm text-slate-350 leading-relaxed text-slate-300">
+                        「とにかく安く、でもデザインに妥協したくない」という学生代表や幹事様に。
+                        同一デザインであれば、サイズの混在や枚数の増減も柔軟に対応。予算に合わせた最適な手法で、最もコストパフォーマンスの高いプリントを提案します。
+                    </p>
+
+                    <div class="space-y-4 border-t border-white/10 pt-6">
+                        <div class="flex gap-3">
+                            <span class="text-brand-sky text-lg"><i class="fa-solid fa-circle-check"></i></span>
+                            <div>
+                                <h4 class="font-bold text-sm text-white">複数サイズをまとめても価格据え置き</h4>
+                                <p class="text-xs text-slate-400 mt-1">デザインが共通であれば、S、M、L、XL、メンズ・レディース用がバラバラに混ざっていても余計な基本設定費は一切かかりません。</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3">
+                            <span class="text-brand-sky text-lg"><i class="fa-solid fa-circle-check"></i></span>
+                            <div>
+                                <h4 class="font-bold text-sm text-white">安心の見積書をスピード送付</h4>
+                                <p class="text-xs text-slate-400 mt-1">サークルの承認や企業の稟議書に必要な書面見積もりの作成、請求書でのお支払い対応などについても柔軟に、スピード対応いたします。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- AUTOMATIC ESTIMATOR SECTION (自動見積もり機能) -->
+    <section id="estimator" class="py-20 bg-white relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 space-y-4">
+                <span class="text-brand-sky font-bold tracking-widest uppercase text-xs block">10-SECOND SIMULATION</span>
+                <h2 class="text-3xl font-extrabold tracking-tight text-brand-dark">
+                    かんたん10秒！自動見積りシミュレーター
+                </h2>
+                <p class="text-sm sm:text-base text-brand-slate">
+                    「ウェア」「プリント箇所」「枚数」などを選ぶだけで、その場で合計価格が分かります！
+                </p>
+            </div>
+
+            <!-- 見積もりシミュレーターBOX -->
+            <div class="bg-brand-ice border border-brand-water rounded-3xl p-6 sm:p-10 shadow-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- 入力フォームエリア -->
+                    <div class="space-y-6">
+                        <!-- ①ウェアの種類 -->
+                        <div>
+                            <label class="block text-sm font-bold text-brand-dark mb-2 flex items-center gap-1.5">
+                                <span class="bg-brand-sky text-white rounded-full w-5 h-5 inline-flex items-center justify-center text-xs">1</span>
+                                <span>ウェアの種類を選ぶ</span>
+                            </label>
+                            <div class="grid grid-cols-3 gap-2">
+                                <button type="button" onclick="selectWear('t-shirt', 600)" id="wear-t-shirt" class="wear-btn border border-brand-sky bg-white p-3 rounded-xl text-center flex flex-col items-center justify-center transition-all focus:outline-none">
+                                    <span class="text-2xl mb-1">👕</span>
+                                    <span class="text-xs font-bold block text-brand-dark">Tシャツ</span>
+                                    <span class="text-[10px] text-brand-slate mt-1">¥600/枚</span>
+                                </button>
+                                <button type="button" onclick="selectWear('long-t', 1000)" id="wear-long-t" class="wear-btn border border-slate-200 hover:border-brand-sky bg-white p-3 rounded-xl text-center flex flex-col items-center justify-center transition-all focus:outline-none">
+                                    <span class="text-2xl mb-1">🧥</span>
+                                    <span class="text-xs font-bold block text-brand-dark">ロンT</span>
+                                    <span class="text-[10px] text-brand-slate mt-1">¥1,000/枚</span>
+                                </button>
+                                <button type="button" onclick="selectWear('hoodie', 2200)" id="wear-hoodie" class="wear-btn border border-slate-200 hover:border-brand-sky bg-white p-3 rounded-xl text-center flex flex-col items-center justify-center transition-all focus:outline-none">
+                                    <span class="text-2xl mb-1">🧥</span>
+                                    <span class="text-xs font-bold block text-brand-dark">パーカー</span>
+                                    <span class="text-[10px] text-brand-slate mt-1">¥2,200/枚</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- ②プリント方法 -->
+                        <div>
+                            <label class="block text-sm font-bold text-brand-dark mb-2 flex items-center gap-1.5">
+                                <span class="bg-brand-sky text-white rounded-full w-5 h-5 inline-flex items-center justify-center text-xs">2</span>
+                                <span>プリント方法を選ぶ</span>
+                            </label>
+                            <div class="grid grid-cols-3 gap-2">
+                                <button type="button" onclick="selectPrintType('dtf', 350)" id="print-dtf" class="print-btn border border-brand-sky bg-white p-2.5 rounded-xl text-center transition-all focus:outline-none">
+                                    <span class="text-xs font-bold block text-brand-dark">フルカラー(DTF)</span>
+                                    <span class="text-[10px] text-brand-slate">基本: ¥350</span>
+                                </button>
+                                <button type="button" onclick="selectPrintType('inkjet', 350)" id="print-inkjet" class="print-btn border border-slate-200 hover:border-brand-sky bg-white p-2.5 rounded-xl text-center transition-all focus:outline-none">
+                                    <span class="text-xs font-bold block text-brand-dark">インクジェット</span>
+                                    <span class="text-[10px] text-brand-slate">基本: ¥350</span>
+                                </button>
+                                <button type="button" onclick="selectPrintType('silk', 250)" id="print-silk" class="print-btn border border-slate-200 hover:border-brand-sky bg-white p-2.5 rounded-xl text-center transition-all focus:outline-none">
+                                    <span class="text-xs font-bold block text-brand-dark">単色(シルク)</span>
+                                    <span class="text-[10px] text-brand-slate">基本: ¥250</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- ③プリント箇所 -->
+                        <div>
+                            <label class="block text-sm font-bold text-brand-dark mb-2 flex items-center gap-1.5">
+                                <span class="bg-brand-sky text-white rounded-full w-5 h-5 inline-flex items-center justify-center text-xs">3</span>
+                                <span>プリント箇所を選ぶ</span>
+                            </label>
+                            <div class="grid grid-cols-3 gap-2">
+                                <button type="button" onclick="selectPosition('front')" id="pos-front" class="pos-btn border border-brand-sky bg-white p-2.5 rounded-xl text-center transition-all focus:outline-none">
+                                    <span class="text-xs font-bold block text-brand-dark">胸のみ（前面）</span>
+                                    <span class="text-[10px] text-brand-slate">追加料金なし</span>
+                                </button>
+                                <button type="button" onclick="selectPosition('back')" id="pos-back" class="pos-btn border border-slate-200 hover:border-brand-sky bg-white p-2.5 rounded-xl text-center transition-all focus:outline-none">
+                                    <span class="text-xs font-bold block text-brand-dark">背中のみ</span>
+                                    <span class="text-[10px] text-brand-slate">追加料金なし</span>
+                                </button>
+                                <button type="button" onclick="selectPosition('both')" id="pos-both" class="pos-btn border border-slate-200 hover:border-brand-sky bg-white p-2.5 rounded-xl text-center transition-all focus:outline-none">
+                                    <span class="text-xs font-bold block text-brand-dark">前面 ＋ 背中</span>
+                                    <span class="text-[10px] text-brand-accent font-bold">+ ¥500/枚</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- ④サイズ区分 -->
+                        <div>
+                            <label class="block text-sm font-bold text-brand-dark mb-2 flex items-center gap-1.5">
+                                <span class="bg-brand-sky text-white rounded-full w-5 h-5 inline-flex items-center justify-center text-xs">4</span>
+                                <span>サイズ指定</span>
+                            </label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button type="button" onclick="selectSize('a4', 0)" id="size-a4" class="size-btn border border-brand-sky bg-white p-3 rounded-xl text-center transition-all focus:outline-none">
+                                    <span class="text-xs font-bold block text-brand-dark">標準 A4以内</span>
+                                    <span class="text-[10px] text-emerald-600 font-bold">自社加工！一番お得</span>
+                                </button>
+                                <button type="button" onclick="selectSize('a3', 300)" id="size-a3" class="size-btn border border-slate-200 hover:border-brand-sky bg-white p-3 rounded-xl text-center transition-all focus:outline-none">
+                                    <span class="text-xs font-bold block text-brand-dark">大判 A3以上</span>
+                                    <span class="text-[10px] text-brand-slate">オプション +¥300/枚</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- ⑤枚数指定 -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <label for="quantity" class="text-sm font-bold text-brand-dark flex items-center gap-1.5">
+                                    <span class="bg-brand-sky text-white rounded-full w-5 h-5 inline-flex items-center justify-center text-xs">5</span>
+                                    <span>作成する枚数を入力</span>
+                                </label>
+                                <span class="text-xs text-brand-accent font-bold" id="volume-discount-label">まとめ割引適用</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button type="button" onclick="changeQuantity(-5)" class="bg-white hover:bg-brand-water text-brand-dark font-extrabold w-11 h-11 rounded-xl text-lg flex items-center justify-center border border-slate-200 transition-colors focus:outline-none">-5</button>
+                                <button type="button" onclick="changeQuantity(-1)" class="bg-white hover:bg-brand-water text-brand-dark font-extrabold w-11 h-11 rounded-xl text-lg flex items-center justify-center border border-slate-200 transition-colors focus:outline-none">-1</button>
+                                <input type="number" id="quantity" value="10" min="1" max="5000" oninput="calculateEstimate()" class="w-full text-center py-2.5 text-lg font-black rounded-xl border border-slate-200 focus:border-brand-sky focus:outline-none bg-white text-brand-dark">
+                                <button type="button" onclick="changeQuantity(1)" class="bg-white hover:bg-brand-water text-brand-dark font-extrabold w-11 h-11 rounded-xl text-lg flex items-center justify-center border border-slate-200 transition-colors focus:outline-none">+1</button>
+                                <button type="button" onclick="changeQuantity(5)" class="bg-white hover:bg-brand-water text-brand-dark font-extrabold w-11 h-11 rounded-xl text-lg flex items-center justify-center border border-slate-200 transition-colors focus:outline-none">+5</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 見積もり結果表示エリア -->
+                    <div class="bg-brand-dark text-white rounded-2xl p-6 flex flex-col justify-between border border-slate-800 shadow-xl">
+                        <div class="space-y-6">
+                            <h3 class="font-bold text-brand-sky text-sm border-b border-slate-800 pb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-receipt"></i> 概算お見積り結果
+                            </h3>
+                            
+                            <div class="space-y-3">
+                                <div class="flex justify-between text-xs text-slate-300">
+                                    <span>ベースウェア単価</span>
+                                    <span id="res-wear-price">¥600</span>
+                                </div>
+                                <div class="flex justify-between text-xs text-slate-300">
+                                    <span>プリント基本加工費</span>
+                                    <span id="res-print-price">¥250</span>
+                                </div>
+                                <div class="flex justify-between text-xs text-slate-300">
+                                    <span>箇所追加オプション</span>
+                                    <span id="res-pos-price">¥0</span>
+                                </div>
+                                <div class="flex justify-between text-xs text-slate-300">
+                                    <span>大判サイズ追加オプション</span>
+                                    <span id="res-size-price">¥0</span>
+                                </div>
+                                <div class="flex justify-between text-xs text-white border-t border-slate-800 pt-2 font-bold">
+                                    <span>1枚あたりの小計</span>
+                                    <span id="res-unit-subtotal">¥850</span>
+                                </div>
+                                <div class="flex justify-between text-xs text-brand-sky font-semibold">
+                                    <span>枚数割引（まとめ割）</span>
+                                    <span id="res-discount">-¥0</span>
+                                </div>
+                            </div>
+
+                            <div class="space-y-1 border-t border-slate-800 pt-4">
+                                <span class="text-xs text-slate-400 block text-right">コミコミ合計額（税込）</span>
+                                <div class="text-right">
+                                    <span class="text-3xl sm:text-4xl font-black text-brand-sky" id="res-total-price">¥0</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-slate-900 rounded-xl p-3 text-center border border-slate-800 shadow-inner">
+                                <span class="text-[10px] text-slate-400 block leading-none mb-1">実質1枚あたりのコミコミ単価</span>
+                                <span class="text-lg font-black text-white" id="res-real-unit-price">¥0</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-6 space-y-4">
+                            <p class="text-[10px] text-slate-400 leading-normal">
+                                ※上記の金額はシミュレーション上の概算です。カラーウェアの指定、刺繍ロゴへの変更などは、以下より本見積りをご依頼いただく際に、ご要望欄へお書き添えください。
+                            </p>
+                            <a href="#contact" onclick="fillContactForm()" class="w-full bg-brand-sky hover:bg-brand-skyhover text-white py-3.5 rounded-xl font-bold text-center block shadow-lg hover:shadow-brand-sky/20 transition-all flex items-center justify-center gap-1.5 focus:outline-none">
+                                この内容を添えて本見積もり依頼へ進む <i class="fa-solid fa-arrow-down"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION (よくある質問) -->
+    <section id="faq" class="py-20 bg-brand-ice border-y border-brand-water">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16 space-y-4">
+                <span class="text-brand-sky font-bold tracking-widest uppercase text-xs block">FAQ</span>
+                <h2 class="text-3xl font-extrabold tracking-tight text-brand-dark">
+                    よくあるご質問
+                </h2>
+                <p class="text-sm sm:text-base text-brand-slate">
+                    ネット印刷やオリジナル作成に詳しくない個人のお客様からよくいただく質問です。
+                </p>
+            </div>
+
+            <!-- アコーディオン -->
+            <div class="space-y-4">
+                
+                <div class="bg-white rounded-2xl border border-brand-water overflow-hidden shadow-sm">
+                    <button class="w-full text-left p-5 font-bold flex items-center justify-between text-brand-dark focus:outline-none transition-colors hover:bg-brand-light" onclick="toggleFaq(1)">
+                        <span>Q. Tシャツの色、素材、厚みなどは選べますか？</span>
+                        <i id="faq-icon-1" class="fa-solid fa-chevron-down text-brand-sky transition-transform"></i>
+                    </button>
+                    <div id="faq-ans-1" class="hidden px-5 pb-5 text-sm text-brand-slate leading-relaxed border-t border-brand-water/50 pt-3">
+                        はい、お選びいただけます！ベースの自動見積もりではもっとも人気で首元のヨレにくい定番の使いやすいTシャツを設定しておりますが、より薄手で軽いモデルや、ヘビーウェイトの極厚Tシャツ、ポリエステルドライメッシュ素材など、数多くのウェア本体からお好みに合わせて変更いただけます。本見積もりの際にお気軽にお申し付けください。
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-brand-water overflow-hidden shadow-sm">
+                    <button class="w-full text-left p-5 font-bold flex items-center justify-between text-brand-dark focus:outline-none transition-colors hover:bg-brand-light" onclick="toggleFaq(2)">
+                        <span>Q. デザイン用のツールが使えないのですが大丈夫ですか？</span>
+                        <i id="faq-icon-2" class="fa-solid fa-chevron-down text-brand-sky transition-transform"></i>
+                    </button>
+                    <div id="faq-ans-2" class="hidden px-5 pb-5 text-sm text-brand-slate leading-relaxed border-t border-brand-water/50 pt-3">
+                        もちろん大丈夫です！手書きのラフなデザイン案、スマートフォンのカメラで撮ったイラスト、または「こういう言葉を入れたい」といったメモをフォームからお送りください。当店のデザイナーチームが、実際にプリント可能なデータに綺麗に仕上げ（清書）いたします。
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-brand-water overflow-hidden shadow-sm">
+                    <button class="w-full text-left p-5 font-bold flex items-center justify-between text-brand-dark focus:outline-none transition-colors hover:bg-brand-light" onclick="toggleFaq(3)">
+                        <span>Q. 発送代行（梱包、直接エンドユーザーへの発送）にお金はかかりますか？</span>
+                        <i id="faq-icon-3" class="fa-solid fa-chevron-down text-brand-sky transition-transform"></i>
+                    </button>
+                    <div id="faq-ans-3" class="hidden px-5 pb-5 text-sm text-brand-slate leading-relaxed border-t border-brand-water/50 pt-3">
+                        梱包・発送にともなう実費用のみで、発送作業の手数料はいただいておりません。ご自身のショップブランド名でエンドユーザーへ直接お届けすることができますので、余計な手間をかけることなく受注生産が開始できます。
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-brand-water overflow-hidden shadow-sm">
+                    <button class="w-full text-left p-5 font-bold flex items-center justify-between text-brand-dark focus:outline-none transition-colors hover:bg-brand-light" onclick="toggleFaq(4)">
+                        <span>Q. サイズはS・M・Lが混在していても一括注文できますか？</span>
+                        <i id="faq-icon-4" class="fa-solid fa-chevron-down text-brand-sky transition-transform"></i>
+                    </button>
+                    <div id="faq-ans-4" class="hidden px-5 pb-5 text-sm text-brand-slate leading-relaxed border-t border-brand-water/50 pt-3">
+                        はい、可能です！デザインが共通であれば、ウェアのサイズ（S/M/L/XL等）が混ざっていても追加の費用は一切かかりません。サークルの皆様やお友達のサイズにバラバラに合わせてまとめてご発注いただけます。
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM SECTION (本見積もり依頼・お問い合わせ) -->
+    <section id="contact" class="py-20 bg-white border-t border-brand-water">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 space-y-4">
+                <span class="text-brand-sky font-bold tracking-widest uppercase text-xs block">CONTACT FORM</span>
+                <h2 class="text-3xl font-extrabold tracking-tight text-brand-dark">
+                    本見積り依頼・無料相談フォーム
+                </h2>
+                <p class="text-sm sm:text-base text-brand-slate">
+                    デザインのご相談、発送代行についてのお尋ねなど、お気軽に何でもお送りください。
+                </p>
+            </div>
+
+            <form id="contact-form" class="bg-brand-ice border-2 border-brand-water rounded-3xl p-6 sm:p-10 space-y-6" onsubmit="handleFormSubmit(event)">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block text-sm font-bold text-brand-dark mb-2">お名前 <span class="text-brand-accent">*</span></label>
+                        <input type="text" id="name" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-sky focus:outline-none bg-white transition-all" placeholder="山田 太郎">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-bold text-brand-dark mb-2">メールアドレス <span class="text-brand-accent">*</span></label>
+                        <input type="email" id="email" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-sky focus:outline-none bg-white transition-all" placeholder="example@domain.com">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label for="org" class="block text-sm font-bold text-brand-dark mb-2">サークル名・ブランド名など（任意）</label>
+                        <input type="text" id="org" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-sky focus:outline-none bg-white transition-all" placeholder="〇〇サークル / ブランド名など">
+                    </div>
+                    <div>
+                        <label for="contact-phone" class="block text-sm font-bold text-brand-dark mb-2">電話番号（任意）</label>
+                        <input type="tel" id="contact-phone" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-sky focus:outline-none bg-white transition-all" placeholder="090-0000-0000">
+                    </div>
+                </div>
+
+                <!-- 自動見積り引継ぎエリア -->
+                <div class="bg-white p-5 rounded-2xl border border-brand-water space-y-4 shadow-sm">
+                    <h4 class="font-bold text-sm text-brand-dark flex items-center gap-1.5">
+                        <i class="fa-solid fa-calculator text-brand-sky"></i> 
+                        <span>シミュレーター見積り内容の自動添付</span>
+                    </h4>
+                    <p class="text-xs text-brand-slate leading-relaxed">
+                        ※上のシミュレーターで選択した条件が以下に自動転記されます。上のプレビューで参考画像を貼った場合は、ファイル情報も自動的に追記されて、送信データとして含まれます。
+                    </p>
+                    <div>
+                        <textarea id="estimate-summary" rows="5" class="w-full px-4 py-3 text-xs rounded-xl border border-brand-water bg-slate-50 text-slate-700 font-mono focus:outline-none" readonly placeholder="シミュレーターを動かすとここに内容が自動で反映されます。"></textarea>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="message" class="block text-sm font-bold text-brand-dark mb-2">ご要望・プリントしたいデザインについて <span class="text-brand-accent">*</span></label>
+                    <textarea id="message" rows="5" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-sky focus:outline-none bg-white transition-all" placeholder="例：サークルの合宿用Tシャツを合計25枚作成したいと考えています。胸中央に文字ロゴを入れようと思っています。"></textarea>
+                </div>
+
+                <!-- サンクスメッセージエリア（送信完了時の演出用） -->
+                <div id="submit-success" class="hidden bg-emerald-50 border-2 border-emerald-500 rounded-2xl p-5 text-emerald-800 space-y-2">
+                    <h4 class="font-bold flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-emerald-500"></i> 本見積り・無料相談を受け付けました！</h4>
+                    <p class="text-xs leading-relaxed">ご入力いただいたメールアドレスへ自動受付返信をお送りいたしました。通常、当日〜翌営業日（24時間以内）に専属デザイナー、または製造担当スタッフよりデザインの受け渡しや本見積りに関してのご案内を差し上げます。今しばらくお待ちください。</p>
+                </div>
+
+                <div class="text-center pt-4">
+                    <button type="submit" id="submit-btn" class="w-full sm:w-auto bg-brand-sky hover:bg-brand-skyhover text-white px-12 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-brand-sky/20 transition-all flex items-center justify-center gap-2 mx-auto focus:outline-none">
+                        <i class="fa-solid fa-paper-plane"></i> この内容で本見積り（完全無料）
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark text-white pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pb-12 border-b border-slate-800">
+                <!-- サービス概要 -->
+                <div class="space-y-4 md:col-span-2">
+                    <a href="#top" class="flex items-center space-x-2 group">
+                        <div class="bg-brand-sky text-white p-2.5 rounded-xl font-black text-xl tracking-tighter shadow-sm">
+                            <i class="fa-solid fa-anchor"></i>
+                        </div>
+                        <div>
+                            <span class="font-extrabold text-xl tracking-wide block leading-none">YokosukaPrint</span>
+                            <span class="text-[9px] text-slate-400 block tracking-widest mt-1">STANDARD PRINT FACTORY</span>
+                        </div>
+                    </a>
+                    <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+                        オリジナルウェアプリント「YokosukaPrint（ヨコスカプリント）」<br>
+                        1枚だけの個人作成から、サークル活動、アパレルショップ、発送代行まですべて丸投げOK。自社一貫プレス製法で高品質＆最安値でお届けします。
+                    </p>
+                </div>
+
+                <!-- リンク -->
+                <div>
+                    <h4 class="font-bold text-sm text-brand-sky uppercase tracking-wider mb-4">サイトマップ</h4>
+                    <ul class="space-y-2.5 text-xs text-slate-400">
+                        <li><a href="#features" class="hover:text-brand-sky transition-colors">Yokosukaの強み</a></li>
+                        <li><a href="#flow" class="hover:text-brand-sky transition-colors">ご注文の手順</a></li>
+                        <li><a href="#portfolio" class="hover:text-brand-sky transition-colors">制作実績</a></li>
+                        <li><a href="#methods" class="hover:text-brand-sky transition-colors">加工方法</a></li>
+                        <li><a href="#pricing" class="hover:text-brand-sky transition-colors">コミコミ価格</a></li>
+                        <li><a href="#estimator" class="hover:text-brand-sky transition-colors">かんたん自動見積り</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- コピーライト -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-xs text-slate-500">
+                    &copy; 2026 YokosukaPrint. All Rights Reserved.
+                </p>
+                <div class="flex space-x-4 text-xs text-slate-500">
+                    <a href="#" class="hover:underline">利用規約</a>
+                    <a href="#" class="hover:underline">特定商取引法に基づく表記</a>
+                    <a href="#" class="hover:underline">プライバシーポリシー</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        // --- モバイルメニュー制御 ---
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // --- 画像アップロード ＆ プレビュー・メール添付連動ステート ---
+        let uploadedFile = null;
+
+        function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            uploadedFile = file;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const previewUrl = e.target.result;
+                
+                // ヒーロープレビューの更新
+                const uploadPlaceholder = document.getElementById('upload-placeholder');
+                const uploadPreview = document.getElementById('upload-preview');
+                const btnRemoveImage = document.getElementById('btn-remove-image');
+                
+                uploadPlaceholder.classList.add('hidden');
+                uploadPreview.src = previewUrl;
+                uploadPreview.classList.remove('hidden');
+                btnRemoveImage.classList.remove('hidden');
+
+                // 見積りサマリーテキストを更新
+                calculateEstimate();
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function removeUploadedImage(event) {
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+
+            uploadedFile = null;
+
+            // ファイル入力のクリア
+            const fileInput = document.getElementById('design-upload-hero');
+            if (fileInput) fileInput.value = '';
+
+            // プレビューの初期化
+            const uploadPlaceholder = document.getElementById('upload-placeholder');
+            const uploadPreview = document.getElementById('upload-preview');
+            const btnRemoveImage = document.getElementById('btn-remove-image');
+
+            uploadPlaceholder.classList.remove('hidden');
+            uploadPreview.src = '';
+            uploadPreview.classList.add('hidden');
+            btnRemoveImage.classList.add('hidden');
+
+            // 見積りサマリーテキストを更新
+            calculateEstimate();
+        }
+
+        // --- 見積りシミュレーター ステート管理 ---
+        let currentWear = 't-shirt';
+        let currentWearPrice = 600;
+
+        let currentPrintType = 'dtf';
+        let currentPrintPrice = 350;
+
+        let currentPosition = 'front';
+        let currentPositionOptPrice = 0;
+
+        let currentSize = 'a4';
+        let currentSizeOptPrice = 0;
+
+        let quantityInput = document.getElementById('quantity');
+
+        // ①ウェア選択
+        function selectWear(wearId, price) {
+            currentWear = wearId;
+            currentWearPrice = price;
+
+            document.querySelectorAll('.wear-btn').forEach(btn => {
+                btn.classList.remove('border-brand-sky');
+                btn.classList.add('border-slate-200', 'hover:border-brand-sky');
+            });
+
+            const activeBtn = document.getElementById(`wear-${wearId}`);
+            activeBtn.classList.remove('border-slate-200', 'hover:border-brand-sky');
+            activeBtn.classList.add('border-brand-sky');
+
+            calculateEstimate();
+        }
+
+        // ②プリントタイプ選択
+        function selectPrintType(typeId, price) {
+            currentPrintType = typeId;
+            currentPrintPrice = price;
+
+            document.querySelectorAll('.print-btn').forEach(btn => {
+                btn.classList.remove('border-brand-sky');
+                btn.classList.add('border-slate-200', 'hover:border-brand-sky');
+            });
+
+            const activeBtn = document.getElementById(`print-${typeId}`);
+            activeBtn.classList.remove('border-slate-200', 'hover:border-brand-sky');
+            activeBtn.classList.add('border-brand-sky');
+
+            calculateEstimate();
+        }
+
+        // ③プリント箇所選択
+        function selectPosition(posId) {
+            currentPosition = posId;
+            if (posId === 'both') {
+                currentPositionOptPrice = 500; // 前面 ＋ 背中オプション
+            } else {
+                currentPositionOptPrice = 0;
+            }
+
+            document.querySelectorAll('.pos-btn').forEach(btn => {
+                btn.classList.remove('border-brand-sky');
+                btn.classList.add('border-slate-200', 'hover:border-brand-sky');
+            });
+
+            const activeBtn = document.getElementById(`pos-${posId}`);
+            activeBtn.classList.remove('border-slate-200', 'hover:border-brand-sky');
+            activeBtn.classList.add('border-brand-sky');
+
+            calculateEstimate();
+        }
+
+        // ④サイズ区分選択
+        function selectSize(sizeId, optPrice) {
+            currentSize = sizeId;
+            currentSizeOptPrice = optPrice;
+
+            document.querySelectorAll('.size-btn').forEach(btn => {
+                btn.classList.remove('border-brand-sky');
+                btn.classList.add('border-slate-200', 'hover:border-brand-sky');
+            });
+
+            const activeBtn = document.getElementById(`size-${sizeId}`);
+            activeBtn.classList.remove('border-slate-200', 'hover:border-brand-sky');
+            activeBtn.classList.add('border-brand-sky');
+
+            calculateEstimate();
+        }
+
+        // ⑤枚数制御ボタン
+        function changeQuantity(val) {
+            let currentVal = parseInt(quantityInput.value) || 0;
+            let newVal = currentVal + val;
+            if (newVal < 1) newVal = 1;
+            quantityInput.value = newVal;
+            calculateEstimate();
+        }
+
+        // 計算ロジック実行
+        function calculateEstimate() {
+            const qty = parseInt(quantityInput.value) || 1;
+
+            const discountLabel = document.getElementById('volume-discount-label');
+            if (qty >= 30) {
+                discountLabel.classList.remove('hidden');
+                discountLabel.innerText = "🎉 30枚以上：大口割引（20%OFF）適用中！";
+            } else if (qty >= 10) {
+                discountLabel.classList.remove('hidden');
+                discountLabel.innerText = "🎉 10枚以上：小口まとめ割引（10%OFF）適用中！";
+            } else {
+                discountLabel.classList.add('hidden');
+            }
+
+            const unitSubtotal = currentWearPrice + currentPrintPrice + currentPositionOptPrice + currentSizeOptPrice;
+
+            let discountPerUnit = 0;
+            if (qty >= 30) {
+                discountPerUnit = Math.round(unitSubtotal * 0.20);
+            } else if (qty >= 10) {
+                discountPerUnit = Math.round(unitSubtotal * 0.10);
+            }
+
+            const finalUnitSubtotal = unitSubtotal - discountPerUnit;
+            const totalPrice = finalUnitSubtotal * qty;
+
+            document.getElementById('res-wear-price').innerText = `¥${currentWearPrice.toLocaleString()}`;
+            document.getElementById('res-print-price').innerText = `¥${currentPrintPrice.toLocaleString()}`;
+            document.getElementById('res-pos-price').innerText = `+¥${currentPositionOptPrice.toLocaleString()}`;
+            document.getElementById('res-size-price').innerText = `+¥${currentSizeOptPrice.toLocaleString()}`;
+            
+            document.getElementById('res-unit-subtotal').innerText = `¥${unitSubtotal.toLocaleString()}`;
+            document.getElementById('res-discount').innerText = `-¥${(discountPerUnit * qty).toLocaleString()}`;
+            
+            document.getElementById('res-total-price').innerText = `¥${totalPrice.toLocaleString()}`;
+            document.getElementById('res-real-unit-price').innerText = `¥${finalUnitSubtotal.toLocaleString()} / 枚`;
+
+            updateSummaryText(qty, totalPrice, finalUnitSubtotal);
+        }
+
+        function updateSummaryText(qty, total, unit) {
+            const wearText = currentWear === 't-shirt' ? 'Tシャツ (¥600)' : currentWear === 'long-t' ? 'ロンT (¥1,000)' : 'パーカー (¥2,200)';
+            const printText = currentPrintType === 'dtf' ? 'フルカラー(DTF) (¥350)' : currentPrintType === 'inkjet' ? 'インクジェット (¥350)' : '単色(シルク) (¥250)';
+            const posText = currentPosition === 'front' ? '胸（前面のみ）' : currentPosition === 'back' ? '背中のみ' : '前面 ＋ 背中 (+¥500)';
+            const sizeText = currentSize === 'a4' ? '標準 (A4以内)' : '大判 (A3以上) (+¥300)';
+
+            // 添付画像の有無をサマリーに自動で書き加える
+            let fileAttachmentText = "なし";
+            if (uploadedFile) {
+                fileAttachmentText = `あり [ファイル名: ${uploadedFile.name} (容量: ${Math.round(uploadedFile.size / 1024)} KB)]`;
+            }
+
+            const text = `【自動シミュレーター見積り】
+・ウェア: ${wearText}
+・プリント手法: ${printText}
+・プリント箇所: ${posText}
+・サイズ規格: ${sizeText}
+・枚数: ${qty} 枚
+・添付参考画像: ${fileAttachmentText}
+・概算合計: ¥${total.toLocaleString()} (1枚あたり ¥${unit.toLocaleString()})`;
+
+            document.getElementById('estimate-summary').value = text;
+        }
+
+        function fillContactForm() {
+            const messageField = document.getElementById('message');
+            if (messageField.value.trim() === "") {
+                messageField.placeholder = "シミュレーター内容をもとに、本見積もりを出して欲しいです。";
+            }
+        }
+
+        // --- FAQトグル制御 ---
+        function toggleFaq(id) {
+            const ans = document.getElementById(`faq-ans-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+
+            if (ans.classList.contains('hidden')) {
+                ans.classList.remove('hidden');
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            } else {
+                ans.classList.add('hidden');
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        }
+
+        // --- フォーム送信シミュレーション ---
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-btn');
+            const successMsg = document.getElementById('submit-success');
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> 送信中...`;
+
+            setTimeout(() => {
+                submitBtn.classList.add('hidden');
+
+                // アップロード画像の有無で完了通知のメッセージを変更
+                const successTitle = successMsg.querySelector('h4');
+                const successBody = successMsg.querySelector('p');
+
+                if (uploadedFile) {
+                    successTitle.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-500"></i> 本見積り依頼・参考画像を送信しました！`;
+                    successBody.innerHTML = `ご入力いただいたメールアドレスへ自動受付返信をお送りいたしました。<strong>添付いただいた参考画像「${uploadedFile.name}」も正常にアップロードされ、お見積り内容と一緒に送信されました。</strong><br><br>通常、当日〜翌営業日（24時間以内）に専属デザイナー、または製造担当スタッフよりデザインの受け渡しや本見積りに関してのご案内を差し上げます。今しばらくお待ちください。`;
+                } else {
+                    successTitle.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-500"></i> 本見積り・無料相談を受け付けました！`;
+                    successBody.innerHTML = `ご入力いただいたメールアドレスへ自動受付返信をお送りいたしました。通常、当日〜翌営業日（24時間以内）に専属デザイナー、または製造担当スタッフよりデザインの受け渡しや本見積りに関してのご案内を差し上げます。今しばらくお待ちください。`;
+                }
+
+                successMsg.classList.remove('hidden');
+            }, 1200);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            calculateEstimate();
+        });
+    </script>
+</body>
+</html>
