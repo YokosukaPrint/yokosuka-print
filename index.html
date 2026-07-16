@@ -1084,11 +1084,11 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                         <label for="org" class="block text-sm font-bold text-brand-dark mb-2">サークル名・ブランド名など（任意）</label>
-                        <input type="text" id="org" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-sky focus:outline-none bg-white transition-all" placeholder="〇〇サークル / ブランド名など">
+                        <input type="text" id="org" name="organization" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-sky focus:outline-none bg-white transition-all" placeholder="〇〇サークル / ブランド名など">
                     </div>
                     <div>
                         <label for="contact-phone" class="block text-sm font-bold text-brand-dark mb-2">電話番号（任意）</label>
-                        <input type="tel" id="contact-phone" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-sky focus:outline-none bg-white transition-all" placeholder="090-0000-0000">
+                        <input type="tel" id="contact-phone" name="phone" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-sky focus:outline-none bg-white transition-all" placeholder="090-0000-0000">
                     </div>
                 </div>
 
@@ -1102,7 +1102,7 @@
                         ※上のシミュレーターで選択した条件が以下に自動転記されます。上のプレビューで参考画像を貼った場合は、ファイル情報も自動的に追記されて、送信データとして含まれます。
                     </p>
                     <div>
-                        <textarea id="estimate-summary" rows="5" class="w-full px-4 py-3 text-xs rounded-xl border border-brand-water bg-slate-50 text-slate-700 font-mono focus:outline-none" readonly placeholder="シミュレーターを動かすとここに内容が自動で反映されます。"></textarea>
+                        <textarea id="estimate-summary" name="estimate_summary" rows="5" class="w-full px-4 py-3 text-xs rounded-xl border border-brand-water bg-slate-50 text-slate-700 font-mono focus:outline-none" readonly placeholder="シミュレーターを動かすとここに内容が自動で反映されます。"></textarea>
                     </div>
                 </div>
 
@@ -1114,7 +1114,7 @@
                 <!-- サンクスメッセージエリア（送信完了時の演出用） -->
                 <div id="submit-success" class="hidden bg-emerald-50 border-2 border-emerald-500 rounded-2xl p-5 text-emerald-800 space-y-2">
                     <h4 class="font-bold flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-emerald-500"></i> 本見積り・無料相談を受け付けました！</h4>
-                    <p class="text-xs leading-relaxed">ご入力いただいたメールアドレスへ自動受付返信をお送りいたしました。通常、当日〜翌営業日（24時間以内）に専属デザイナー、または製造担当スタッフよりデザインの受け渡しや本見積りに関してのご案内を差し上げます。今しばらくお待ちください。</p>
+                    <p class="text-xs leading-relaxed">送信が完了しました。通常、当日〜翌営業日（24時間以内）に担当者よりご連絡いたします。</p>
                 </div>
 
                 <div class="text-center pt-4">
@@ -1430,35 +1430,53 @@
                 icon.classList.add('fa-chevron-down');
             }
         }
+        // --- Formspreeへ実際に送信 ---
+        const contactForm = document.getElementById('contact-form');
 
-        // --- フォーム送信シミュレーション ---
-        function handleFormSubmit(event) {
+        contactForm.addEventListener('submit', async (event) => {
             event.preventDefault();
-            
+
             const submitBtn = document.getElementById('submit-btn');
             const successMsg = document.getElementById('submit-success');
-            
+
             submitBtn.disabled = true;
             submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> 送信中...`;
+            successMsg.classList.add('hidden');
 
-            setTimeout(() => {
-                submitBtn.classList.add('hidden');
+            try {
+                const formData = new FormData(contactForm);
 
-                // アップロード画像の有無で完了通知のメッセージを変更
-                const successTitle = successMsg.querySelector('h4');
-                const successBody = successMsg.querySelector('p');
-
+                // プレビューで選択した参考画像も送信データに追加
                 if (uploadedFile) {
-                    successTitle.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-500"></i> 本見積り依頼・参考画像を送信しました！`;
-                    successBody.innerHTML = `ご入力いただいたメールアドレスへ自動受付返信をお送りいたしました。<strong>添付いただいた参考画像「${uploadedFile.name}」も正常にアップロードされ、お見積り内容と一緒に送信されました。</strong><br><br>通常、当日〜翌営業日（24時間以内）に専属デザイナー、または製造担当スタッフよりデザインの受け渡しや本見積りに関してのご案内を差し上げます。今しばらくお待ちください。`;
-                } else {
-                    successTitle.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-500"></i> 本見積り・無料相談を受け付けました！`;
-                    successBody.innerHTML = `ご入力いただいたメールアドレスへ自動受付返信をお送りいたしました。通常、当日〜翌営業日（24時間以内）に専属デザイナー、または製造担当スタッフよりデザインの受け渡しや本見積りに関してのご案内を差し上げます。今しばらくお待ちください。`;
+                    formData.append('design_image', uploadedFile, uploadedFile.name);
                 }
 
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('送信に失敗しました');
+                }
+
+                successMsg.querySelector('h4').innerHTML =
+                    `<i class="fa-solid fa-circle-check text-emerald-500"></i> 本見積り・無料相談を受け付けました！`;
+                successMsg.querySelector('p').textContent =
+                    '送信が完了しました。通常、当日〜翌営業日（24時間以内）に担当者よりご連絡いたします。';
                 successMsg.classList.remove('hidden');
-            }, 1200);
-        }
+
+                submitBtn.innerHTML = `<i class="fa-solid fa-check"></i> 送信完了`;
+            } catch (error) {
+                alert('送信できませんでした。通信状況を確認して、もう一度お試しください。');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML =
+                    `<i class="fa-solid fa-paper-plane"></i> この内容で本見積り（完全無料）`;
+            }
+        });
 
         window.addEventListener('DOMContentLoaded', () => {
             calculateEstimate();
