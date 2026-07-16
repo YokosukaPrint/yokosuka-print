@@ -48,7 +48,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- LOGO -->
             <a href="#top" class="flex items-center space-x-2 group">
-                <div class="bg-brand-sky text-white p-2.5 rounded-xl font-black text-xl tracking-tighter group-hover:scale-105 transition-transform flex items-center justify-center shadow-sm">
+                <img src="LOGO.png" alt="YokosukaPrint ロゴ"
+                     class="h-12 w-12 object-contain rounded-xl"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="hidden bg-brand-sky text-white p-2.5 rounded-xl font-black text-xl items-center justify-center shadow-sm">
                     <i class="fa-solid fa-anchor"></i>
                 </div>
                 <div>
@@ -167,7 +170,7 @@
                                 <!-- ★デザイン参考画像アップローダー（クリックで追加・ドロップ可能） -->
                                 <div class="absolute inset-0 flex items-center justify-center">
                                     <label for="design-upload-hero" class="w-28 h-36 border-2 border-dashed border-brand-sky/40 hover:border-brand-sky rounded-xl flex flex-col items-center justify-center bg-white/70 backdrop-blur-[2px] cursor-pointer hover:bg-white/85 transition-all group/uploader shadow-inner overflow-hidden relative">
-                                        <input type="file" id="design-upload-hero" accept="image/*" class="hidden" onchange="handleImageUpload(event)">
+                                        <input type="file" id="design-upload-hero" name="design_image" form="contact-form" accept="image/png,image/jpeg,image/webp,image/gif" class="hidden" onchange="handleImageUpload(event)">
                                         
                                         <!-- 未アップロード：プレースホルダー -->
                                         <div id="upload-placeholder" class="flex flex-col items-center justify-center p-2 text-center select-none">
@@ -1069,7 +1072,16 @@
                 </p>
             </div>
 
-            <form id="contact-form" class="bg-brand-ice border-2 border-brand-water rounded-3xl p-6 sm:p-10 space-y-6"  action="https://formspree.io/f/mrenedwj" method="POST">
+            <form id="contact-form" class="bg-brand-ice border-2 border-brand-water rounded-3xl p-6 sm:p-10 space-y-6"  action="https://formspree.io/f/mrenedwj" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="_subject" value="【YokosukaPrint】新しい見積もり・注文相談">
+                <input type="hidden" name="wear" id="form-wear">
+                <input type="hidden" name="print_method" id="form-print-method">
+                <input type="hidden" name="print_position" id="form-print-position">
+                <input type="hidden" name="print_size" id="form-print-size">
+                <input type="hidden" name="quantity" id="form-quantity">
+                <input type="hidden" name="estimated_total" id="form-estimated-total">
+                <input type="hidden" name="estimated_unit_price" id="form-estimated-unit-price">
+                <input type="hidden" name="image_filename" id="form-image-filename">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                         <label for="name" class="block text-sm font-bold text-brand-dark mb-2">お名前 <span class="text-brand-accent">*</span></label>
@@ -1102,7 +1114,7 @@
                         ※上のシミュレーターで選択した条件が以下に自動転記されます。上のプレビューで参考画像を貼った場合は、ファイル情報も自動的に追記されて、送信データとして含まれます。
                     </p>
                     <div>
-                        <textarea id="estimate-summary" name="estimate_summary" rows="5" class="w-full px-4 py-3 text-xs rounded-xl border border-brand-water bg-slate-50 text-slate-700 font-mono focus:outline-none" readonly placeholder="シミュレーターを動かすとここに内容が自動で反映されます。"></textarea>
+                        <textarea id="estimate-summary" name="estimate_summary" rows="8" class="w-full px-4 py-3 text-xs rounded-xl border border-brand-water bg-slate-50 text-slate-700 font-mono focus:outline-none" placeholder="シミュレーターを動かすとここに内容が自動で反映されます。"></textarea>
                     </div>
                 </div>
 
@@ -1133,7 +1145,10 @@
                 <!-- サービス概要 -->
                 <div class="space-y-4 md:col-span-2">
                     <a href="#top" class="flex items-center space-x-2 group">
-                        <div class="bg-brand-sky text-white p-2.5 rounded-xl font-black text-xl tracking-tighter shadow-sm">
+                        <img src="LOGO.png" alt="YokosukaPrint ロゴ"
+                             class="h-12 w-12 object-contain rounded-xl"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hidden bg-brand-sky text-white p-2.5 rounded-xl font-black text-xl items-center justify-center shadow-sm">
                             <i class="fa-solid fa-anchor"></i>
                         </div>
                         <div>
@@ -1406,6 +1421,16 @@
 ・概算合計: ¥${total.toLocaleString()} (1枚あたり ¥${unit.toLocaleString()})`;
 
             document.getElementById('estimate-summary').value = text;
+
+            // Formspreeメールに各見積り項目を個別表示
+            document.getElementById('form-wear').value = wearText;
+            document.getElementById('form-print-method').value = printText;
+            document.getElementById('form-print-position').value = posText;
+            document.getElementById('form-print-size').value = sizeText;
+            document.getElementById('form-quantity').value = `${qty}枚`;
+            document.getElementById('form-estimated-total').value = `¥${total.toLocaleString()}`;
+            document.getElementById('form-estimated-unit-price').value = `¥${unit.toLocaleString()} / 枚`;
+            document.getElementById('form-image-filename').value = uploadedFile ? uploadedFile.name : 'なし';
         }
 
         function fillContactForm() {
@@ -1444,12 +1469,8 @@
             successMsg.classList.add('hidden');
 
             try {
+                calculateEstimate();
                 const formData = new FormData(contactForm);
-
-                // プレビューで選択した参考画像も送信データに追加
-                if (uploadedFile) {
-                    formData.append('design_image', uploadedFile, uploadedFile.name);
-                }
 
                 const response = await fetch(contactForm.action, {
                     method: 'POST',
@@ -1471,7 +1492,7 @@
 
                 submitBtn.innerHTML = `<i class="fa-solid fa-check"></i> 送信完了`;
             } catch (error) {
-                alert('送信できませんでした。通信状況を確認して、もう一度お試しください。');
+                alert('送信できませんでした。画像サイズが大きすぎる場合は小さくして、もう一度お試しください。');
                 submitBtn.disabled = false;
                 submitBtn.innerHTML =
                     `<i class="fa-solid fa-paper-plane"></i> この内容で本見積り（完全無料）`;
