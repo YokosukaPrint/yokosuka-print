@@ -177,6 +177,7 @@
                                             <i class="fa-solid fa-circle-plus text-brand-sky text-2xl mb-1 group-hover/uploader:scale-110 transition-transform"></i>
                                             <span class="text-[9px] text-brand-sky font-bold leading-tight">参考画像を<br>ここに貼る</span>
                                             <span class="text-[8px] text-brand-slate font-medium mt-1">(手書き・ラフ等)</span>
+                                            <span class="text-[8px] text-brand-slate mt-1">大きな画像は自動圧縮されます</span>
                                         </div>
 
                                         <!-- アップロード済：プレビュー画像表示 -->
@@ -1455,6 +1456,41 @@
                 icon.classList.add('fa-chevron-down');
             }
         }
+
+        // --- アップロード画像を自動圧縮 ---
+        async function compressImage(file, maxWidth = 1600, maxHeight = 1600, quality = 0.78) {
+            if (!file || !file.type.startsWith('image/')) return file;
+
+            const bitmap = await createImageBitmap(file);
+            let width = bitmap.width;
+            let height = bitmap.height;
+
+            const scale = Math.min(1, maxWidth / width, maxHeight / height);
+            width = Math.max(1, Math.round(width * scale));
+            height = Math.max(1, Math.round(height * scale));
+
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(bitmap, 0, 0, width, height);
+
+            const blob = await new Promise((resolve, reject) => {
+                canvas.toBlob(
+                    result => result ? resolve(result) : reject(new Error('画像圧縮に失敗しました')),
+                    'image/jpeg',
+                    quality
+                );
+            });
+
+            const baseName = file.name.replace(/\.[^/.]+$/, '');
+            return new File([blob], `${baseName}-compressed.jpg`, {
+                type: 'image/jpeg',
+                lastModified: Date.now()
+            });
+        }
+
         // --- Formspreeへ実際に送信 ---
         const contactForm = document.getElementById('contact-form');
 
@@ -1465,12 +1501,23 @@
             const successMsg = document.getElementById('submit-success');
 
             submitBtn.disabled = true;
-            submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> 送信中...`;
+            submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> 画像を圧縮して送信中...`;
             successMsg.classList.add('hidden');
 
             try {
                 calculateEstimate();
                 const formData = new FormData(contactForm);
+
+                // 最初に選択した画像を自動圧縮してから送信
+                if (uploadedFile) {
+                    const compressedFile = await compressImage(uploadedFile);
+                    formData.delete('design_image');
+                    formData.set('design_image', compressedFile, compressedFile.name);
+                    formData.set(
+                        'image_compression',
+                        `${(uploadedFile.size / 1024 / 1024).toFixed(2)}MB → ${(compressedFile.size / 1024 / 1024).toFixed(2)}MB`
+                    );
+                }
 
                 const response = await fetch(contactForm.action, {
                     method: 'POST',
