@@ -1072,7 +1072,7 @@
                 </p>
             </div>
 
-            <form id="contact-form" class="bg-brand-ice border-2 border-brand-water rounded-3xl p-6 sm:p-10 space-y-6"  action="https://formspree.io/f/mrenedwj" method="POST" enctype="multipart/form-data">
+            <form id="contact-form" class="bg-brand-ice border-2 border-brand-water rounded-3xl p-6 sm:p-10 space-y-6"  action="https://formspree.io/f/mrenedwj" method="POST">
                 <input type="hidden" name="_subject" value="【YokosukaPrint】新しい見積もり・注文相談">
                 <input type="hidden" name="wear" id="form-wear">
                 <input type="hidden" name="print_method" id="form-print-method">
@@ -1117,19 +1117,24 @@
                     </div>
                 </div>
 
-                <!-- 参考画像添付（Formspree送信用・1枚まで） -->
+                <!-- 参考画像アップロード（Cloudinaryへ保存し、URLをFormspreeへ送信） -->
                 <div>
                     <label for="design-image" class="block text-sm font-bold text-brand-dark mb-2">
                         参考画像・デザイン画像（任意／1枚まで）
                     </label>
                     <div class="bg-white border border-dashed border-brand-sky/50 rounded-2xl p-4">
-                        <input type="file" id="design-image" name="design_image"
-                               accept="image/jpeg,image/png,image/webp,image/gif"
+                        <input type="file" id="design-image"
+                               accept="image/jpeg,image/png,image/webp"
                                class="block w-full text-sm text-brand-slate file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:bg-brand-sky file:text-white file:font-bold hover:file:bg-brand-skyhover file:cursor-pointer cursor-pointer">
                         <p class="text-[11px] text-brand-slate mt-2 leading-relaxed">
-                            JPG・PNG・WEBP・GIFに対応。最大25MBまで。添付できる画像は1枚です。
+                            JPG・PNG・WEBPに対応。最大5MBまで。画像はCloudinaryへ保存され、確認用URLが送信されます。
                         </p>
+                        <div id="design-image-preview-wrap" class="hidden mt-4">
+                            <img id="design-image-preview" alt="選択画像のプレビュー" class="max-h-64 w-full object-contain rounded-xl border border-brand-water bg-brand-light">
+                        </div>
+                        <p id="design-image-status" class="hidden text-xs font-bold mt-2"></p>
                         <p id="design-image-error" class="hidden text-xs text-red-600 font-bold mt-2"></p>
+                        <input type="hidden" id="design-image-url" name="design_image_url" value="">
                     </div>
                 </div>
 
@@ -1524,39 +1529,95 @@
         }
 
 
-        // --- Formspreeへ実際に送信 ---
+        // --- Cloudinary画像アップロード + Formspree送信 ---
+        const CLOUDINARY_CLOUD_NAME = 'hmjph7xg';
+        const CLOUDINARY_UPLOAD_PRESET = 'yokosukaprint';
         const contactForm = document.getElementById('contact-form');
+        const designImageInput = document.getElementById('design-image');
+        const designImageUrlInput = document.getElementById('design-image-url');
+        const designImagePreviewWrap = document.getElementById('design-image-preview-wrap');
+        const designImagePreview = document.getElementById('design-image-preview');
+        const designImageStatus = document.getElementById('design-image-status');
+        const designImageError = document.getElementById('design-image-error');
+        let selectedDesignImage = null;
+        let previewObjectUrl = '';
+
+        designImageInput.addEventListener('change', () => {
+            designImageError.classList.add('hidden');
+            designImageStatus.classList.add('hidden');
+            designImageUrlInput.value = '';
+            selectedDesignImage = null;
+
+            if (previewObjectUrl) {
+                URL.revokeObjectURL(previewObjectUrl);
+                previewObjectUrl = '';
+            }
+            designImagePreviewWrap.classList.add('hidden');
+
+            const file = designImageInput.files[0];
+            if (!file) return;
+
+            const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
+            const maxFileSize = 5 * 1024 * 1024;
+
+            if (!allowedTypes.includes(file.type)) {
+                designImageError.textContent = 'JPG・PNG・WEBP形式の画像を選択してください。';
+                designImageError.classList.remove('hidden');
+                designImageInput.value = '';
+                return;
+            }
+
+            if (file.size > maxFileSize) {
+                designImageError.textContent = '画像サイズが5MBを超えています。5MB以下の画像を選択してください。';
+                designImageError.classList.remove('hidden');
+                designImageInput.value = '';
+                return;
+            }
+
+            selectedDesignImage = file;
+            previewObjectUrl = URL.createObjectURL(file);
+            designImagePreview.src = previewObjectUrl;
+            designImagePreviewWrap.classList.remove('hidden');
+            designImageStatus.textContent = '画像を選択しました。送信時にアップロードします。';
+            designImageStatus.className = 'text-xs font-bold mt-2 text-brand-sky';
+        });
+
+        async function uploadImageToCloudinary() {
+            if (!selectedDesignImage) {
+                designImageUrlInput.value = '';
+                return '';
+            }
+
+            designImageStatus.textContent = '画像をアップロードしています…';
+            designImageStatus.className = 'text-xs font-bold mt-2 text-brand-sky';
+
+            const cloudinaryData = new FormData();
+            cloudinaryData.append('file', selectedDesignImage);
+            cloudinaryData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
+            const response = await fetch(
+                `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`,
+                { method: 'POST', body: cloudinaryData }
+            );
+
+            const result = await response.json().catch(() => ({}));
+            if (!response.ok || !result.secure_url) {
+                throw new Error(result?.error?.message || '画像をアップロードできませんでした。');
+            }
+
+            designImageUrlInput.value = result.secure_url;
+            designImageStatus.textContent = '画像アップロード完了';
+            designImageStatus.className = 'text-xs font-bold mt-2 text-emerald-600';
+            return result.secure_url;
+        }
 
         contactForm.addEventListener('submit', async (event) => {
             event.preventDefault();
 
             const submitBtn = document.getElementById('submit-btn');
             const successMsg = document.getElementById('submit-success');
-            const imageInput = document.getElementById('design-image');
-            const imageError = document.getElementById('design-image-error');
-
-            imageError.classList.add('hidden');
-            imageError.textContent = '';
-
-            const selectedImage = imageInput.files[0];
-            if (selectedImage) {
-                const allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
-                const maxFileSize = 25 * 1024 * 1024;
-
-                if (!allowedTypes.includes(selectedImage.type)) {
-                    imageError.textContent = 'JPG・PNG・WEBP・GIF形式の画像を選択してください。';
-                    imageError.classList.remove('hidden');
-                    imageInput.focus();
-                    return;
-                }
-
-                if (selectedImage.size > maxFileSize) {
-                    imageError.textContent = '画像サイズが25MBを超えています。25MB以下の画像を選択してください。';
-                    imageError.classList.remove('hidden');
-                    imageInput.focus();
-                    return;
-                }
-            }
+            designImageError.classList.add('hidden');
+            designImageError.textContent = '';
 
             submitBtn.disabled = true;
             submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> 送信中...`;
@@ -1564,14 +1625,13 @@
 
             try {
                 calculateEstimate();
-                const formData = new FormData(contactForm);
+                await uploadImageToCloudinary();
 
+                const formData = new FormData(contactForm);
                 const response = await fetch(contactForm.action, {
                     method: 'POST',
                     body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                    headers: { 'Accept': 'application/json' }
                 });
 
                 if (!response.ok) {
@@ -1581,9 +1641,7 @@
                         if (Array.isArray(errorData.errors) && errorData.errors.length > 0) {
                             errorMessage = errorData.errors.map(error => error.message).join('\n');
                         }
-                    } catch (_) {
-                        // JSON形式のエラーでない場合は共通メッセージを使用
-                    }
+                    } catch (_) {}
                     throw new Error(errorMessage);
                 }
 
@@ -1592,9 +1650,9 @@
                 successMsg.querySelector('p').textContent =
                     '送信が完了しました。通常、当日〜翌営業日（24時間以内）に担当者よりご連絡いたします。';
                 successMsg.classList.remove('hidden');
-
                 submitBtn.innerHTML = `<i class="fa-solid fa-check"></i> 送信完了`;
             } catch (error) {
+                designImageStatus.classList.add('hidden');
                 alert(`送信できませんでした。\n${error.message || '通信状況を確認して、もう一度お試しください。'}`);
                 submitBtn.disabled = false;
                 submitBtn.innerHTML =
