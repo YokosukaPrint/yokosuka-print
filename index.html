@@ -68,6 +68,12 @@
                 <a href="#methods" class="hover:text-brand-sky transition-colors text-brand-slate">選べる加工</a>
                 <a href="#pricing" class="hover:text-brand-sky transition-colors text-brand-slate">コミコミ料金</a>
                 <a href="#support" class="hover:text-brand-sky transition-colors text-brand-slate">丸投げサポート</a>
+                <!-- Instagram：hrefを実際のアカウントURLへ変更してください -->
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+                   class="text-brand-slate hover:text-brand-sky transition-colors text-xl flex items-center justify-center"
+                   aria-label="Instagramを開く" title="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
                 <a href="#estimator" class="bg-brand-sky hover:bg-brand-skyhover text-white px-5 py-2.5 rounded-xl font-bold transition-all transform hover:scale-105 shadow-sm flex items-center gap-1.5">
                     <i class="fa-solid fa-calculator"></i> かんたん自動見積り
                 </a>
@@ -254,56 +260,91 @@
                 </div>
             </div>
 
-            <!-- 個人でも使いやすい3つの秘密 -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- 個人でも使いやすい5つの秘密 -->
+            <!-- PCでは5項目を1行、タブレット以下では画面幅に合わせて折り返します -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
                 <!-- 特長1 -->
-                <div class="bg-brand-ice rounded-2xl p-8 border border-brand-water hover:border-brand-sky transition-all duration-300 flex flex-col justify-between shadow-sm">
-                    <div class="space-y-4">
-                        <div class="text-4xl text-brand-sky font-black flex items-center justify-between">
+                <div class="bg-brand-ice rounded-2xl p-5 border border-brand-water hover:border-brand-sky transition-all duration-300 flex flex-col justify-between shadow-sm min-w-0">
+                    <div class="space-y-3">
+                        <div class="text-3xl text-brand-sky font-black flex items-center justify-between">
                             <span>01</span>
-                            <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
+                            <i class="fa-solid fa-wand-magic-sparkles text-lg"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-brand-dark">手書き・スマホ画像から<br>デザイナーが完全データ化</h3>
-                        <p class="text-sm text-brand-slate leading-relaxed">
+                        <h3 class="text-base font-bold text-brand-dark leading-snug">手書き・スマホ画像からデザイナーが完全データ化</h3>
+                        <p class="text-xs text-brand-slate leading-relaxed">
                             「デザインアプリが使えない」「手書きのアイデアしかない」という個人のお客様も大歓迎！スマホでスケッチを撮影して送るだけで、デザイナーが綺麗にデータ化します。
                         </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-brand-water">
-                        <span class="text-xs font-semibold text-brand-sky bg-white px-2.5 py-1 rounded shadow-sm">追加料金なしでプロが清書</span>
+                    <div class="mt-5 pt-4 border-t border-brand-water">
+                        <span class="text-[11px] font-semibold text-brand-sky bg-white px-2 py-1 rounded shadow-sm whitespace-nowrap">追加料金なしでプロが清書</span>
                     </div>
                 </div>
 
                 <!-- 特長2 -->
-                <div class="bg-brand-ice rounded-2xl p-8 border border-brand-water hover:border-brand-sky transition-all duration-300 flex flex-col justify-between shadow-sm">
-                    <div class="space-y-4">
-                        <div class="text-4xl text-brand-sky font-black flex items-center justify-between">
+                <div class="bg-brand-ice rounded-2xl p-5 border border-brand-water hover:border-brand-sky transition-all duration-300 flex flex-col justify-between shadow-sm min-w-0">
+                    <div class="space-y-3">
+                        <div class="text-3xl text-brand-sky font-black flex items-center justify-between">
                             <span>02</span>
-                            <i class="fa-solid fa-truck-ramp-box text-xl"></i>
+                            <i class="fa-solid fa-truck-ramp-box text-lg"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-brand-dark">梱包から購入者へ直接発送！<br>「発送代行」が全部無料</h3>
-                        <p class="text-sm text-brand-slate leading-relaxed">
+                        <h3 class="text-base font-bold text-brand-dark leading-snug">梱包から購入者へ直接発送！「発送代行」が全部無料</h3>
+                        <p class="text-xs text-brand-slate leading-relaxed">
                             注文を受けたらこちらで印刷・梱包し、あなたのお客様へ直接発送します（送り主はご自身の名前に設定可能）。自宅に在庫を抱える必要がなく、発送作業の手間もありません。
                         </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-brand-water">
-                        <span class="text-xs font-semibold text-brand-sky bg-white px-2.5 py-1 rounded shadow-sm">在庫・梱包作業のリスクゼロ</span>
+                    <div class="mt-5 pt-4 border-t border-brand-water">
+                        <span class="text-[11px] font-semibold text-brand-sky bg-white px-2 py-1 rounded shadow-sm whitespace-nowrap">在庫・梱包作業のリスクゼロ</span>
                     </div>
                 </div>
 
                 <!-- 特長3 -->
-                <div class="bg-brand-ice rounded-2xl p-8 border border-brand-water hover:border-brand-sky transition-all duration-300 flex flex-col justify-between shadow-sm">
-                    <div class="space-y-4">
-                        <div class="text-4xl text-brand-sky font-black flex items-center justify-between">
+                <div class="bg-brand-ice rounded-2xl p-5 border border-brand-water hover:border-brand-sky transition-all duration-300 flex flex-col justify-between shadow-sm min-w-0">
+                    <div class="space-y-3">
+                        <div class="text-3xl text-brand-sky font-black flex items-center justify-between">
                             <span>03</span>
-                            <i class="fa-solid fa-layer-group text-xl"></i>
+                            <i class="fa-solid fa-layer-group text-lg"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-brand-dark">1枚のサンプル作りから<br>学祭、店舗用までフルカバー</h3>
-                        <p class="text-sm text-brand-slate leading-relaxed">
+                        <h3 class="text-base font-bold text-brand-dark leading-snug">1枚のサンプル作りから学祭、店舗用までフルカバー</h3>
+                        <p class="text-xs text-brand-slate leading-relaxed">
                             個人の「まずは1枚試したい」から、学校行事、企業の大量オーダーまで。用途に合わせて最適な設備でプリントするため、いつでも最高レベルの安さで提供可能です。
                         </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-brand-water">
-                        <span class="text-xs font-semibold text-brand-sky bg-white px-2.5 py-1 rounded shadow-sm">1枚〜数千枚まで最適単価</span>
+                    <div class="mt-5 pt-4 border-t border-brand-water">
+                        <span class="text-[11px] font-semibold text-brand-sky bg-white px-2 py-1 rounded shadow-sm whitespace-nowrap">1枚〜数千枚まで最適単価</span>
+                    </div>
+                </div>
+
+                <!-- 特長4 -->
+                <div class="bg-brand-ice rounded-2xl p-5 border border-brand-water hover:border-brand-sky transition-all duration-300 flex flex-col justify-between shadow-sm min-w-0">
+                    <div class="space-y-3">
+                        <div class="text-3xl text-brand-sky font-black flex items-center justify-between">
+                            <span>04</span>
+                            <i class="fa-solid fa-comments text-lg"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-brand-dark leading-snug">土日も連絡対応可能</h3>
+                        <p class="text-xs text-brand-slate leading-relaxed">
+                            平日がお忙しい方にも安心してご相談いただけるよう、土日もお問い合わせやデザイン確認のご連絡に対応しています。
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-brand-water">
+                        <span class="text-[11px] font-semibold text-brand-sky bg-white px-2 py-1 rounded shadow-sm whitespace-nowrap">週末のご相談もOK</span>
+                    </div>
+                </div>
+
+                <!-- 特長5 -->
+                <div class="bg-brand-ice rounded-2xl p-5 border border-brand-water hover:border-brand-sky transition-all duration-300 flex flex-col justify-between shadow-sm min-w-0">
+                    <div class="space-y-3">
+                        <div class="text-3xl text-brand-sky font-black flex items-center justify-between">
+                            <span>05</span>
+                            <i class="fa-solid fa-box-open text-lg"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-brand-dark leading-snug">デザイン確定後から1週間以内に発送</h3>
+                        <p class="text-xs text-brand-slate leading-relaxed">
+                            デザインと注文内容が確定してから、原則1週間以内の発送を目安にスピーディーに製作を進めます。
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-brand-water">
+                        <span class="text-[11px] font-semibold text-brand-sky bg-white px-2 py-1 rounded shadow-sm whitespace-nowrap">スピード製作・発送</span>
                     </div>
                 </div>
             </div>
