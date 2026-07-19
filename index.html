@@ -79,10 +79,17 @@
                 </a>
             </nav>
 
-            <!-- MOBILE MENU BUTTON -->
-            <button id="mobile-menu-btn" class="md:hidden p-2 text-brand-slate hover:text-brand-dark focus:outline-none" aria-label="メニューを開く">
-                <i class="fa-solid fa-bars text-2xl"></i>
-            </button>
+            <!-- MOBILE HEADER ICONS -->
+            <div class="md:hidden flex items-center gap-1">
+                <a href="https://www.instagram.com/print_yokosuka_jp" target="_blank" rel="noopener noreferrer"
+                   class="w-10 h-10 text-brand-slate hover:text-brand-sky transition-colors text-2xl flex items-center justify-center"
+                   aria-label="Instagramを開く" title="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <button id="mobile-menu-btn" class="p-2 text-brand-slate hover:text-brand-dark focus:outline-none" aria-label="メニューを開く">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
         </div>
 
         <!-- MOBILE NAV MENU -->
@@ -1110,6 +1117,22 @@
                     </div>
                 </div>
 
+                <!-- 参考画像添付（Formspree送信用・1枚まで） -->
+                <div>
+                    <label for="design-image" class="block text-sm font-bold text-brand-dark mb-2">
+                        参考画像・デザイン画像（任意／1枚まで）
+                    </label>
+                    <div class="bg-white border border-dashed border-brand-sky/50 rounded-2xl p-4">
+                        <input type="file" id="design-image" name="design_image"
+                               accept="image/jpeg,image/png,image/webp,image/gif"
+                               class="block w-full text-sm text-brand-slate file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:bg-brand-sky file:text-white file:font-bold hover:file:bg-brand-skyhover file:cursor-pointer cursor-pointer">
+                        <p class="text-[11px] text-brand-slate mt-2 leading-relaxed">
+                            JPG・PNG・WEBP・GIFに対応。最大25MBまで。添付できる画像は1枚です。
+                        </p>
+                        <p id="design-image-error" class="hidden text-xs text-red-600 font-bold mt-2"></p>
+                    </div>
+                </div>
+
                 <div>
                     <label for="message" class="block text-sm font-bold text-brand-dark mb-2">ご要望・プリントしたいデザインについて <span class="text-brand-accent">*</span></label>
                     <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-sky focus:outline-none bg-white transition-all" placeholder="例：サークルの合宿用Tシャツを合計25枚作成したいと考えています。胸中央に文字ロゴを入れようと思っています。"></textarea>
@@ -1509,6 +1532,31 @@
 
             const submitBtn = document.getElementById('submit-btn');
             const successMsg = document.getElementById('submit-success');
+            const imageInput = document.getElementById('design-image');
+            const imageError = document.getElementById('design-image-error');
+
+            imageError.classList.add('hidden');
+            imageError.textContent = '';
+
+            const selectedImage = imageInput.files[0];
+            if (selectedImage) {
+                const allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+                const maxFileSize = 25 * 1024 * 1024;
+
+                if (!allowedTypes.includes(selectedImage.type)) {
+                    imageError.textContent = 'JPG・PNG・WEBP・GIF形式の画像を選択してください。';
+                    imageError.classList.remove('hidden');
+                    imageInput.focus();
+                    return;
+                }
+
+                if (selectedImage.size > maxFileSize) {
+                    imageError.textContent = '画像サイズが25MBを超えています。25MB以下の画像を選択してください。';
+                    imageError.classList.remove('hidden');
+                    imageInput.focus();
+                    return;
+                }
+            }
 
             submitBtn.disabled = true;
             submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> 送信中...`;
@@ -1527,7 +1575,16 @@
                 });
 
                 if (!response.ok) {
-                    throw new Error('送信に失敗しました');
+                    let errorMessage = '送信に失敗しました';
+                    try {
+                        const errorData = await response.json();
+                        if (Array.isArray(errorData.errors) && errorData.errors.length > 0) {
+                            errorMessage = errorData.errors.map(error => error.message).join('\n');
+                        }
+                    } catch (_) {
+                        // JSON形式のエラーでない場合は共通メッセージを使用
+                    }
+                    throw new Error(errorMessage);
                 }
 
                 successMsg.querySelector('h4').innerHTML =
@@ -1538,7 +1595,7 @@
 
                 submitBtn.innerHTML = `<i class="fa-solid fa-check"></i> 送信完了`;
             } catch (error) {
-                alert('送信できませんでした。通信状況を確認して、もう一度お試しください。');
+                alert(`送信できませんでした。\n${error.message || '通信状況を確認して、もう一度お試しください。'}`);
                 submitBtn.disabled = false;
                 submitBtn.innerHTML =
                     `<i class="fa-solid fa-paper-plane"></i> この内容で本見積り（完全無料）`;
