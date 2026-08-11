@@ -63,6 +63,7 @@
             <!-- DESKTOP NAV -->
             <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
                 <a href="#benefits" class="hover:text-brand-sky transition-colors text-brand-slate">クリエイター特長</a>
+                <a href="#simulator" class="hover:text-brand-sky transition-colors text-brand-slate">利益シミュレーター</a>
                 <a href="#workflow" class="hover:text-brand-sky transition-colors text-brand-slate">受注〜発送の流れ</a>
                 <a href="#creator-contact" class="hover:text-brand-sky transition-colors text-brand-slate">無料相談・お問合せ</a>
                 <a href="https://www.instagram.com/print_yokosuka_jp" target="_blank" rel="noopener noreferrer"
@@ -92,6 +93,7 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-brand-water px-4 pt-2 pb-6 space-y-3">
             <a href="index.html" class="block py-2 text-brand-slate hover:text-brand-sky font-medium border-b border-brand-light">トップページへ戻る</a>
             <a href="#benefits" class="block py-2 text-brand-slate hover:text-brand-sky font-medium border-b border-brand-light">クリエイター特長</a>
+            <a href="#simulator" class="block py-2 text-brand-slate hover:text-brand-sky font-medium border-b border-brand-light">利益シミュレーター</a>
             <a href="#workflow" class="block py-2 text-brand-slate hover:text-brand-sky font-medium border-b border-brand-light">受注〜発送の流れ</a>
             <a href="#creator-contact" class="block text-center bg-brand-sky hover:bg-brand-skyhover text-white py-3 rounded-xl font-bold shadow-md">
                 <i class="fa-solid fa-paper-plane mr-1"></i> 丸投げプランの相談をする
@@ -182,8 +184,73 @@
         </div>
     </section>
 
+    <!-- SIMULATOR SECTION -->
+    <section id="simulator" class="py-20 bg-brand-ice border-y border-brand-water">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 space-y-4">
+                <span class="text-brand-sky font-bold tracking-widest uppercase text-xs block">PROFIT SIMULATION</span>
+                <h2 class="text-3xl font-extrabold text-brand-dark">
+                    販売利益シミュレーター
+                </h2>
+                <p class="text-sm text-brand-slate">
+                    販売価格と予想販売数を入力するだけで、手元に残る予想利益を即座に計算します。
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-brand-water rounded-3xl p-6 sm:p-10 shadow-lg space-y-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="sim-cost" class="block text-sm font-bold text-brand-dark mb-2">仕入れ原価（1枚あたり／目安）</label>
+                        <select id="sim-cost" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-sky focus:outline-none bg-white transition-all font-bold text-brand-dark">
+                            <option value="950">ハイクオリティ Tシャツ（950円）</option>
+                            <option value="1350">ロングスリーブ Tシャツ（1,350円）</option>
+                            <option value="2550">スウェット プルパーカー（2,550円）</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="sim-price" class="block text-sm font-bold text-brand-dark mb-2">販売価格（1枚あたり）</label>
+                        <div class="relative">
+                            <input type="number" id="sim-price" value="3500" step="100" min="500" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-sky focus:outline-none bg-white transition-all font-bold text-brand-dark pr-10">
+                            <span class="absolute right-4 top-3.5 text-sm font-bold text-brand-slate">円</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex justify-between items-center mb-2">
+                        <label for="sim-qty" class="block text-sm font-bold text-brand-dark">予想販売数量</label>
+                        <span id="sim-qty-val" class="text-lg font-black text-brand-sky">30 枚</span>
+                    </div>
+                    <input type="range" id="sim-qty" min="1" max="200" value="30" class="w-full h-2 bg-brand-water rounded-lg appearance-none cursor-pointer accent-brand-sky">
+                </div>
+
+                <!-- 結果表示エリア -->
+                <div class="bg-brand-ice border border-brand-sky/20 rounded-2xl p-6 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+                    <div>
+                        <span class="text-xs font-bold text-brand-slate block mb-1">想定売上</span>
+                        <span id="res-sales" class="text-xl sm:text-2xl font-black text-brand-dark">105,000 円</span>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-brand-slate block mb-1">想定本体コスト</span>
+                        <span id="res-cost" class="text-xl sm:text-2xl font-black text-brand-slate">28,500 円</span>
+                    </div>
+                    <div class="sm:border-l sm:border-brand-water sm:pl-4">
+                        <span class="text-xs font-bold text-brand-accent block mb-1">予想粗利益</span>
+                        <span id="res-profit" class="text-2xl sm:text-3xl font-black text-brand-accent">76,500 円</span>
+                    </div>
+                </div>
+
+                <!-- 補足事項（注記） -->
+                <p class="text-xs text-brand-slate leading-relaxed border-t border-brand-water pt-4">
+                    ※上記シミュレーションはボディ＋プリント基本料金の概算数値です。<br>
+                    ※ブランドタグ取り付け費用、ネームプリント費用、個別梱包費、および送料などの諸費用原価が別途かかります。詳細な見積もりはお気軽にお問い合わせください。
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- WORKFLOW SECTION -->
-    <section id="workflow" class="py-20 bg-brand-ice border-y border-brand-water">
+    <section id="workflow" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
                 <span class="text-brand-sky font-bold tracking-widest uppercase text-xs block">FLOW</span>
@@ -193,22 +260,22 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <div class="bg-white p-6 rounded-2xl border border-brand-water shadow-sm text-center space-y-3">
+                <div class="bg-brand-ice p-6 rounded-2xl border border-brand-water shadow-sm text-center space-y-3">
                     <span class="text-xs font-bold bg-brand-sky/10 text-brand-sky px-3 py-1 rounded-full">STEP 1</span>
                     <h3 class="font-extrabold text-base text-brand-dark">無料相談・画像送付</h3>
                     <p class="text-xs text-brand-slate leading-relaxed">下部フォームからデザイン画像やアイデアをお送りください。</p>
                 </div>
-                <div class="bg-white p-6 rounded-2xl border border-brand-water shadow-sm text-center space-y-3">
+                <div class="bg-brand-ice p-6 rounded-2xl border border-brand-water shadow-sm text-center space-y-3">
                     <span class="text-xs font-bold bg-brand-sky/10 text-brand-sky px-3 py-1 rounded-full">STEP 2</span>
                     <h3 class="font-extrabold text-base text-brand-dark">サンプル確認・データ作成</h3>
                     <p class="text-xs text-brand-slate leading-relaxed">清書した完成イメージ画像をご確認いただき、仕上がりをすり合わせます。</p>
                 </div>
-                <div class="bg-white p-6 rounded-2xl border border-brand-water shadow-sm text-center space-y-3">
+                <div class="bg-brand-ice p-6 rounded-2xl border border-brand-water shadow-sm text-center space-y-3">
                     <span class="text-xs font-bold bg-brand-sky/10 text-brand-sky px-3 py-1 rounded-full">STEP 3</span>
                     <h3 class="font-extrabold text-base text-brand-dark">あなたのショップで販売開始</h3>
                     <p class="text-xs text-brand-slate leading-relaxed">BASEやSTORES、SNS等で注文を受け付けます（在庫リスク0）。</p>
                 </div>
-                <div class="bg-white p-6 rounded-2xl border border-brand-water shadow-sm text-center space-y-3">
+                <div class="bg-brand-ice p-6 rounded-2xl border border-brand-water shadow-sm text-center space-y-3">
                     <span class="text-xs font-bold bg-brand-sky/10 text-brand-sky px-3 py-1 rounded-full">STEP 4</span>
                     <h3 class="font-extrabold text-base text-brand-dark">発注＆エンドユーザー直送</h3>
                     <p class="text-xs text-brand-slate leading-relaxed">注文が入ったら当工場へご連絡。製造後、お客様へ直接お届けします。</p>
@@ -218,7 +285,7 @@
     </section>
 
     <!-- CONTACT FORM SECTION -->
-    <section id="creator-contact" class="py-20 bg-white">
+    <section id="creator-contact" class="py-20 bg-brand-ice border-t border-brand-water">
         <div class="max-w-3xl mx-auto px-4 sm:px-6">
             <div class="text-center mb-12 space-y-4">
                 <span class="text-brand-sky font-bold tracking-widest uppercase text-xs block">CONTACT FORM</span>
@@ -231,29 +298,29 @@
             </div>
 
             <!-- Formspree 送信フォーム -->
-            <form id="contact-form" class="bg-brand-ice border-2 border-brand-water rounded-3xl p-6 sm:p-10 space-y-6" action="https://formspree.io/f/mrenedwj" method="POST">
+            <form id="contact-form" class="bg-white border-2 border-brand-water rounded-3xl p-6 sm:p-10 space-y-6 shadow-md" action="https://formspree.io/f/mrenedwj" method="POST">
                 <input type="hidden" name="_subject" value="【YokosukaPrint】クリエイター丸投げプランのお問い合わせ">
                 <input type="hidden" name="plan_type" value="クリエイター・ブランド支援プラン">
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                         <label for="name" class="block text-sm font-bold text-brand-dark mb-2">お名前 <span class="text-brand-accent">*</span></label>
-                        <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-sky focus:outline-none bg-white transition-all" placeholder="山田 太郎">
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-sky focus:outline-none bg-brand-light transition-all" placeholder="山田 太郎">
                     </div>
                     <div>
                         <label for="email" class="block text-sm font-bold text-brand-dark mb-2">メールアドレス <span class="text-brand-accent">*</span></label>
-                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-sky focus:outline-none bg-white transition-all" placeholder="example@domain.com">
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-sky focus:outline-none bg-brand-light transition-all" placeholder="example@domain.com">
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                         <label for="brand_name" class="block text-sm font-bold text-brand-dark mb-2">ブランド名・活動名（任意）</label>
-                        <input type="text" id="brand_name" name="brand_name" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-sky focus:outline-none bg-white transition-all" placeholder="例：Studio Sample">
+                        <input type="text" id="brand_name" name="brand_name" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-sky focus:outline-none bg-brand-light transition-all" placeholder="例：Studio Sample">
                     </div>
                     <div>
                         <label for="sns_url" class="block text-sm font-bold text-brand-dark mb-2">SNS / ショップURL（任意）</label>
-                        <input type="url" id="sns_url" name="sns_url" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-sky focus:outline-none bg-white transition-all" placeholder="https://instagram.com/your_id">
+                        <input type="url" id="sns_url" name="sns_url" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-sky focus:outline-none bg-brand-light transition-all" placeholder="https://instagram.com/your_id">
                     </div>
                 </div>
 
@@ -262,7 +329,7 @@
                     <label for="design-image" class="block text-sm font-bold text-brand-dark mb-2">
                         デザイン案・ラフ画像（任意／1枚まで）
                     </label>
-                    <div class="bg-white border border-dashed border-brand-sky/50 rounded-2xl p-4">
+                    <div class="bg-brand-light border border-dashed border-brand-sky/50 rounded-2xl p-4">
                         <input type="file" id="design-image"
                                accept="image/jpeg,image/png,image/webp"
                                class="block w-full text-sm text-brand-slate file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:bg-brand-sky file:text-white file:font-bold hover:file:bg-brand-skyhover file:cursor-pointer cursor-pointer">
@@ -270,7 +337,7 @@
                             JPG・PNG・WEBPに対応。最大5MBまで。画像はCloudinaryへ自動保存され、確認用URLが送信されます。
                         </p>
                         <div id="design-image-preview-wrap" class="hidden mt-4">
-                            <img id="design-image-preview" alt="選択画像のプレビュー" class="max-h-64 w-full object-contain rounded-xl border border-brand-water bg-brand-light">
+                            <img id="design-image-preview" alt="選択画像のプレビュー" class="max-h-64 w-full object-contain rounded-xl border border-brand-water bg-white">
                         </div>
                         <p id="design-image-status" class="hidden text-xs font-bold mt-2"></p>
                         <p id="design-image-error" class="hidden text-xs text-red-600 font-bold mt-2"></p>
@@ -280,7 +347,7 @@
 
                 <div>
                     <label for="message" class="block text-sm font-bold text-brand-dark mb-2">ご相談内容 <span class="text-brand-accent">*</span></label>
-                    <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-sky focus:outline-none bg-white transition-all" placeholder="例：自分のイラストでTシャツを3種類作りたいと考えています。発送代行の流れや1枚あたりの制作コストについて詳しく知りたいです。"></textarea>
+                    <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-sky focus:outline-none bg-brand-light transition-all" placeholder="例：自分のイラストでTシャツを3種類作りたいと考えています。発送代行の流れや1枚あたりの制作コストについて詳しく知りたいです。"></textarea>
                 </div>
 
                 <!-- サンクスメッセージエリア -->
@@ -326,6 +393,7 @@
                     <ul class="space-y-2.5 text-xs text-slate-400">
                         <li><a href="index.html" class="hover:text-brand-sky transition-colors">トップページ</a></li>
                         <li><a href="#benefits" class="hover:text-brand-sky transition-colors">クリエイター特長</a></li>
+                        <li><a href="#simulator" class="hover:text-brand-sky transition-colors">利益シミュレーター</a></li>
                         <li><a href="#workflow" class="hover:text-brand-sky transition-colors">受注〜発送の流れ</a></li>
                         <li><a href="#creator-contact" class="hover:text-brand-sky transition-colors">無料相談フォーム</a></li>
                     </ul>
@@ -356,6 +424,36 @@
                 mobileMenu.classList.add('hidden');
             });
         });
+
+        // --- 利益シミュレーター計算ロジック ---
+        const simCost = document.getElementById('sim-cost');
+        const simPrice = document.getElementById('sim-price');
+        const simQty = document.getElementById('sim-qty');
+        const simQtyVal = document.getElementById('sim-qty-val');
+        const resSales = document.getElementById('res-sales');
+        const resCost = document.getElementById('res-cost');
+        const resProfit = document.getElementById('res-profit');
+
+        function calculateProfit() {
+            const cost = parseInt(simCost.value, 10) || 0;
+            const price = parseInt(simPrice.value, 10) || 0;
+            const qty = parseInt(simQty.value, 10) || 1;
+
+            simQtyVal.textContent = `${qty} 枚`;
+
+            const totalSales = price * qty;
+            const totalCost = cost * qty;
+            const totalProfit = totalSales - totalCost;
+
+            resSales.textContent = `${totalSales.toLocaleString()} 円`;
+            resCost.textContent = `${totalCost.toLocaleString()} 円`;
+            resProfit.textContent = `${totalProfit.toLocaleString()} 円`;
+        }
+
+        simCost.addEventListener('change', calculateProfit);
+        simPrice.addEventListener('input', calculateProfit);
+        simQty.addEventListener('input', calculateProfit);
+        calculateProfit(); // 初期計算
 
         // --- Cloudinary画像アップロード + Formspree送信 ---
         const CLOUDINARY_CLOUD_NAME = 'hmjph7xg';
