@@ -1406,24 +1406,30 @@ function gtag_report_conversion(url) {
             const qty = parseInt(quantityInput.value) || 1;
 
             const discountLabel = document.getElementById('volume-discount-label');
-            if (qty >= 30) {
-                discountLabel.classList.remove('hidden');
-                discountLabel.innerText = "🎉 30枚以上：大口割引（20%OFF）適用中！";
-            } else if (qty >= 10) {
-                discountLabel.classList.remove('hidden');
-                discountLabel.innerText = "🎉 10枚以上：小口まとめ割引（10%OFF）適用中！";
-            } else {
-                discountLabel.classList.add('hidden');
-            }
+           if (qty >= 50) {
+    discountLabel.classList.remove('hidden');
+    discountLabel.innerText = "🎉 50枚以上：大口割引（20%OFF）適用中！";
+} else if (qty >= 30) {
+    discountLabel.classList.remove('hidden');
+    discountLabel.innerText = "🎉 30枚以上：まとめ割引（15%OFF）適用中！";
+} else if (qty >= 20) {
+    discountLabel.classList.remove('hidden');
+    discountLabel.innerText = "🎉 20枚以上：まとめ割引（10%OFF）適用中！";
+} else {
+    discountLabel.classList.add('hidden');
+}
 
             const unitSubtotal = currentWearPrice + currentPrintPrice + currentPositionOptPrice + currentSizeOptPrice;
 
-            let discountPerUnit = 0;
-            if (qty >= 30) {
-                discountPerUnit = Math.round(unitSubtotal * 0.20);
-            } else if (qty >= 10) {
-                discountPerUnit = Math.round(unitSubtotal * 0.10);
-            }
+          let discountPerUnit = 0;
+
+if (qty >= 50) {
+    discountPerUnit = Math.round(unitSubtotal * 0.20);
+} else if (qty >= 30) {
+    discountPerUnit = Math.round(unitSubtotal * 0.15);
+} else if (qty >= 20) {
+    discountPerUnit = Math.round(unitSubtotal * 0.10);
+}
 
             const finalUnitSubtotal = unitSubtotal - discountPerUnit;
             const totalPrice = finalUnitSubtotal * qty;
