@@ -11,6 +11,102 @@
 
   gtag('config', 'G-TE19PLLERX');
 </script>
+<!-- 見積もり計測（Google広告：見積もりのリクエスト／流入元の記録） -->
+<script>
+  gtag('config', 'AW-18395062861');
+</script>
+<script>
+(function () {
+  var AW_SEND_TO = 'AW-18395062861/NGfVCN2q4eMcEM3EucNE'; // 見積もりのリクエスト
+  var KEY = 'yp_src';
+
+  // 1. どこから来たかを記録する
+  function detectSource() {
+    var p = new URLSearchParams(location.search);
+    var ref = document.referrer || '';
+    var click = p.get('gclid') || p.get('gbraid') || p.get('wbraid');
+    var src;
+    if (click || p.get('gad_source')) src = 'Google広告';
+    else if (p.get('utm_source')) src = p.get('utm_source') + (p.get('utm_medium') ? '/' + p.get('utm_medium') : '');
+    else if (/google\./.test(ref)) src = 'Google検索（広告以外）';
+    else if (/instagram\.com/.test(ref)) src = 'Instagram';
+    else if (/chatgpt\.com|openai\.com/.test(ref)) src = 'ChatGPT';
+    else if (/(yahoo\.co\.jp|bing\.com)/.test(ref)) src = 'Yahoo/Bing検索';
+    else if (/threads\.(net|com)/.test(ref)) src = 'Threads';
+    else if (/(facebook\.com|t\.co|twitter\.com|x\.com|line\.me|tiktok\.com)/.test(ref)) src = 'SNS: ' + ref.split('/')[2];
+    else if (ref && ref.indexOf(location.hostname) === -1) src = '他のサイト: ' + ref.split('/')[2];
+    else if (!ref) src = '直接（ブックマーク等）';
+    else return null;
+    return { src: src, click: click || '', camp: p.get('gad_campaignid') || p.get('utm_campaign') || '', at: new Date().toISOString().slice(0, 10) };
+  }
+  var data = {};
+  try { data = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+  var now = detectSource();
+  if (now) {
+    if (!data.first) data.first = now;
+    data.last = now;
+    try { localStorage.setItem(KEY, JSON.stringify(data)); } catch (e) {}
+  }
+
+  // 2. 見積フォームに項目を追加する
+  function isQuoteForm(f) { return /formspree\.io/.test(f.getAttribute('action') || '') || !!f.querySelector('[type="email"],[name="email"]'); }
+  function hidden(f, name, val) {
+    var el = f.querySelector('input[name="' + name + '"]');
+    if (!el) { el = document.createElement('input'); el.type = 'hidden'; el.name = name; f.appendChild(el); }
+    el.value = val;
+  }
+  function addSurvey(f) {
+    if (f.querySelector('[name="どこで知りましたか"]')) return;
+    var wrap = document.createElement('div');
+    wrap.style.margin = '16px 0';
+    wrap.innerHTML = '<label style="display:block;font-weight:bold;margin-bottom:6px">どこで当店を知りましたか？（任意）</label>' +
+      '<select name="どこで知りましたか" style="width:100%;padding:10px;font-size:16px">' +
+      '<option value="">選択してください</option><option>Google検索</option><option>Googleの広告</option>' +
+      '<option>Instagram</option><option>ChatGPTなどのAI</option><option>知人・友人の紹介</option>' +
+      '<option>以前に利用した</option><option>その他</option></select>';
+    var btn = f.querySelector('button[type="submit"],input[type="submit"],button:not([type])');
+    if (btn) btn.parentNode.insertBefore(wrap, btn); else f.appendChild(wrap);
+  }
+  function fill(f) {
+    var d = data.last || {}, first = data.first || {};
+    hidden(f, '流入元', d.src || '不明');
+    hidden(f, '流入元_初回', first.src ? first.src + '（' + first.at + '）' : '不明');
+    hidden(f, '広告クリックID', d.click || '');
+    hidden(f, '広告キャンペーンID', d.camp || '');
+  }
+
+  // 3. 送信が成功したら「見積もりのリクエスト」を1件記録する
+  var fired = false;
+  function convert() {
+    if (fired) return; fired = true;
+    gtag('event', 'conversion', { send_to: AW_SEND_TO, transport_type: 'beacon' });
+    gtag('event', 'generate_lead', { form_name: '見積フォーム', lead_source: (data.last || {}).src || '不明' });
+  }
+  if (window.fetch) {
+    var _fetch = window.fetch;
+    window.fetch = function (input) {
+      var url = typeof input === 'string' ? input : (input && input.url) || '';
+      return _fetch.apply(this, arguments).then(function (res) {
+        if (/formspree\.io/.test(url) && res.ok) convert();
+        return res;
+      });
+    };
+  }
+  function setup() {
+    Array.prototype.forEach.call(document.forms, function (f) {
+      if (!isQuoteForm(f) || f.dataset.ypReady) return;
+      f.dataset.ypReady = '1';
+      addSurvey(f);
+      f.addEventListener('submit', function (e) {
+        fill(f);
+        setTimeout(function () { if (!e.defaultPrevented && f.checkValidity()) convert(); }, 0);
+      }, true);
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup); else setup();
+  new MutationObserver(setup).observe(document.documentElement, { childList: true, subtree: true });
+})();
+</script>
     <!-- Event snippet for リードフォームの送信 conversion page
 In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
 <script>
