@@ -491,7 +491,8 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}
   ];
   var LOCS = [
     {id:'front',label:'Front (chest or center)',price:400},
-    {id:'back',label:'Back (large)',price:800},
+    {id:'back',label:'Back (large, up to A3)',price:1200},
+    {id:'backxl',label:'Back (oversize, larger than A3)',price:1500},
     {id:'sleeves',label:'Both sleeves',price:1000},
     {id:'emb',label:'Left-chest embroidery',price:1700}
   ];
@@ -525,7 +526,7 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}
     var lab=document.createElement('label');lab.className='chk';
     lab.innerHTML='<input type="checkbox" id="loc-'+l.id+'"><span>'+l.label+'</span>';
     var cb=lab.querySelector('input');cb.checked=!!st.locs[l.id];
-    cb.addEventListener('change',function(){st.locs[l.id]=cb.checked;render()});
+    cb.addEventListener('change',function(){st.locs[l.id]=cb.checked;var other={back:'backxl',backxl:'back'}[l.id];if(other&&cb.checked){st.locs[other]=false;var ob=$('loc-'+other);if(ob)ob.checked=false;}render()});
     $('locs').appendChild(lab);
   });
   EVENTS.forEach(function(e){
