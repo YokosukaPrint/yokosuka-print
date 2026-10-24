@@ -419,6 +419,8 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}
 
         <form class="panel" id="form" novalidate>
           <h3 style="margin:0;font-size:20px">Send this to us for a final quote</h3>
+          <!-- Spam trap (honeypot): hidden from people; Formspree drops submissions where this is filled -->
+          <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden"><label for="qHp">Leave this field empty</label><input id="qHp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" value=""></div>
           <div class="fld"><label for="qName">Your name</label><input id="qName" type="text" autocomplete="name" placeholder="John Smith"></div>
           <div class="fld"><label for="qEmail">Email</label><input id="qEmail" type="email" autocomplete="email" placeholder="you@example.com"></div>
           <div class="fld"><label for="qOrg">Unit / team / organization</label><input id="qOrg" type="text" placeholder="Division, ship, team or club"></div>
@@ -448,6 +450,7 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}
           <button type="submit" class="btn btn-primary" id="submitBtn">Request final quote</button>
           <div class="sent" id="sent" hidden role="status">
             <strong>Thanks! We'll reply within 24 hours.</strong>
+            <span class="alt">No reply within 24 hours? Please DM us on Instagram <a href="https://www.instagram.com/print_yokosuka_jp/" target="_blank" rel="noopener">@print_yokosuka_jp</a>.</span>
             <span class="alt" id="sentSummary"></span>
             <button type="button" class="btn" id="editBtn">Edit request</button>
           </div>
@@ -732,6 +735,7 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}
       var src={};try{src=JSON.parse(localStorage.getItem('yp_src')||'{}')}catch(x){}
       var fd=new FormData();
       fd.append('_subject','【YokosukaPrint EN】New quote request from '+$('qName').value.trim());
+      fd.append('_gotcha',$('qHp').value);
       fd.append('language','English page');
       fd.append('name',$('qName').value.trim());
       fd.append('email',$('qEmail').value.trim());
