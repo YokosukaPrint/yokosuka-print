@@ -300,6 +300,11 @@
             <!-- Formspree 送信フォーム -->
             <form id="contact-form" class="bg-white border-2 border-brand-water rounded-3xl p-6 sm:p-10 space-y-6 shadow-md" action="https://formspree.io/f/mrenedwj" method="POST">
                 <input type="hidden" name="_subject" value="【YokosukaPrint】クリエイター丸投げプランのお問い合わせ">
+                <!-- スパム対策（ハニーポット）：人には見えない欄。ボットが入力した送信はFormspreeが自動で破棄 -->
+                <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
+                    <label for="hp-gotcha">この欄は入力しないでください</label>
+                    <input type="text" id="hp-gotcha" name="_gotcha" tabindex="-1" autocomplete="off" value="">
+                </div>
                 <input type="hidden" name="plan_type" value="クリエイター・ブランド支援プラン">
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -354,6 +359,7 @@
                 <div id="submit-success" class="hidden bg-emerald-50 border-2 border-emerald-500 rounded-2xl p-5 text-emerald-800 space-y-2">
                     <h4 class="font-bold flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-emerald-500"></i> お問い合わせを受け付けました！</h4>
                     <p class="text-xs leading-relaxed">送信が完了しました。通常、当日〜翌営業日（24時間以内）に担当者よりご連絡いたします。</p>
+                    <p class="text-xs leading-relaxed">24時間以内に返信がない場合は、お手数ですが<a href="https://www.instagram.com/print_yokosuka_jp/" target="_blank" rel="noopener" class="underline font-bold">Instagram（@print_yokosuka_jp）</a>のDMでご連絡ください。</p>
                 </div>
 
                 <div class="text-center pt-4">
