@@ -312,6 +312,13 @@ footer nav{display:flex;gap:24px;flex-wrap:wrap}
 footer a{color:var(--on-ink)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
+.work{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.work figure{margin:0;background:var(--panel);border:1.5px solid var(--ink);border-radius:4px;overflow:hidden}
+.work figure img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
+.work figcaption{padding:12px 14px;font-size:14px;color:var(--text2)}
+.work-meta{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:20px;font-size:15px}
+.work-meta strong{font-family:var(--disp);text-transform:uppercase;font-weight:800}
+@media(max-width:1000px){.work{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 
 <header class="top">
@@ -359,6 +366,21 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}
       <div class="card"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l1.5-5h15L21 9"/><path d="M4 9v11h16V9"/><path d="M9 20v-6h6v6"/></svg><h3>Local businesses</h3><p>Staff tees and merch for bars, restaurants and shops around Dobuita and beyond.</p></div>
     </div>
   </div></section>
+
+  <section class="block" id="work"><div class="wrap">
+    <div class="sec-head">
+      <div><span class="mono eyebrow">Recent work</span><h2 class="disp">331 pieces for a Marine unit.</h2></div>
+      <p>Hoodies and tees with front and back prints, made in Yokosuka and handed over locally in one pickup.</p>
+    </div>
+    <div class="work">
+      <figure><img src="/unit-shirts-1.jpg" alt="Black hoodie, back print in white: shark design with unit patches" loading="lazy" width="900" height="900"><figcaption>Hoodie · back print</figcaption></figure>
+      <figure><img src="/unit-shirts-2.jpg" alt="Olive T-shirt, back print in black: shark design with unit patches" loading="lazy" width="900" height="900"><figcaption>Tee · back print</figcaption></figure>
+      <figure><img src="/unit-shirts-3.jpg" alt="Black hoodie, left-chest emblem print" loading="lazy" width="900" height="900"><figcaption>Hoodie · left chest</figcaption></figure>
+      <figure><img src="/unit-shirts-4.jpg" alt="Olive T-shirt, left-chest emblem print" loading="lazy" width="900" height="900"><figcaption>Tee · left chest</figcaption></figure>
+    </div>
+    <div class="work-meta"><span><strong>331</strong> pcs</span><span><strong>2</strong> items: hoodies &amp; tees</span><span><strong>Front + back</strong> print</span></div>
+  </div></section>
+
 
   <section class="block dark"><div class="wrap">
     <div class="sec-head"><div><span class="mono eyebrow">What we print</span><h2 class="disp">Four ways to put your logo on it.</h2></div></div>
