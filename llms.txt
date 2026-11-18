@@ -31,3 +31,12 @@
 - [日本語トップ](https://yokosukaprint.jp/): 料金表・自動見積り・制作実績・よくある質問
 - [English](https://yokosukaprint.jp/en/): unit shirts, team apparel, names & numbers, quote builder
 - [個人クリエイター・ブランド支援プラン](https://yokosukaprint.jp/creator.html): 1枚からの受注生産・発送代行
+
+## 用途別ページ
+- 横須賀のオリジナルTシャツプリント（対応エリア・対面相談）: https://yokosukaprint.jp/yokosuka.html
+- クラスTシャツ作成（サイズ混在OK・名入れ・見積書）: https://yokosukaprint.jp/class-t.html
+- チーム・部活・サークルのお揃いウェア（名前・背番号、スポーツ生地）: https://yokosukaprint.jp/team-wear.html
+- 飲食店・企業のユニフォーム（都度発注・ワンポイント刺繍）: https://yokosukaprint.jp/uniform.html
+
+## 運営
+- REGADES（企画・デザイン／アパレルブランド／ホームページ・注文システム制作）: https://www.regades.com/
