@@ -143,10 +143,71 @@ function gtag_report_conversion(url) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Noto Sans JP','Montserrat','sans-serif']},colors:{brand:{light:'#F8FAFC',ice:'#F0F9FF',water:'#E0F2FE',sky:'#0284C7',skyhover:'#0369A1',slate:'#64748B',dark:'#0F172A',accent:'#F97316'}}}}}</script>
-    <style>details summary::-webkit-details-marker{display:none}</style>
-    <style>:root{--acc:#059669;--acc-dark:#047857;--acc-soft:#D1FAE5}</style>
+<style>
+.lp{--ink:#1F2A27;--sub:#56635E;--line:#DFE4E1;--paper:#F4F6F4;color:var(--ink);font-size:16px;line-height:1.8}
+.lp .w{max-width:1120px;margin:0 auto;padding:0 24px}
+.lp .base{background:var(--base);color:var(--chalk)}
+.lp .hero{padding:64px 0 72px}
+.lp .hero .w{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+@media(min-width:900px){.lp .hero .w{grid-template-columns:1fr 1fr;gap:56px}}
+.lp .crumb{font-size:13px;color:var(--dim);margin-bottom:16px}.lp .crumb a{color:var(--dim)}
+.lp h1{font-size:clamp(30px,4.4vw,46px);line-height:1.3;font-weight:800;letter-spacing:.01em}
+.lp .lead{margin-top:20px;font-size:17px;color:var(--soft);max-width:30em}
+.lp .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.lp .btn{display:inline-block;font-weight:700;padding:14px 24px;border-radius:10px;font-size:16px;text-decoration:none}
+.lp .btn.acc{background:var(--acc);color:var(--onacc)}.lp .btn.acc:hover{filter:brightness(1.05)}
+.lp .btn.ghost{border:1.5px solid var(--dim);color:var(--chalk)}.lp .btn.ghost:hover{border-color:var(--chalk)}
+.lp .btn:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.lp .facts{display:flex;flex-wrap:wrap;gap:28px;margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,.18);font-size:14px;color:var(--dim)}
+.lp .facts b{display:block;color:var(--acc);font-size:22px;font-weight:800;line-height:1.3}
+.lp .frame{background:var(--base2);border-radius:18px;padding:26px;border:10px solid var(--frame);box-shadow:inset 0 0 40px rgba(0,0,0,.22)}
+.lp .cap{display:flex;justify-content:space-between;font-size:13px;color:var(--dim);margin-top:12px}
+.lp section.s{padding:80px 0}.lp .paper{background:var(--paper)}
+.lp h2{font-size:clamp(24px,3vw,32px);font-weight:800;line-height:1.4;margin-bottom:10px}
+.lp .base h2{color:var(--chalk)}
+.lp .intro{color:var(--sub);max-width:36em;margin-bottom:38px}.lp .base .intro{color:var(--dim)}
+.lp .hl{background:linear-gradient(transparent 62%,var(--accsoft) 62%)}
+.lp .pts{display:grid;grid-template-columns:1fr;gap:32px}
+@media(min-width:640px){.lp .pts{grid-template-columns:1fr 1fr}}@media(min-width:1000px){.lp .pts{grid-template-columns:repeat(4,1fr)}}
+.lp .ic{width:44px;height:44px;border-radius:10px;background:var(--accsoft);color:var(--base);display:flex;align-items:center;justify-content:center;font-size:18px}
+.lp .pt h3{font-size:18px;font-weight:800;margin:14px 0 6px;border-left:4px solid var(--acc);padding-left:10px;line-height:1.4}
+.lp .pt p{font-size:15px;color:var(--sub);line-height:1.75}
+.lp .tl{display:grid;grid-template-columns:1fr;gap:28px;position:relative}
+@media(min-width:900px){.lp .tl{grid-template-columns:repeat(4,1fr);gap:0}.lp .tl:before{content:"";position:absolute;left:12px;right:12px;top:15px;height:2px;background:rgba(255,255,255,.25)}.lp .st{padding-right:28px}}
+.lp .st{position:relative}
+.lp .dot{width:32px;height:32px;border-radius:50%;background:var(--base);border:2px solid var(--acc);color:var(--acc);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;position:relative}
+.lp .st:last-child .dot{background:var(--acc);color:var(--onacc)}
+.lp .when{margin-top:14px;font-size:13px;font-weight:700;color:var(--acc)}
+.lp .st h3{font-size:18px;font-weight:800;margin:4px 0 6px}.lp .st p{font-size:14px;color:var(--dim);line-height:1.75}
+.lp .note{margin-top:30px;font-size:14px;color:var(--soft);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:14px 18px}
+.lp .uses{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:640px){.lp .uses{grid-template-columns:1fr 1fr}}@media(min-width:1000px){.lp .uses{grid-template-columns:repeat(3,1fr)}}
+.lp .use{border:1px solid var(--line);border-radius:14px;padding:20px 22px;background:#fff;display:flex;gap:14px;align-items:center;font-weight:700}
+.lp .use .ui{flex:none;width:40px;height:40px;border-radius:10px;background:var(--base);color:var(--acc);display:flex;align-items:center;justify-content:center}
+.lp table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.lp th,.lp td{text-align:left;padding:18px 22px;border-bottom:1px solid var(--line);font-size:15px}
+.lp th{background:#EEF1EF;font-size:13px;color:var(--sub);font-weight:700}
+.lp td.p{font-size:21px;font-weight:800;color:var(--base);white-space:nowrap}
+.lp tr:last-child td{border-bottom:0}.lp tr.rec td{background:var(--recbg)}
+.lp .badge{display:inline-block;background:var(--acc);color:var(--onacc);font-size:12px;font-weight:800;padding:2px 10px;border-radius:999px;margin-left:8px}
+@media(max-width:640px){.lp th:nth-child(2),.lp td:nth-child(2){display:none}}
+.lp .small{font-size:13px;color:var(--sub);margin-top:14px}
+.lp .faq{max-width:820px}
+.lp details{border-bottom:1px solid var(--line);padding:18px 4px}
+.lp summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.lp summary::-webkit-details-marker{display:none}
+.lp summary:after{content:"+";color:var(--base);font-weight:800;font-size:20px;line-height:1}
+.lp details[open] summary:after{content:"−"}
+.lp details p{margin-top:10px;color:var(--sub);font-size:15px}
+.lp .rel{display:flex;flex-wrap:wrap;gap:10px}
+.lp .rel a{border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:700;color:var(--ink);text-decoration:none;background:#fff}
+.lp .rel a:hover{border-color:var(--base);color:var(--base)}
+.lp .end .w{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px}
+.lp .end p{color:var(--dim);margin-top:4px}
+</style>
+<style>.lp{--base:#6E2B3A;--base2:#7A3343;--frame:#8E5A3A;--chalk:#FBF5F3;--dim:#E0C3C8;--soft:#F1E1E4;--acc:#D4B26A;--onacc:#2A1A1E;--accsoft:#F3E6C6;--recbg:#FBF6EA}</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "背中に全員の名前を入れられますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、できます。部員全員の名前を並べたデザインや、1枚ずつ違う名前・背番号を入れることもできます。"}}, {"@type": "Question", "name": "卒団式に間に合いますか？", "acceptedAnswer": {"@type": "Answer", "text": "デザインと注文内容が確定してから、原則1週間以内に発送します。式の日付を見積りのときに教えていただければ、間に合うかどうかを含めてご案内します。"}}, {"@type": "Question", "name": "1枚いくらですか？", "acceptedAnswer": {"@type": "Answer", "text": "Tシャツは1枚あたり税抜850円〜（ウェア本体600円〜＋片面プリント250円〜）です。背中にも入れる場合は＋500円〜／枚、まとめ注文はさらに単価が下がります。"}}, {"@type": "Question", "name": "子どもサイズと大人サイズを混ぜられますか？", "acceptedAnswer": {"@type": "Answer", "text": "デザインが同じなら、サイズが混ざっていても追加料金はかかりません。ご希望のサイズ別の枚数をお知らせください。"}}, {"@type": "Question", "name": "デザインを作れなくても大丈夫ですか？", "acceptedAnswer": {"@type": "Answer", "text": "大丈夫です。手書きのラフ画やチームのロゴ画像から、デザイナーが無料で清書します。"}}, {"@type": "Question", "name": "支払い方法は？", "acceptedAnswer": {"@type": "Answer", "text": "正式なお見積りの後にお振込みいただき、ご入金を確認してから製作します。保護者会での集金用に見積書・請求書も発行します。"}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "YokosukaPrint", "item": "https://yokosukaprint.jp/"}, {"@type": "ListItem", "position": 2, "name": "卒団・卒業記念Tシャツ作成", "item": "https://yokosukaprint.jp/sotsudan.html"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "卒団・卒業記念Tシャツ作成", "serviceType": "オリジナルTシャツ・ウェアプリント", "provider": {"@id": "https://yokosukaprint.jp/#business"}, "areaServed": "JP", "url": "https://yokosukaprint.jp/sotsudan.html", "description": "少年野球・サッカーなどの卒団記念、部活の引退・卒業記念Tシャツを1枚税抜850円〜で作成。背中に全員の名前や背番号を入れるデザインにも対応。手書きデザインの清書は無料。確定後1週間以内に発送。", "offers": {"@type": "Offer", "priceCurrency": "JPY", "price": "850", "description": "Tシャツ1枚あたり税抜850円〜（ウェア本体600円〜＋片面プリント250円〜）"}}</script>
@@ -170,80 +231,27 @@ function gtag_report_conversion(url) {
         </div>
     </header>
 
-    <main>
-    <section class="relative overflow-hidden bg-gradient-to-b from-emerald-50 to-white text-slate-900 py-14 md:py-20"><div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-amber-200/50"></div><div class="absolute -bottom-32 -left-20 w-80 h-80 rounded-full bg-emerald-200/50"></div>
-        <div class="relative max-w-6xl mx-auto px-4"><div class=""><nav class="text-xs opacity-70 mb-5"><a href="/" class="hover:underline">YokosukaPrint</a> ／ 卒団・卒業記念Tシャツ作成</nav><div class="inline-block bg-amber-100 text-amber-800 font-bold text-xs px-3 py-1.5 rounded-full mb-4">卒団記念・卒業記念・引退記念</div><h1 class="text-3xl md:text-5xl font-black leading-tight mb-5">卒団・卒業の記念Tシャツを、<br class="hidden md:block">全員の名前入りで。</h1><p class="leading-relaxed max-w-2xl text-slate-600">少年野球やサッカーの卒団式、部活の引退、卒業の記念に。チーム全員の名前や背番号を入れたお揃いのTシャツを1枚税抜850円〜で作れます。保護者会や指導者への記念品にも。手書きのラフ画から、デザイナーが無料で清書します。</p><div class="flex flex-wrap gap-3 mt-7"><a href="/#estimator" class="bg-[color:var(--acc)] hover:bg-[color:var(--acc-dark)] text-white px-6 py-3.5 rounded-xl font-bold shadow-md"><i class="fa-solid fa-calculator mr-1"></i> 10秒で自動見積り</a><a href="/#contact-form" class="bg-white border-2 border-[color:var(--acc)] text-[color:var(--acc)] px-6 py-3.5 rounded-xl font-bold">無料で相談する</a></div><ul class="flex flex-wrap gap-x-6 gap-y-2 mt-7 text-sm font-bold"><li><i class="fa-solid fa-check text-[color:var(--acc)] mr-1"></i>全員の名前・背番号入りOK</li><li><i class="fa-solid fa-check text-[color:var(--acc)] mr-1"></i>保護者・指導者の分もまとめて</li><li><i class="fa-solid fa-check text-[color:var(--acc)] mr-1"></i>手書きラフからデザイン無料</li></ul></div></div>
-    </section>
-
-
-    <section class="py-14"><div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-black mb-8">記念Tシャツで選ばれる理由</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5"><div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6 shadow-sm"><div class="w-11 h-11 rounded-xl bg-[color:var(--acc-soft)] text-[color:var(--acc)] flex items-center justify-center text-lg mb-4"><i class="fa-solid fa-users"></i></div><h3 class="font-bold text-lg mb-2">全員の名前を入れられる</h3><p class="text-sm text-slate-600 leading-relaxed">背中に部員全員の名前を並べるデザインや、1枚ずつ違う名前・背番号にも対応します。</p></div>
-<div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6 shadow-sm"><div class="w-11 h-11 rounded-xl bg-[color:var(--acc-soft)] text-[color:var(--acc)] flex items-center justify-center text-lg mb-4"><i class="fa-solid fa-yen-sign"></i></div><h3 class="font-bold text-lg mb-2">1枚850円〜</h3><p class="text-sm text-slate-600 leading-relaxed">ウェア本体600円〜＋片面プリント250円〜。保護者や指導者の分まで含めたまとめ注文はさらにお得です。</p></div>
-<div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6 shadow-sm"><div class="w-11 h-11 rounded-xl bg-[color:var(--acc-soft)] text-[color:var(--acc)] flex items-center justify-center text-lg mb-4"><i class="fa-solid fa-pen-nib"></i></div><h3 class="font-bold text-lg mb-2">デザイン無料</h3><p class="text-sm text-slate-600 leading-relaxed">チームのロゴや手書きのラフ画をスマホで撮って送るだけ。データにします。</p></div>
-<div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6 shadow-sm"><div class="w-11 h-11 rounded-xl bg-[color:var(--acc-soft)] text-[color:var(--acc)] flex items-center justify-center text-lg mb-4"><i class="fa-solid fa-calendar-check"></i></div><h3 class="font-bold text-lg mb-2">卒団式に間に合わせる</h3><p class="text-sm text-slate-600 leading-relaxed">確定後、原則1週間以内に発送。式の日付を見積りのときに教えてください。</p></div></div>
-    </div></section>
-
-    <section class="py-14 bg-white"><div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-black mb-6">こんな記念Tシャツが作れます</h2>
-        <ul class="grid sm:grid-cols-2 md:grid-cols-3 gap-3 text-sm font-bold"><li class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-3"><i class="fa-solid fa-check text-[color:var(--acc)] mr-2"></i>少年野球・サッカーの卒団記念T</li><li class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-3"><i class="fa-solid fa-check text-[color:var(--acc)] mr-2"></i>部活の引退記念T</li><li class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-3"><i class="fa-solid fa-check text-[color:var(--acc)] mr-2"></i>卒業生全員の名前入りT</li><li class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-3"><i class="fa-solid fa-check text-[color:var(--acc)] mr-2"></i>保護者会・指導者への記念品</li><li class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-3"><i class="fa-solid fa-check text-[color:var(--acc)] mr-2"></i>大会出場の記念T</li><li class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-3"><i class="fa-solid fa-check text-[color:var(--acc)] mr-2"></i>チーム結成〇周年の記念T</li></ul>
-    </div></section>
-
-    <section class="py-14"><div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-black mb-6">おすすめのプリント方法</h2>
-        <div class="grid md:grid-cols-2 gap-5 text-sm"><div class="border border-[color:var(--acc-soft)] rounded-2xl p-6"><h3 class="font-bold text-lg mb-2">同じデザインを全員分なら「単色シルクスクリーン」</h3><p class="text-slate-600 leading-relaxed">名前を並べた背中デザインなど、同じものをたくさん刷るのに向いた方法。洗濯に強く、枚数が多いほど安くなります。</p></div>
-<div class="border border-[color:var(--acc-soft)] rounded-2xl p-6"><h3 class="font-bold text-lg mb-2">写真やカラフルなロゴなら「フルカラー（DTF）」</h3><p class="text-slate-600 leading-relaxed">チームの集合写真や色の多いエンブレムもそのまま再現できます。1枚ずつ名前を変える場合にも向いています。</p></div></div>
-    </div></section>
-
-    <section class="py-14 bg-white"><div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-black mb-2">料金の目安（税抜）</h2>
-        <p class="text-sm text-slate-600 mb-8">ウェア本体代＋プリント代のシンプルな価格です。A4サイズ以内の片面プリントの場合。背中にも入れる場合は＋500円〜／枚。30枚以上・100枚以上のまとめ注文はさらに単価が下がります。</p>
-        <div class="grid md:grid-cols-3 gap-5"><div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6 text-center"><div class="font-bold mb-2">ハイクオリティ Tシャツ</div><div class="text-xs text-slate-500">ウェア本体 600円〜／枚</div><div class="text-xs text-slate-500">＋片面プリント 250円〜</div><div class="mt-3 text-3xl font-black text-[color:var(--acc)]">850円〜</div><div class="text-xs text-slate-500">1枚あたりコミコミ（税抜）</div></div>
-<div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6 text-center"><div class="font-bold mb-2">ロングスリーブ Tシャツ</div><div class="text-xs text-slate-500">ウェア本体 1,000円〜／枚</div><div class="text-xs text-slate-500">＋片面プリント 250円〜</div><div class="mt-3 text-3xl font-black text-[color:var(--acc)]">1,250円〜</div><div class="text-xs text-slate-500">1枚あたりコミコミ（税抜）</div></div>
-<div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6 text-center"><div class="font-bold mb-2">スウェット プルパーカー</div><div class="text-xs text-slate-500">ウェア本体 2,200円〜／枚</div><div class="text-xs text-slate-500">＋片面プリント 250円〜</div><div class="mt-3 text-3xl font-black text-[color:var(--acc)]">2,450円〜</div><div class="text-xs text-slate-500">1枚あたりコミコミ（税抜）</div></div></div>
-        <p class="text-xs text-slate-500 mt-4">※フルカラープリントは片面＋350円〜。刺繍はデザインの針数によって変わるため、お見積りでご案内します。</p>
-        <div class="mt-6"><a href="/#estimator" class="inline-block bg-[color:var(--acc-dark)] text-white px-6 py-3 rounded-xl font-bold">ウェア・枚数を選んで自動見積り →</a></div>
-    </div></section>
-
-    <section class="py-14"><div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-black mb-8">制作実績</h2>
-        <div class="grid md:grid-cols-3 gap-5"><div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6"><div class="text-xs font-bold text-[color:var(--acc)] mb-2">制作実績</div><h3 class="font-bold mb-2">スポーツ生地のオリジナルスポーツシャツ（合計15枚）</h3><p class="text-sm text-slate-600 leading-relaxed">速乾のスポーツ生地にプリント。軽くて着心地もよく、仕上がりも好評でした。コミコミ単価1,700円〜／枚。</p></div>
-<div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6"><div class="text-xs font-bold text-[color:var(--acc)] mb-2">制作実績</div><h3 class="font-bold mb-2">オリジナルデザインTシャツ（合計6枚）</h3><p class="text-sm text-slate-600 leading-relaxed">「オリジナルだからこそ」のデザインを少ない枚数で。コミコミ単価2,500円〜／枚。</p></div>
-<div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6"><div class="text-xs font-bold text-[color:var(--acc)] mb-2">制作実績</div><h3 class="font-bold mb-2">「MIKASA CAFE」Tシャツ（32枚〜都度発注）</h3><p class="text-sm text-slate-600 leading-relaxed">スマホの手書きラフ案から、デザイナーがロゴに清書。コミコミ単価3,000円〜／枚。</p></div></div>
-        <p class="mt-5 text-sm"><a href="/#portfolio" class="text-[color:var(--acc)] font-bold">実績の写真を見る →</a></p>
-    </div></section>
-
-    <section class="py-14 bg-white"><div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-black mb-8">ご注文の流れ</h2>
-        <ol class="grid md:grid-cols-4 gap-5 text-sm">
-            <li class="bg-[color:var(--acc-soft)] rounded-2xl p-5"><b class="block text-[color:var(--acc)] mb-1">1. 自動見積り</b>ウェア・プリント箇所・枚数を選ぶと、その場で金額が出ます。</li>
-            <li class="bg-[color:var(--acc-soft)] rounded-2xl p-5"><b class="block text-[color:var(--acc)] mb-1">2. 見積り・相談を送信</b>お名前とメールアドレス、デザインのイメージを送ってください。</li>
-            <li class="bg-[color:var(--acc-soft)] rounded-2xl p-5"><b class="block text-[color:var(--acc)] mb-1">3. デザイン確定</b>手書きのラフ画もデザイナーが清書。仕上がりイメージを確認します。</li>
-            <li class="bg-[color:var(--acc-soft)] rounded-2xl p-5"><b class="block text-[color:var(--acc)] mb-1">4. 製作・お届け</b>ご入金確認後に自社工房で製作し、原則1週間以内に発送します。</li>
-        </ol>
-    </div></section>
-
-    <section class="py-14"><div class="max-w-4xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-black mb-8">よくあるご質問</h2>
-        <div class="space-y-3"><details class="group bg-white border border-[color:var(--acc-soft)] rounded-2xl p-5"><summary class="cursor-pointer font-bold text-brand-dark flex justify-between items-center gap-4 list-none">Q. 背中に全員の名前を入れられますか？<i class="fa-solid fa-plus text-[color:var(--acc)] group-open:rotate-45 transition-transform"></i></summary><p class="mt-3 text-sm text-slate-600 leading-relaxed">はい、できます。部員全員の名前を並べたデザインや、1枚ずつ違う名前・背番号を入れることもできます。</p></details>
-<details class="group bg-white border border-[color:var(--acc-soft)] rounded-2xl p-5"><summary class="cursor-pointer font-bold text-brand-dark flex justify-between items-center gap-4 list-none">Q. 卒団式に間に合いますか？<i class="fa-solid fa-plus text-[color:var(--acc)] group-open:rotate-45 transition-transform"></i></summary><p class="mt-3 text-sm text-slate-600 leading-relaxed">デザインと注文内容が確定してから、原則1週間以内に発送します。式の日付を見積りのときに教えていただければ、間に合うかどうかを含めてご案内します。</p></details>
-<details class="group bg-white border border-[color:var(--acc-soft)] rounded-2xl p-5"><summary class="cursor-pointer font-bold text-brand-dark flex justify-between items-center gap-4 list-none">Q. 1枚いくらですか？<i class="fa-solid fa-plus text-[color:var(--acc)] group-open:rotate-45 transition-transform"></i></summary><p class="mt-3 text-sm text-slate-600 leading-relaxed">Tシャツは1枚あたり税抜850円〜（ウェア本体600円〜＋片面プリント250円〜）です。背中にも入れる場合は＋500円〜／枚、まとめ注文はさらに単価が下がります。</p></details>
-<details class="group bg-white border border-[color:var(--acc-soft)] rounded-2xl p-5"><summary class="cursor-pointer font-bold text-brand-dark flex justify-between items-center gap-4 list-none">Q. 子どもサイズと大人サイズを混ぜられますか？<i class="fa-solid fa-plus text-[color:var(--acc)] group-open:rotate-45 transition-transform"></i></summary><p class="mt-3 text-sm text-slate-600 leading-relaxed">デザインが同じなら、サイズが混ざっていても追加料金はかかりません。ご希望のサイズ別の枚数をお知らせください。</p></details>
-<details class="group bg-white border border-[color:var(--acc-soft)] rounded-2xl p-5"><summary class="cursor-pointer font-bold text-brand-dark flex justify-between items-center gap-4 list-none">Q. デザインを作れなくても大丈夫ですか？<i class="fa-solid fa-plus text-[color:var(--acc)] group-open:rotate-45 transition-transform"></i></summary><p class="mt-3 text-sm text-slate-600 leading-relaxed">大丈夫です。手書きのラフ画やチームのロゴ画像から、デザイナーが無料で清書します。</p></details>
-<details class="group bg-white border border-[color:var(--acc-soft)] rounded-2xl p-5"><summary class="cursor-pointer font-bold text-brand-dark flex justify-between items-center gap-4 list-none">Q. 支払い方法は？<i class="fa-solid fa-plus text-[color:var(--acc)] group-open:rotate-45 transition-transform"></i></summary><p class="mt-3 text-sm text-slate-600 leading-relaxed">正式なお見積りの後にお振込みいただき、ご入金を確認してから製作します。保護者会での集金用に見積書・請求書も発行します。</p></details></div>
-    </div></section>
-
-    <section class="py-12 bg-white"><div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-xl font-black mb-5">ほかの用途から探す</h2>
-        <div class="flex flex-wrap gap-3"><a class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-2 text-sm font-bold hover:border-[color:var(--acc)]" href="/class-t.html">クラスTシャツ →</a><a class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-2 text-sm font-bold hover:border-[color:var(--acc)]" href="/bunkasai.html">文化祭・体育祭Tシャツ →</a><a class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-2 text-sm font-bold hover:border-[color:var(--acc)]" href="/team-wear.html">チーム・部活・サークルのお揃いウェア →</a><a class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-2 text-sm font-bold hover:border-[color:var(--acc)]" href="/hoodie.html">オリジナルパーカー（クラス・部活） →</a><a class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-2 text-sm font-bold hover:border-[color:var(--acc)]" href="/event-staff.html">イベント・スタッフTシャツ →</a><a class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-2 text-sm font-bold hover:border-[color:var(--acc)]" href="/jieitai.html">自衛隊・部隊Tシャツ →</a><a class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-2 text-sm font-bold hover:border-[color:var(--acc)]" href="/uniform.html">飲食店・企業のユニフォーム →</a><a class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-2 text-sm font-bold hover:border-[color:var(--acc)]" href="/yokosuka.html">横須賀のオリジナルTシャツ →</a></div>
-    </div></section>
-
-    <section class="py-16 bg-brand-dark text-white text-center"><div class="max-w-3xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-black mb-4">まずは10秒の自動見積りから</h2>
-        <p class="text-slate-300 text-sm mb-7">見積り・ご相談は無料です。通常、当日〜翌営業日にご連絡します。</p>
-        <a href="/#estimator" class="inline-block bg-[color:var(--acc)] hover:bg-[color:var(--acc-dark)] px-8 py-4 rounded-xl font-bold">自動見積りをする →</a>
-    </div></section>
-    </main>
+<main class="lp">
+<section class="base hero"><div class="w">
+ <div>
+  <div class="crumb"><a href="/">YokosukaPrint</a> ／ 卒団・卒業記念Tシャツ作成</div>
+  <h1>卒団の記念に、<br>全員の名前を入れて。</h1>
+  <p class="lead">少年野球やサッカーの卒団式、部活の引退、卒業の記念に。チーム全員の名前や背番号を入れたお揃いのTシャツを1枚税抜850円〜で作れます。保護者会や指導者への記念品にも。手書きのラフ画から、デザイナーが無料で清書します。</p>
+  <div class="ctas"><a class="btn acc" href="/#estimator">10秒で自動見積り</a><a class="btn ghost" href="/#contact-form">名前リストを送って相談する</a></div>
+  <div class="facts"><div><b>850円〜</b>1枚あたり</div><div><b>全員分</b>名前・背番号入り</div><div><b>無料</b>デザイン清書</div></div>
+ </div>
+ <div><div class="frame"><svg viewBox="0 0 460 300" width="100%" role="img" aria-label="イメージ図"><path transform="translate(105 22) scale(1.25)" d="M60 20 L85 12 Q100 30 115 12 L140 20 L185 55 L160 85 L145 72 L145 185 L55 185 L55 72 L40 85 L15 55 Z" fill="#FBF5F3" stroke="none" stroke-width="1.76" stroke-linejoin="round" stroke-linecap="round"/><text x="230" y="102" text-anchor="middle" fill="#D4B26A" font-size="13" font-weight="900" font-family="Noto Sans JP, sans-serif">THANK YOU 2026</text><text x="205" y="128" text-anchor="middle" fill="#6E2B3A" font-size="9" font-weight="700" font-family="Noto Sans JP, sans-serif">ハルト 1</text><text x="255" y="128" text-anchor="middle" fill="#6E2B3A" font-size="9" font-weight="700" font-family="Noto Sans JP, sans-serif">ソウタ 2</text><text x="205" y="143" text-anchor="middle" fill="#6E2B3A" font-size="9" font-weight="700" font-family="Noto Sans JP, sans-serif">ユイト 3</text><text x="255" y="143" text-anchor="middle" fill="#6E2B3A" font-size="9" font-weight="700" font-family="Noto Sans JP, sans-serif">レン 4</text><text x="205" y="158" text-anchor="middle" fill="#6E2B3A" font-size="9" font-weight="700" font-family="Noto Sans JP, sans-serif">ミナト 5</text><text x="255" y="158" text-anchor="middle" fill="#6E2B3A" font-size="9" font-weight="700" font-family="Noto Sans JP, sans-serif">カイト 6</text><text x="205" y="173" text-anchor="middle" fill="#6E2B3A" font-size="9" font-weight="700" font-family="Noto Sans JP, sans-serif">リク 7</text><text x="255" y="173" text-anchor="middle" fill="#6E2B3A" font-size="9" font-weight="700" font-family="Noto Sans JP, sans-serif">アオイ 8</text><text x="205" y="188" text-anchor="middle" fill="#6E2B3A" font-size="9" font-weight="700" font-family="Noto Sans JP, sans-serif">ヒナタ 9</text><text x="255" y="188" text-anchor="middle" fill="#6E2B3A" font-size="9" font-weight="700" font-family="Noto Sans JP, sans-serif">ユウマ 10</text><text x="230" y="222" text-anchor="middle" fill="#6E2B3A" font-size="11" font-weight="800" font-family="Noto Sans JP, sans-serif">卒団おめでとう</text><text x="230" y="284" text-anchor="middle" fill="#E0C3C8" font-size="15" font-weight="700" font-family="Noto Sans JP, sans-serif">背中に全員の名前と背番号を並べた例</text></svg></div><div class="cap"><span>イメージ図</span><span>名前の並べ方は相談できます</span></div></div>
+</div></section>
+<section class="s"><div class="w"><h2>一生の記念になる<span class="hl">1枚に</span></h2><p class="intro">チームの思い出を形に残せるように、名前の表記や並び順まで丁寧に確認します。</p><div class="pts"><div class="pt"><div class="ic"><i class="fa-solid fa-users" aria-hidden="true"></i></div><h3>全員の名前を入れられる</h3><p>背中に部員全員の名前を並べるデザインや、1枚ずつ違う名前・背番号にも対応します。</p></div><div class="pt"><div class="ic"><i class="fa-solid fa-yen-sign" aria-hidden="true"></i></div><h3>1枚850円〜</h3><p>ウェア本体600円〜＋片面プリント250円〜。保護者や指導者の分まで含めたまとめ注文はさらにお得です。</p></div><div class="pt"><div class="ic"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i></div><h3>デザイン無料</h3><p>チームのロゴや手書きのラフ画をスマホで撮って送るだけ。データにします。</p></div><div class="pt"><div class="ic"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i></div><h3>卒団式に間に合わせる</h3><p>確定後、原則1週間以内に発送。式の日付を見積りのときに教えてください。</p></div></div></div></section>
+<section class="s base"><div class="w"><h2>卒団式から逆算した進め方</h2><p class="intro">名前の確認に少し時間がかかるので、式の3〜4週間前のご相談がおすすめです。</p><div class="tl"><div class="st"><div class="dot">1</div><div class="when">式の3〜4週間前</div><h3>見積り・相談</h3><p>枚数とデザインのイメージ、入れたい名前・背番号を送ってください。</p></div><div class="st"><div class="dot">2</div><div class="when">2〜3週間前</div><h3>名前とデザインの確認</h3><p>全員の名前の表記と並び順を、仕上がりイメージで確認します。</p></div><div class="st"><div class="dot">3</div><div class="when">2週間前</div><h3>お振込み・製作</h3><p>ご入金を確認してから、自社工房で製作します。</p></div><div class="st"><div class="dot">4</div><div class="when">卒団式</div><h3>記念品として当日へ</h3><p>完成品は郵送でお届けします。</p></div></div><div class="note">保護者会での集金用に、見積書・請求書も発行します。</div></div></section>
+<section class="s"><div class="w"><h2>こんな記念Tシャツが作れます</h2><p class="intro">少年野球・サッカーの卒団式から、部活の引退まで。</p><div class="uses"><div class="use"><span class="ui"><i class="fa-solid fa-star" aria-hidden="true"></i></span>少年野球・サッカーの卒団記念T</div><div class="use"><span class="ui"><i class="fa-solid fa-people-group" aria-hidden="true"></i></span>部活の引退記念T</div><div class="use"><span class="ui"><i class="fa-solid fa-flag" aria-hidden="true"></i></span>卒業生全員の名前入りT</div><div class="use"><span class="ui"><i class="fa-solid fa-heart" aria-hidden="true"></i></span>保護者会・指導者への記念品</div><div class="use"><span class="ui"><i class="fa-solid fa-trophy" aria-hidden="true"></i></span>大会出場の記念T</div><div class="use"><span class="ui"><i class="fa-solid fa-gift" aria-hidden="true"></i></span>チーム結成〇周年の記念T</div></div></div></section>
+<section class="s paper"><div class="w"><h2>料金の目安</h2><p class="intro">ウェア本体＋プリント代のシンプルな価格です（税抜、A4以内の片面プリント）。</p>
+<table><tr><th>ウェア</th><th>内訳</th><th>1枚あたり</th></tr><tr class="rec"><td>ハイクオリティ Tシャツ<span class="badge">記念Tの定番</span></td><td>ウェア600円〜＋プリント250円〜</td><td class="p">850円〜</td></tr><tr><td>ロングスリーブ Tシャツ</td><td>ウェア1,000円〜＋プリント250円〜</td><td class="p">1,250円〜</td></tr><tr><td>スウェット パーカー</td><td>ウェア2,200円〜＋プリント250円〜</td><td class="p">2,450円〜</td></tr></table>
+<p class="small">背中にも入れる場合は＋500円〜／枚。フルカラープリントは片面＋350円〜。刺繍はデザインの針数によってお見積り。30枚以上・100枚以上のまとめ注文はさらに単価が下がります。</p></div></section>
+<section class="s"><div class="w"><h2>よくある質問</h2><div class="faq"><details><summary>背中に全員の名前を入れられますか？</summary><p>はい、できます。部員全員の名前を並べたデザインや、1枚ずつ違う名前・背番号を入れることもできます。</p></details><details><summary>卒団式に間に合いますか？</summary><p>デザインと注文内容が確定してから、原則1週間以内に発送します。式の日付を見積りのときに教えていただければ、間に合うかどうかを含めてご案内します。</p></details><details><summary>1枚いくらですか？</summary><p>Tシャツは1枚あたり税抜850円〜（ウェア本体600円〜＋片面プリント250円〜）です。背中にも入れる場合は＋500円〜／枚、まとめ注文はさらに単価が下がります。</p></details><details><summary>子どもサイズと大人サイズを混ぜられますか？</summary><p>デザインが同じなら、サイズが混ざっていても追加料金はかかりません。ご希望のサイズ別の枚数をお知らせください。</p></details><details><summary>デザインを作れなくても大丈夫ですか？</summary><p>大丈夫です。手書きのラフ画やチームのロゴ画像から、デザイナーが無料で清書します。</p></details><details><summary>支払い方法は？</summary><p>正式なお見積りの後にお振込みいただき、ご入金を確認してから製作します。保護者会での集金用に見積書・請求書も発行します。</p></details></div></div></section>
+<section class="s paper"><div class="w"><h2>ほかの用途から探す</h2><div class="rel" style="margin-top:20px"><a href="/class-t.html">クラスTシャツ</a><a href="/bunkasai.html">文化祭・体育祭Tシャツ</a><a href="/team-wear.html">チーム・部活・サークルのお揃いウェア</a><a href="/hoodie.html">オリジナルパーカー（クラス・部活）</a><a href="/event-staff.html">イベント・スタッフTシャツ</a><a href="/jieitai.html">自衛隊・部隊Tシャツ</a><a href="/uniform.html">飲食店・企業のユニフォーム</a><a href="/yokosuka.html">横須賀のオリジナルTシャツ</a></div></div></section>
+<section class="s base end"><div class="w"><div><h2>まずは自動見積りで金額を確認</h2><p>見積り・相談は無料です。通常、当日〜翌営業日にご連絡します。</p></div><a class="btn acc" href="/#estimator">10秒で自動見積り</a></div></section>
+</main>
 
     <footer class="bg-brand-dark text-slate-400 border-t border-slate-800 py-10 text-xs">
         <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-6">

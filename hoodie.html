@@ -143,10 +143,71 @@ function gtag_report_conversion(url) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Noto Sans JP','Montserrat','sans-serif']},colors:{brand:{light:'#F8FAFC',ice:'#F0F9FF',water:'#E0F2FE',sky:'#0284C7',skyhover:'#0369A1',slate:'#64748B',dark:'#0F172A',accent:'#F97316'}}}}}</script>
-    <style>details summary::-webkit-details-marker{display:none}</style>
-    <style>:root{--acc:#6366F1;--acc-dark:#4338CA;--acc-soft:#E0E7FF}</style>
+<style>
+.lp{--ink:#1F2A27;--sub:#56635E;--line:#DFE4E1;--paper:#F4F6F4;color:var(--ink);font-size:16px;line-height:1.8}
+.lp .w{max-width:1120px;margin:0 auto;padding:0 24px}
+.lp .base{background:var(--base);color:var(--chalk)}
+.lp .hero{padding:64px 0 72px}
+.lp .hero .w{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+@media(min-width:900px){.lp .hero .w{grid-template-columns:1fr 1fr;gap:56px}}
+.lp .crumb{font-size:13px;color:var(--dim);margin-bottom:16px}.lp .crumb a{color:var(--dim)}
+.lp h1{font-size:clamp(30px,4.4vw,46px);line-height:1.3;font-weight:800;letter-spacing:.01em}
+.lp .lead{margin-top:20px;font-size:17px;color:var(--soft);max-width:30em}
+.lp .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.lp .btn{display:inline-block;font-weight:700;padding:14px 24px;border-radius:10px;font-size:16px;text-decoration:none}
+.lp .btn.acc{background:var(--acc);color:var(--onacc)}.lp .btn.acc:hover{filter:brightness(1.05)}
+.lp .btn.ghost{border:1.5px solid var(--dim);color:var(--chalk)}.lp .btn.ghost:hover{border-color:var(--chalk)}
+.lp .btn:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.lp .facts{display:flex;flex-wrap:wrap;gap:28px;margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,.18);font-size:14px;color:var(--dim)}
+.lp .facts b{display:block;color:var(--acc);font-size:22px;font-weight:800;line-height:1.3}
+.lp .frame{background:var(--base2);border-radius:18px;padding:26px;border:10px solid var(--frame);box-shadow:inset 0 0 40px rgba(0,0,0,.22)}
+.lp .cap{display:flex;justify-content:space-between;font-size:13px;color:var(--dim);margin-top:12px}
+.lp section.s{padding:80px 0}.lp .paper{background:var(--paper)}
+.lp h2{font-size:clamp(24px,3vw,32px);font-weight:800;line-height:1.4;margin-bottom:10px}
+.lp .base h2{color:var(--chalk)}
+.lp .intro{color:var(--sub);max-width:36em;margin-bottom:38px}.lp .base .intro{color:var(--dim)}
+.lp .hl{background:linear-gradient(transparent 62%,var(--accsoft) 62%)}
+.lp .pts{display:grid;grid-template-columns:1fr;gap:32px}
+@media(min-width:640px){.lp .pts{grid-template-columns:1fr 1fr}}@media(min-width:1000px){.lp .pts{grid-template-columns:repeat(4,1fr)}}
+.lp .ic{width:44px;height:44px;border-radius:10px;background:var(--accsoft);color:var(--base);display:flex;align-items:center;justify-content:center;font-size:18px}
+.lp .pt h3{font-size:18px;font-weight:800;margin:14px 0 6px;border-left:4px solid var(--acc);padding-left:10px;line-height:1.4}
+.lp .pt p{font-size:15px;color:var(--sub);line-height:1.75}
+.lp .tl{display:grid;grid-template-columns:1fr;gap:28px;position:relative}
+@media(min-width:900px){.lp .tl{grid-template-columns:repeat(4,1fr);gap:0}.lp .tl:before{content:"";position:absolute;left:12px;right:12px;top:15px;height:2px;background:rgba(255,255,255,.25)}.lp .st{padding-right:28px}}
+.lp .st{position:relative}
+.lp .dot{width:32px;height:32px;border-radius:50%;background:var(--base);border:2px solid var(--acc);color:var(--acc);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;position:relative}
+.lp .st:last-child .dot{background:var(--acc);color:var(--onacc)}
+.lp .when{margin-top:14px;font-size:13px;font-weight:700;color:var(--acc)}
+.lp .st h3{font-size:18px;font-weight:800;margin:4px 0 6px}.lp .st p{font-size:14px;color:var(--dim);line-height:1.75}
+.lp .note{margin-top:30px;font-size:14px;color:var(--soft);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:14px 18px}
+.lp .uses{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:640px){.lp .uses{grid-template-columns:1fr 1fr}}@media(min-width:1000px){.lp .uses{grid-template-columns:repeat(3,1fr)}}
+.lp .use{border:1px solid var(--line);border-radius:14px;padding:20px 22px;background:#fff;display:flex;gap:14px;align-items:center;font-weight:700}
+.lp .use .ui{flex:none;width:40px;height:40px;border-radius:10px;background:var(--base);color:var(--acc);display:flex;align-items:center;justify-content:center}
+.lp table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.lp th,.lp td{text-align:left;padding:18px 22px;border-bottom:1px solid var(--line);font-size:15px}
+.lp th{background:#EEF1EF;font-size:13px;color:var(--sub);font-weight:700}
+.lp td.p{font-size:21px;font-weight:800;color:var(--base);white-space:nowrap}
+.lp tr:last-child td{border-bottom:0}.lp tr.rec td{background:var(--recbg)}
+.lp .badge{display:inline-block;background:var(--acc);color:var(--onacc);font-size:12px;font-weight:800;padding:2px 10px;border-radius:999px;margin-left:8px}
+@media(max-width:640px){.lp th:nth-child(2),.lp td:nth-child(2){display:none}}
+.lp .small{font-size:13px;color:var(--sub);margin-top:14px}
+.lp .faq{max-width:820px}
+.lp details{border-bottom:1px solid var(--line);padding:18px 4px}
+.lp summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.lp summary::-webkit-details-marker{display:none}
+.lp summary:after{content:"+";color:var(--base);font-weight:800;font-size:20px;line-height:1}
+.lp details[open] summary:after{content:"−"}
+.lp details p{margin-top:10px;color:var(--sub);font-size:15px}
+.lp .rel{display:flex;flex-wrap:wrap;gap:10px}
+.lp .rel a{border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:700;color:var(--ink);text-decoration:none;background:#fff}
+.lp .rel a:hover{border-color:var(--base);color:var(--base)}
+.lp .end .w{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px}
+.lp .end p{color:var(--dim);margin-top:4px}
+</style>
+<style>.lp{--base:#2B2F36;--base2:#353A42;--frame:#4A505A;--chalk:#F2F4F7;--dim:#B5BCC6;--soft:#D9DEE5;--acc:#8EC5E8;--onacc:#1B2027;--accsoft:#DCEEF9;--recbg:#EEF7FC}</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "パーカーは1枚いくらですか？", "acceptedAnswer": {"@type": "Answer", "text": "スウェットのプルパーカーは1枚あたり税抜2,450円〜（ウェア本体2,200円〜＋片面プリント250円〜）です。背中にも入れる場合は＋500円〜／枚、まとめ注文はさらに単価が下がります。"}}, {"@type": "Question", "name": "1枚から作れますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、1枚から作れます。クラスや部活のまとめ注文ほど1枚あたりが安くなります。"}}, {"@type": "Question", "name": "名前や背番号を1人ずつ入れられますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、できます。1枚ずつ違う名前・背番号を入れられます。見積りフォームのご要望欄にお書きください。"}}, {"@type": "Question", "name": "刺繍もできますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、胸などのワンポイント刺繍に対応しています。料金はデザインの針数によって変わるため、お見積りでご案内します。"}}, {"@type": "Question", "name": "サイズがバラバラでも大丈夫ですか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。デザインが同じなら、サイズが混ざっていても追加料金はかかりません。"}}, {"@type": "Question", "name": "納期はどのくらいですか？", "acceptedAnswer": {"@type": "Answer", "text": "デザインと注文内容が確定してから、原則1週間以内に発送します。卒業式や大会など日付が決まっている場合は、見積りのときにお知らせください。"}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "YokosukaPrint", "item": "https://yokosukaprint.jp/"}, {"@type": "ListItem", "position": 2, "name": "オリジナルパーカー作成（クラス・部活）", "item": "https://yokosukaprint.jp/hoodie.html"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "オリジナルパーカー作成（クラス・部活）", "serviceType": "オリジナルTシャツ・ウェアプリント", "provider": {"@id": "https://yokosukaprint.jp/#business"}, "areaServed": "JP", "url": "https://yokosukaprint.jp/hoodie.html", "description": "クラスパーカー・部活パーカー・チームのオリジナルパーカーを1枚税抜2,450円〜で作成。サイズ混在OK、名前・背番号入れ、ワンポイント刺繍にも対応。手書きデザインの清書は無料。確定後1週間以内に発送。", "offers": {"@type": "Offer", "priceCurrency": "JPY", "price": "2450", "description": "スウェット プルパーカー1枚あたり税抜2,450円〜（ウェア本体2,200円〜＋片面プリント250円〜）"}}</script>
@@ -170,80 +231,27 @@ function gtag_report_conversion(url) {
         </div>
     </header>
 
-    <main>
-    <section class="relative overflow-hidden bg-slate-900 text-white py-14 md:py-20">
-        <div class="relative max-w-6xl mx-auto px-4"><div class="grid md:grid-cols-2 gap-10 items-center"><div><nav class="text-xs opacity-70 mb-5"><a href="/" class="hover:underline">YokosukaPrint</a> ／ オリジナルパーカー作成（クラス・部活）</nav><div class="inline-block bg-white/10 text-indigo-200 font-bold text-xs px-3 py-1.5 rounded-full mb-4">クラスパーカー・部活パーカー・チームパーカー</div><h1 class="text-3xl md:text-5xl font-black leading-tight mb-5">クラス・部活の<br>パーカーを、<br>オリジナルで。</h1><p class="leading-relaxed max-w-2xl text-slate-300">卒業記念のクラスパーカー、部活やチームのお揃いパーカーを1枚税抜2,450円〜で作れます。胸のワンポイントと背中の大きなデザイン、1枚ずつの名前・背番号入れにも対応。サイズがバラバラでも追加料金はかかりません。</p><div class="flex flex-wrap gap-3 mt-7"><a href="/#estimator" class="bg-[color:var(--acc)] hover:bg-[color:var(--acc-dark)] text-white px-6 py-3.5 rounded-xl font-bold shadow-md"><i class="fa-solid fa-calculator mr-1"></i> 10秒で自動見積り</a><a href="/#contact-form" class="bg-transparent border-2 border-white/60 text-white px-6 py-3.5 rounded-xl font-bold">無料で相談する</a></div><ul class="flex flex-wrap gap-x-6 gap-y-2 mt-7 text-sm font-bold"><li><i class="fa-solid fa-check text-[color:var(--acc)] mr-1"></i>1枚2,450円〜</li><li><i class="fa-solid fa-check text-[color:var(--acc)] mr-1"></i>名前・背番号入れOK</li><li><i class="fa-solid fa-check text-[color:var(--acc)] mr-1"></i>ワンポイント刺繍も対応</li></ul></div><div class="relative"><div class="absolute -inset-3 rounded-[2rem] bg-indigo-500/40 rotate-2"></div><img src="/unit-shirts-1.jpg" alt="背中に大きくプリントした黒のスウェット" class="relative w-full rounded-3xl shadow-xl object-cover aspect-square"></div></div></div>
-    </section>
-
-
-    <section class="py-14"><div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-black mb-8">パーカー作りで選ばれる理由</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5"><div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6 shadow-sm"><div class="w-11 h-11 rounded-xl bg-[color:var(--acc-soft)] text-[color:var(--acc)] flex items-center justify-center text-lg mb-4"><i class="fa-solid fa-yen-sign"></i></div><h3 class="font-bold text-lg mb-2">1枚2,450円〜</h3><p class="text-sm text-slate-600 leading-relaxed">スウェットのプルパーカー本体2,200円〜＋片面プリント250円〜。まとめ注文はさらにお得です。</p></div>
-<div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6 shadow-sm"><div class="w-11 h-11 rounded-xl bg-[color:var(--acc-soft)] text-[color:var(--acc)] flex items-center justify-center text-lg mb-4"><i class="fa-solid fa-shirt"></i></div><h3 class="font-bold text-lg mb-2">サイズ混在OK</h3><p class="text-sm text-slate-600 leading-relaxed">S〜XLなどサイズが混ざっても追加料金なし。サイズ別の枚数を送るだけです。</p></div>
-<div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6 shadow-sm"><div class="w-11 h-11 rounded-xl bg-[color:var(--acc-soft)] text-[color:var(--acc)] flex items-center justify-center text-lg mb-4"><i class="fa-solid fa-hashtag"></i></div><h3 class="font-bold text-lg mb-2">名前・背番号入れ</h3><p class="text-sm text-slate-600 leading-relaxed">背中や袖に1人ずつ違う名前・番号を入れられます。部活・チームの定番です。</p></div>
-<div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6 shadow-sm"><div class="w-11 h-11 rounded-xl bg-[color:var(--acc-soft)] text-[color:var(--acc)] flex items-center justify-center text-lg mb-4"><i class="fa-solid fa-pen-nib"></i></div><h3 class="font-bold text-lg mb-2">デザイン無料</h3><p class="text-sm text-slate-600 leading-relaxed">手書きのロゴや部章をスマホで撮って送るだけ。デザイナーが清書します。</p></div></div>
-    </div></section>
-
-    <section class="py-14 bg-white"><div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-black mb-6">こんなパーカーが作れます</h2>
-        <ul class="grid sm:grid-cols-2 md:grid-cols-3 gap-3 text-sm font-bold"><li class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-3"><i class="fa-solid fa-check text-[color:var(--acc)] mr-2"></i>卒業記念のクラスパーカー</li><li class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-3"><i class="fa-solid fa-check text-[color:var(--acc)] mr-2"></i>部活・クラブチームのお揃いパーカー</li><li class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-3"><i class="fa-solid fa-check text-[color:var(--acc)] mr-2"></i>サークル・同好会のパーカー</li><li class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-3"><i class="fa-solid fa-check text-[color:var(--acc)] mr-2"></i>背中に全員の名前を入れた記念パーカー</li><li class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-3"><i class="fa-solid fa-check text-[color:var(--acc)] mr-2"></i>胸にワンポイント刺繍のチームパーカー</li><li class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-3"><i class="fa-solid fa-check text-[color:var(--acc)] mr-2"></i>お店・ブランドのオリジナルパーカー</li></ul>
-    </div></section>
-
-    <section class="py-14"><div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-black mb-6">おすすめのプリント方法</h2>
-        <div class="grid md:grid-cols-2 gap-5 text-sm"><div class="border border-[color:var(--acc-soft)] rounded-2xl p-6"><h3 class="font-bold text-lg mb-2">背中の大きなロゴや部章は「シルクスクリーン」</h3><p class="text-slate-600 leading-relaxed">同じデザインをたくさん刷るのに向いた方法。発色がよく洗濯にも強いので、長く着るパーカーにおすすめです。</p></div>
-<div class="border border-[color:var(--acc-soft)] rounded-2xl p-6"><h3 class="font-bold text-lg mb-2">胸のワンポイントは「刺繍」</h3><p class="text-slate-600 leading-relaxed">立体感のある高級感が出ます。料金はデザインの針数によって変わるため、お見積りでご案内します。</p></div></div>
-    </div></section>
-
-    <section class="py-14 bg-white"><div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-black mb-2">料金の目安（税抜）</h2>
-        <p class="text-sm text-slate-600 mb-8">ウェア本体代＋プリント代のシンプルな価格です。A4サイズ以内の片面プリントの場合。背中にも入れる場合は＋500円〜／枚。30枚以上・100枚以上のまとめ注文はさらに単価が下がります。</p>
-        <div class="grid md:grid-cols-3 gap-5"><div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6 text-center"><div class="font-bold mb-2">スウェット プルパーカー</div><div class="text-xs text-slate-500">ウェア本体 2,200円〜／枚</div><div class="text-xs text-slate-500">＋片面プリント 250円〜</div><div class="mt-3 text-3xl font-black text-[color:var(--acc)]">2,450円〜</div><div class="text-xs text-slate-500">1枚あたりコミコミ（税抜）</div></div>
-<div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6 text-center"><div class="font-bold mb-2">ロングスリーブ Tシャツ</div><div class="text-xs text-slate-500">ウェア本体 1,000円〜／枚</div><div class="text-xs text-slate-500">＋片面プリント 250円〜</div><div class="mt-3 text-3xl font-black text-[color:var(--acc)]">1,250円〜</div><div class="text-xs text-slate-500">1枚あたりコミコミ（税抜）</div></div>
-<div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6 text-center"><div class="font-bold mb-2">ハイクオリティ Tシャツ</div><div class="text-xs text-slate-500">ウェア本体 600円〜／枚</div><div class="text-xs text-slate-500">＋片面プリント 250円〜</div><div class="mt-3 text-3xl font-black text-[color:var(--acc)]">850円〜</div><div class="text-xs text-slate-500">1枚あたりコミコミ（税抜）</div></div></div>
-        <p class="text-xs text-slate-500 mt-4">※フルカラープリントは片面＋350円〜。刺繍はデザインの針数によって変わるため、お見積りでご案内します。</p>
-        <div class="mt-6"><a href="/#estimator" class="inline-block bg-[color:var(--acc-dark)] text-white px-6 py-3 rounded-xl font-bold">ウェア・枚数を選んで自動見積り →</a></div>
-    </div></section>
-
-    <section class="py-14"><div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-black mb-8">制作実績</h2>
-        <div class="grid md:grid-cols-3 gap-5"><div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6"><div class="text-xs font-bold text-[color:var(--acc)] mb-2">制作実績</div><h3 class="font-bold mb-2">スポーツ生地のオリジナルスポーツシャツ（合計15枚）</h3><p class="text-sm text-slate-600 leading-relaxed">速乾のスポーツ生地にプリント。軽くて着心地もよく、仕上がりも好評でした。コミコミ単価1,700円〜／枚。</p></div>
-<div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6"><div class="text-xs font-bold text-[color:var(--acc)] mb-2">制作実績</div><h3 class="font-bold mb-2">オリジナルデザインTシャツ（合計6枚）</h3><p class="text-sm text-slate-600 leading-relaxed">「オリジナルだからこそ」のデザインを少ない枚数で。コミコミ単価2,500円〜／枚。</p></div>
-<div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6"><div class="text-xs font-bold text-[color:var(--acc)] mb-2">制作実績</div><h3 class="font-bold mb-2">「MIKASA CAFE」Tシャツ（32枚〜都度発注）</h3><p class="text-sm text-slate-600 leading-relaxed">スマホの手書きラフ案から、デザイナーがロゴに清書。コミコミ単価3,000円〜／枚。</p></div></div>
-        <p class="mt-5 text-sm"><a href="/#portfolio" class="text-[color:var(--acc)] font-bold">実績の写真を見る →</a></p>
-    </div></section>
-
-    <section class="py-14 bg-white"><div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-black mb-8">ご注文の流れ</h2>
-        <ol class="grid md:grid-cols-4 gap-5 text-sm">
-            <li class="bg-[color:var(--acc-soft)] rounded-2xl p-5"><b class="block text-[color:var(--acc)] mb-1">1. 自動見積り</b>ウェア・プリント箇所・枚数を選ぶと、その場で金額が出ます。</li>
-            <li class="bg-[color:var(--acc-soft)] rounded-2xl p-5"><b class="block text-[color:var(--acc)] mb-1">2. 見積り・相談を送信</b>お名前とメールアドレス、デザインのイメージを送ってください。</li>
-            <li class="bg-[color:var(--acc-soft)] rounded-2xl p-5"><b class="block text-[color:var(--acc)] mb-1">3. デザイン確定</b>手書きのラフ画もデザイナーが清書。仕上がりイメージを確認します。</li>
-            <li class="bg-[color:var(--acc-soft)] rounded-2xl p-5"><b class="block text-[color:var(--acc)] mb-1">4. 製作・お届け</b>ご入金確認後に自社工房で製作し、原則1週間以内に発送します。</li>
-        </ol>
-    </div></section>
-
-    <section class="py-14"><div class="max-w-4xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-black mb-8">よくあるご質問</h2>
-        <div class="space-y-3"><details class="group bg-white border border-[color:var(--acc-soft)] rounded-2xl p-5"><summary class="cursor-pointer font-bold text-brand-dark flex justify-between items-center gap-4 list-none">Q. パーカーは1枚いくらですか？<i class="fa-solid fa-plus text-[color:var(--acc)] group-open:rotate-45 transition-transform"></i></summary><p class="mt-3 text-sm text-slate-600 leading-relaxed">スウェットのプルパーカーは1枚あたり税抜2,450円〜（ウェア本体2,200円〜＋片面プリント250円〜）です。背中にも入れる場合は＋500円〜／枚、まとめ注文はさらに単価が下がります。</p></details>
-<details class="group bg-white border border-[color:var(--acc-soft)] rounded-2xl p-5"><summary class="cursor-pointer font-bold text-brand-dark flex justify-between items-center gap-4 list-none">Q. 1枚から作れますか？<i class="fa-solid fa-plus text-[color:var(--acc)] group-open:rotate-45 transition-transform"></i></summary><p class="mt-3 text-sm text-slate-600 leading-relaxed">はい、1枚から作れます。クラスや部活のまとめ注文ほど1枚あたりが安くなります。</p></details>
-<details class="group bg-white border border-[color:var(--acc-soft)] rounded-2xl p-5"><summary class="cursor-pointer font-bold text-brand-dark flex justify-between items-center gap-4 list-none">Q. 名前や背番号を1人ずつ入れられますか？<i class="fa-solid fa-plus text-[color:var(--acc)] group-open:rotate-45 transition-transform"></i></summary><p class="mt-3 text-sm text-slate-600 leading-relaxed">はい、できます。1枚ずつ違う名前・背番号を入れられます。見積りフォームのご要望欄にお書きください。</p></details>
-<details class="group bg-white border border-[color:var(--acc-soft)] rounded-2xl p-5"><summary class="cursor-pointer font-bold text-brand-dark flex justify-between items-center gap-4 list-none">Q. 刺繍もできますか？<i class="fa-solid fa-plus text-[color:var(--acc)] group-open:rotate-45 transition-transform"></i></summary><p class="mt-3 text-sm text-slate-600 leading-relaxed">はい、胸などのワンポイント刺繍に対応しています。料金はデザインの針数によって変わるため、お見積りでご案内します。</p></details>
-<details class="group bg-white border border-[color:var(--acc-soft)] rounded-2xl p-5"><summary class="cursor-pointer font-bold text-brand-dark flex justify-between items-center gap-4 list-none">Q. サイズがバラバラでも大丈夫ですか？<i class="fa-solid fa-plus text-[color:var(--acc)] group-open:rotate-45 transition-transform"></i></summary><p class="mt-3 text-sm text-slate-600 leading-relaxed">はい。デザインが同じなら、サイズが混ざっていても追加料金はかかりません。</p></details>
-<details class="group bg-white border border-[color:var(--acc-soft)] rounded-2xl p-5"><summary class="cursor-pointer font-bold text-brand-dark flex justify-between items-center gap-4 list-none">Q. 納期はどのくらいですか？<i class="fa-solid fa-plus text-[color:var(--acc)] group-open:rotate-45 transition-transform"></i></summary><p class="mt-3 text-sm text-slate-600 leading-relaxed">デザインと注文内容が確定してから、原則1週間以内に発送します。卒業式や大会など日付が決まっている場合は、見積りのときにお知らせください。</p></details></div>
-    </div></section>
-
-    <section class="py-12 bg-white"><div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-xl font-black mb-5">ほかの用途から探す</h2>
-        <div class="flex flex-wrap gap-3"><a class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-2 text-sm font-bold hover:border-[color:var(--acc)]" href="/class-t.html">クラスTシャツ →</a><a class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-2 text-sm font-bold hover:border-[color:var(--acc)]" href="/bunkasai.html">文化祭・体育祭Tシャツ →</a><a class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-2 text-sm font-bold hover:border-[color:var(--acc)]" href="/team-wear.html">チーム・部活・サークルのお揃いウェア →</a><a class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-2 text-sm font-bold hover:border-[color:var(--acc)]" href="/event-staff.html">イベント・スタッフTシャツ →</a><a class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-2 text-sm font-bold hover:border-[color:var(--acc)]" href="/sotsudan.html">卒団・卒業記念Tシャツ →</a><a class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-2 text-sm font-bold hover:border-[color:var(--acc)]" href="/jieitai.html">自衛隊・部隊Tシャツ →</a><a class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-2 text-sm font-bold hover:border-[color:var(--acc)]" href="/uniform.html">飲食店・企業のユニフォーム →</a><a class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-2 text-sm font-bold hover:border-[color:var(--acc)]" href="/yokosuka.html">横須賀のオリジナルTシャツ →</a></div>
-    </div></section>
-
-    <section class="py-16 bg-brand-dark text-white text-center"><div class="max-w-3xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-black mb-4">まずは10秒の自動見積りから</h2>
-        <p class="text-slate-300 text-sm mb-7">見積り・ご相談は無料です。通常、当日〜翌営業日にご連絡します。</p>
-        <a href="/#estimator" class="inline-block bg-[color:var(--acc)] hover:bg-[color:var(--acc-dark)] px-8 py-4 rounded-xl font-bold">自動見積りをする →</a>
-    </div></section>
-    </main>
+<main class="lp">
+<section class="base hero"><div class="w">
+ <div>
+  <div class="crumb"><a href="/">YokosukaPrint</a> ／ オリジナルパーカー作成（クラス・部活）</div>
+  <h1>クラスや部活の<br>パーカーを、<br>オリジナルで。</h1>
+  <p class="lead">卒業記念のクラスパーカー、部活やチームのお揃いパーカーを1枚税抜2,450円〜で作れます。胸のワンポイントと背中の大きなデザイン、1枚ずつの名前・背番号入れにも対応。サイズがバラバラでも追加料金はかかりません。</p>
+  <div class="ctas"><a class="btn acc" href="/#estimator">10秒で自動見積り</a><a class="btn ghost" href="/#contact-form">デザインを送って相談する</a></div>
+  <div class="facts"><div><b>2,450円〜</b>1枚あたり</div><div><b>OK</b>名前・番号入れ</div><div><b>1週間</b>確定後に発送</div></div>
+ </div>
+ <div><div class="frame"><svg viewBox="0 0 460 300" width="100%" role="img" aria-label="イメージ図"><path transform="translate(14 16)" d="M72 38 Q100 0 128 38 L170 58 L192 150 L166 156 L156 104 L156 214 L44 214 L44 104 L34 156 L8 150 L30 58 Z" fill="#F2F4F7"/><path transform="translate(14 16)" d="M78 40 Q100 76 122 40" fill="none" stroke="#353A42" stroke-width="3"/><path transform="translate(246 16)" d="M72 38 Q100 0 128 38 L170 58 L192 150 L166 156 L156 104 L156 214 L44 214 L44 104 L34 156 L8 150 L30 58 Z" fill="#F2F4F7"/><path transform="translate(246 16)" d="M78 40 Q100 76 122 40" fill="none" stroke="#353A42" stroke-width="3"/><circle cx="138" cy="110" r="11" fill="#8EC5E8"/><text x="138" y="115" text-anchor="middle" fill="#1B2027" font-size="13" font-weight="800" font-family="Noto Sans JP, sans-serif">1</text><circle cx="30" cy="150" r="11" fill="#8EC5E8"/><text x="30" y="155" text-anchor="middle" fill="#1B2027" font-size="13" font-weight="800" font-family="Noto Sans JP, sans-serif">2</text><rect x="296" y="96" width="100" height="56" rx="6" fill="none" stroke="#8EC5E8" stroke-width="2.5" stroke-dasharray="6 4"/><circle cx="346" cy="124" r="11" fill="#8EC5E8"/><text x="346" y="129" text-anchor="middle" fill="#1B2027" font-size="13" font-weight="800" font-family="Noto Sans JP, sans-serif">3</text><rect x="318" y="166" width="56" height="20" rx="4" fill="#8EC5E8" opacity=".35"/><circle cx="346" cy="176" r="11" fill="#8EC5E8"/><text x="346" y="181" text-anchor="middle" fill="#1B2027" font-size="13" font-weight="800" font-family="Noto Sans JP, sans-serif">4</text><text x="114" y="252" text-anchor="middle" fill="#B5BCC6" font-size="14" font-weight="700" font-family="Noto Sans JP, sans-serif">前</text><text x="346" y="252" text-anchor="middle" fill="#B5BCC6" font-size="14" font-weight="700" font-family="Noto Sans JP, sans-serif">後ろ</text><text x="20" y="284" text-anchor="start" fill="#F2F4F7" font-size="13" font-weight="700" font-family="Noto Sans JP, sans-serif">1 胸ワンポイント　2 袖　3 背中のロゴ　4 名前・番号</text></svg></div><div class="cap"><span>イメージ図</span><span>胸・背中・袖に入れられます</span></div></div>
+</div></section>
+<section class="s"><div class="w"><h2>長く着るパーカーを、<span class="hl">きれいに仕上げる</span></h2><p class="intro">卒業記念や部活のパーカーは何年も着るものなので、仕上がりと着心地を大切にしています。</p><div class="pts"><div class="pt"><div class="ic"><i class="fa-solid fa-yen-sign" aria-hidden="true"></i></div><h3>1枚2,450円〜</h3><p>スウェットのプルパーカー本体2,200円〜＋片面プリント250円〜。まとめ注文はさらにお得です。</p></div><div class="pt"><div class="ic"><i class="fa-solid fa-shirt" aria-hidden="true"></i></div><h3>サイズ混在OK</h3><p>S〜XLなどサイズが混ざっても追加料金なし。サイズ別の枚数を送るだけです。</p></div><div class="pt"><div class="ic"><i class="fa-solid fa-hashtag" aria-hidden="true"></i></div><h3>名前・背番号入れ</h3><p>背中や袖に1人ずつ違う名前・番号を入れられます。部活・チームの定番です。</p></div><div class="pt"><div class="ic"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i></div><h3>デザイン無料</h3><p>手書きのロゴや部章をスマホで撮って送るだけ。デザイナーが清書します。</p></div></div></div></section>
+<section class="s base"><div class="w"><h2>ご注文の流れ</h2><p class="intro">デザインと注文内容が確定してから、原則1週間以内に発送します。</p><div class="tl"><div class="st"><div class="dot">1</div><div class="when">ステップ1</div><h3>自動見積り・相談</h3><p>ウェア・プリント箇所・枚数を選ぶと、その場で金額が出ます。</p></div><div class="st"><div class="dot">2</div><div class="when">ステップ2</div><h3>デザイン確定</h3><p>ロゴや手書きのラフ画をデザイナーが清書し、仕上がりイメージを確認します。</p></div><div class="st"><div class="dot">3</div><div class="when">ステップ3</div><h3>お振込み・製作</h3><p>ご入金を確認してから、自社工房で製作します。</p></div><div class="st"><div class="dot">4</div><div class="when">ステップ4</div><h3>お届け</h3><p>原則1週間以内に発送。全国に郵送でお届けします。</p></div></div><div class="note">卒業式や大会など日付が決まっている場合は、見積りのときにお知らせください。</div></div></section>
+<section class="s"><div class="w"><h2>こんなパーカーが作れます</h2><p class="intro">クラスや部活のほか、サークルやお店のオリジナルパーカーにも。</p><div class="uses"><div class="use"><span class="ui"><i class="fa-solid fa-star" aria-hidden="true"></i></span>卒業記念のクラスパーカー</div><div class="use"><span class="ui"><i class="fa-solid fa-people-group" aria-hidden="true"></i></span>部活・クラブチームのお揃いパーカー</div><div class="use"><span class="ui"><i class="fa-solid fa-flag" aria-hidden="true"></i></span>サークル・同好会のパーカー</div><div class="use"><span class="ui"><i class="fa-solid fa-heart" aria-hidden="true"></i></span>背中に全員の名前を入れた記念パーカー</div><div class="use"><span class="ui"><i class="fa-solid fa-trophy" aria-hidden="true"></i></span>胸にワンポイント刺繍のチームパーカー</div><div class="use"><span class="ui"><i class="fa-solid fa-gift" aria-hidden="true"></i></span>お店・ブランドのオリジナルパーカー</div></div></div></section>
+<section class="s paper"><div class="w"><h2>料金の目安</h2><p class="intro">ウェア本体＋プリント代のシンプルな価格です（税抜、A4以内の片面プリント）。</p>
+<table><tr><th>ウェア</th><th>内訳</th><th>1枚あたり</th></tr><tr class="rec"><td>スウェット パーカー<span class="badge">いちばん人気</span></td><td>ウェア2,200円〜＋プリント250円〜</td><td class="p">2,450円〜</td></tr><tr><td>ロングスリーブ Tシャツ</td><td>ウェア1,000円〜＋プリント250円〜</td><td class="p">1,250円〜</td></tr><tr><td>ハイクオリティ Tシャツ</td><td>ウェア600円〜＋プリント250円〜</td><td class="p">850円〜</td></tr></table>
+<p class="small">背中にも入れる場合は＋500円〜／枚。フルカラープリントは片面＋350円〜。刺繍はデザインの針数によってお見積り。30枚以上・100枚以上のまとめ注文はさらに単価が下がります。</p></div></section>
+<section class="s"><div class="w"><h2>よくある質問</h2><div class="faq"><details><summary>パーカーは1枚いくらですか？</summary><p>スウェットのプルパーカーは1枚あたり税抜2,450円〜（ウェア本体2,200円〜＋片面プリント250円〜）です。背中にも入れる場合は＋500円〜／枚、まとめ注文はさらに単価が下がります。</p></details><details><summary>1枚から作れますか？</summary><p>はい、1枚から作れます。クラスや部活のまとめ注文ほど1枚あたりが安くなります。</p></details><details><summary>名前や背番号を1人ずつ入れられますか？</summary><p>はい、できます。1枚ずつ違う名前・背番号を入れられます。見積りフォームのご要望欄にお書きください。</p></details><details><summary>刺繍もできますか？</summary><p>はい、胸などのワンポイント刺繍に対応しています。料金はデザインの針数によって変わるため、お見積りでご案内します。</p></details><details><summary>サイズがバラバラでも大丈夫ですか？</summary><p>はい。デザインが同じなら、サイズが混ざっていても追加料金はかかりません。</p></details><details><summary>納期はどのくらいですか？</summary><p>デザインと注文内容が確定してから、原則1週間以内に発送します。卒業式や大会など日付が決まっている場合は、見積りのときにお知らせください。</p></details></div></div></section>
+<section class="s paper"><div class="w"><h2>ほかの用途から探す</h2><div class="rel" style="margin-top:20px"><a href="/class-t.html">クラスTシャツ</a><a href="/bunkasai.html">文化祭・体育祭Tシャツ</a><a href="/team-wear.html">チーム・部活・サークルのお揃いウェア</a><a href="/event-staff.html">イベント・スタッフTシャツ</a><a href="/sotsudan.html">卒団・卒業記念Tシャツ</a><a href="/jieitai.html">自衛隊・部隊Tシャツ</a><a href="/uniform.html">飲食店・企業のユニフォーム</a><a href="/yokosuka.html">横須賀のオリジナルTシャツ</a></div></div></section>
+<section class="s base end"><div class="w"><div><h2>まずは自動見積りで金額を確認</h2><p>見積り・相談は無料です。通常、当日〜翌営業日にご連絡します。</p></div><a class="btn acc" href="/#estimator">10秒で自動見積り</a></div></section>
+</main>
 
     <footer class="bg-brand-dark text-slate-400 border-t border-slate-800 py-10 text-xs">
         <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-6">

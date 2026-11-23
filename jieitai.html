@@ -143,10 +143,71 @@ function gtag_report_conversion(url) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Noto Sans JP','Montserrat','sans-serif']},colors:{brand:{light:'#F8FAFC',ice:'#F0F9FF',water:'#E0F2FE',sky:'#0284C7',skyhover:'#0369A1',slate:'#64748B',dark:'#0F172A',accent:'#F97316'}}}}}</script>
-    <style>details summary::-webkit-details-marker{display:none}</style>
-    <style>:root{--acc:#1E3A8A;--acc-dark:#172554;--acc-soft:#DBEAFE}</style>
+<style>
+.lp{--ink:#1F2A27;--sub:#56635E;--line:#DFE4E1;--paper:#F4F6F4;color:var(--ink);font-size:16px;line-height:1.8}
+.lp .w{max-width:1120px;margin:0 auto;padding:0 24px}
+.lp .base{background:var(--base);color:var(--chalk)}
+.lp .hero{padding:64px 0 72px}
+.lp .hero .w{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+@media(min-width:900px){.lp .hero .w{grid-template-columns:1fr 1fr;gap:56px}}
+.lp .crumb{font-size:13px;color:var(--dim);margin-bottom:16px}.lp .crumb a{color:var(--dim)}
+.lp h1{font-size:clamp(30px,4.4vw,46px);line-height:1.3;font-weight:800;letter-spacing:.01em}
+.lp .lead{margin-top:20px;font-size:17px;color:var(--soft);max-width:30em}
+.lp .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.lp .btn{display:inline-block;font-weight:700;padding:14px 24px;border-radius:10px;font-size:16px;text-decoration:none}
+.lp .btn.acc{background:var(--acc);color:var(--onacc)}.lp .btn.acc:hover{filter:brightness(1.05)}
+.lp .btn.ghost{border:1.5px solid var(--dim);color:var(--chalk)}.lp .btn.ghost:hover{border-color:var(--chalk)}
+.lp .btn:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.lp .facts{display:flex;flex-wrap:wrap;gap:28px;margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,.18);font-size:14px;color:var(--dim)}
+.lp .facts b{display:block;color:var(--acc);font-size:22px;font-weight:800;line-height:1.3}
+.lp .frame{background:var(--base2);border-radius:18px;padding:26px;border:10px solid var(--frame);box-shadow:inset 0 0 40px rgba(0,0,0,.22)}
+.lp .cap{display:flex;justify-content:space-between;font-size:13px;color:var(--dim);margin-top:12px}
+.lp section.s{padding:80px 0}.lp .paper{background:var(--paper)}
+.lp h2{font-size:clamp(24px,3vw,32px);font-weight:800;line-height:1.4;margin-bottom:10px}
+.lp .base h2{color:var(--chalk)}
+.lp .intro{color:var(--sub);max-width:36em;margin-bottom:38px}.lp .base .intro{color:var(--dim)}
+.lp .hl{background:linear-gradient(transparent 62%,var(--accsoft) 62%)}
+.lp .pts{display:grid;grid-template-columns:1fr;gap:32px}
+@media(min-width:640px){.lp .pts{grid-template-columns:1fr 1fr}}@media(min-width:1000px){.lp .pts{grid-template-columns:repeat(4,1fr)}}
+.lp .ic{width:44px;height:44px;border-radius:10px;background:var(--accsoft);color:var(--base);display:flex;align-items:center;justify-content:center;font-size:18px}
+.lp .pt h3{font-size:18px;font-weight:800;margin:14px 0 6px;border-left:4px solid var(--acc);padding-left:10px;line-height:1.4}
+.lp .pt p{font-size:15px;color:var(--sub);line-height:1.75}
+.lp .tl{display:grid;grid-template-columns:1fr;gap:28px;position:relative}
+@media(min-width:900px){.lp .tl{grid-template-columns:repeat(4,1fr);gap:0}.lp .tl:before{content:"";position:absolute;left:12px;right:12px;top:15px;height:2px;background:rgba(255,255,255,.25)}.lp .st{padding-right:28px}}
+.lp .st{position:relative}
+.lp .dot{width:32px;height:32px;border-radius:50%;background:var(--base);border:2px solid var(--acc);color:var(--acc);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;position:relative}
+.lp .st:last-child .dot{background:var(--acc);color:var(--onacc)}
+.lp .when{margin-top:14px;font-size:13px;font-weight:700;color:var(--acc)}
+.lp .st h3{font-size:18px;font-weight:800;margin:4px 0 6px}.lp .st p{font-size:14px;color:var(--dim);line-height:1.75}
+.lp .note{margin-top:30px;font-size:14px;color:var(--soft);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:14px 18px}
+.lp .uses{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:640px){.lp .uses{grid-template-columns:1fr 1fr}}@media(min-width:1000px){.lp .uses{grid-template-columns:repeat(3,1fr)}}
+.lp .use{border:1px solid var(--line);border-radius:14px;padding:20px 22px;background:#fff;display:flex;gap:14px;align-items:center;font-weight:700}
+.lp .use .ui{flex:none;width:40px;height:40px;border-radius:10px;background:var(--base);color:var(--acc);display:flex;align-items:center;justify-content:center}
+.lp table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.lp th,.lp td{text-align:left;padding:18px 22px;border-bottom:1px solid var(--line);font-size:15px}
+.lp th{background:#EEF1EF;font-size:13px;color:var(--sub);font-weight:700}
+.lp td.p{font-size:21px;font-weight:800;color:var(--base);white-space:nowrap}
+.lp tr:last-child td{border-bottom:0}.lp tr.rec td{background:var(--recbg)}
+.lp .badge{display:inline-block;background:var(--acc);color:var(--onacc);font-size:12px;font-weight:800;padding:2px 10px;border-radius:999px;margin-left:8px}
+@media(max-width:640px){.lp th:nth-child(2),.lp td:nth-child(2){display:none}}
+.lp .small{font-size:13px;color:var(--sub);margin-top:14px}
+.lp .faq{max-width:820px}
+.lp details{border-bottom:1px solid var(--line);padding:18px 4px}
+.lp summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.lp summary::-webkit-details-marker{display:none}
+.lp summary:after{content:"+";color:var(--base);font-weight:800;font-size:20px;line-height:1}
+.lp details[open] summary:after{content:"−"}
+.lp details p{margin-top:10px;color:var(--sub);font-size:15px}
+.lp .rel{display:flex;flex-wrap:wrap;gap:10px}
+.lp .rel a{border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:700;color:var(--ink);text-decoration:none;background:#fff}
+.lp .rel a:hover{border-color:var(--base);color:var(--base)}
+.lp .end .w{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px}
+.lp .end p{color:var(--dim);margin-top:4px}
+</style>
+<style>.lp{--base:#13284A;--base2:#1A335A;--frame:#5A4A32;--chalk:#F2F5F9;--dim:#B4C0D2;--soft:#D8E0EB;--acc:#B8935A;--onacc:#FFFFFF;--accsoft:#EADCC4;--recbg:#F7F1E7}</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "部隊のロゴを使ったTシャツは作れますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。お手持ちのロゴ画像や手書きのデザインから、デザイナーが無料で印刷用のデータにします。ロゴの使用については、所属先のルールをご確認のうえご依頼ください。"}}, {"@type": "Question", "name": "ドライ素材やネイビーのTシャツでも作れますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、速乾のドライTシャツやネイビー・黒などの濃い色のボディにも対応しています。素材によって価格が変わるため、お見積りでご案内します。"}}, {"@type": "Question", "name": "見積書・請求書は出してもらえますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、発行します。正式なお見積りの後にお振込みいただき、ご入金を確認してから製作します。"}}, {"@type": "Question", "name": "1枚いくらですか？", "acceptedAnswer": {"@type": "Answer", "text": "Tシャツは1枚あたり税抜850円〜（ウェア本体600円〜＋片面プリント250円〜）です。背中にも入れる場合は＋500円〜／枚、まとめ注文はさらに単価が下がります。"}}, {"@type": "Question", "name": "名前や番号を1枚ずつ変えられますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、できます。1枚ずつ違う名前・番号を入れられます。"}}, {"@type": "Question", "name": "横須賀以外の駐屯地・基地からも注文できますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。ご相談から注文までWebとメールで完結し、完成品は郵送でお届けします。"}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "YokosukaPrint", "item": "https://yokosukaprint.jp/"}, {"@type": "ListItem", "position": 2, "name": "自衛隊・部隊Tシャツ作成", "item": "https://yokosukaprint.jp/jieitai.html"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "自衛隊・部隊Tシャツ作成", "serviceType": "オリジナルTシャツ・ウェアプリント", "provider": {"@id": "https://yokosukaprint.jp/#business"}, "areaServed": "JP", "url": "https://yokosukaprint.jp/jieitai.html", "description": "横須賀の工房で、自衛隊の部隊・艦艇・同期会のオリジナルTシャツを1枚税抜850円〜で作成。部隊ロゴや手書きデザインのデータ化は無料。ネイビーのドライTシャツ、名前・番号入れ、見積書・請求書発行に対応。確定後1週間以内に発送。", "offers": {"@type": "Offer", "priceCurrency": "JPY", "price": "850", "description": "Tシャツ1枚あたり税抜850円〜（ウェア本体600円〜＋片面プリント250円〜）"}}</script>
@@ -170,80 +231,27 @@ function gtag_report_conversion(url) {
         </div>
     </header>
 
-    <main>
-    <section class="relative overflow-hidden bg-gradient-to-br from-[#0b1f44] to-[#1e3a8a] text-white py-14 md:py-20">
-        <div class="relative max-w-6xl mx-auto px-4"><div class="grid md:grid-cols-2 gap-10 items-center"><div><nav class="text-xs opacity-70 mb-5"><a href="/" class="hover:underline">YokosukaPrint</a> ／ 自衛隊・部隊Tシャツ作成</nav><div class="inline-block bg-amber-400/20 text-amber-300 font-bold text-xs px-3 py-1.5 rounded-full mb-4">部隊T・艦艇T・同期会・記念行事</div><h1 class="text-3xl md:text-5xl font-black leading-tight mb-5">部隊・艦艇の<br>Tシャツを、<br>横須賀の工房で。</h1><p class="leading-relaxed max-w-2xl text-blue-100">横須賀の自社工房で、部隊・艦艇・同期会・記念行事のお揃いTシャツを1枚税抜850円〜で作っています。手持ちの部隊ロゴや手書きのデザインを、デザイナーが無料でデータにします。速乾のドライTシャツやネイビーなどの濃い色のボディにも対応しています。</p><div class="flex flex-wrap gap-3 mt-7"><a href="/#estimator" class="bg-[color:var(--acc)] hover:bg-[color:var(--acc-dark)] text-white px-6 py-3.5 rounded-xl font-bold shadow-md"><i class="fa-solid fa-calculator mr-1"></i> 10秒で自動見積り</a><a href="/#contact-form" class="bg-transparent border-2 border-amber-300 text-amber-300 px-6 py-3.5 rounded-xl font-bold">無料で相談する</a></div><ul class="flex flex-wrap gap-x-6 gap-y-2 mt-7 text-sm font-bold"><li><i class="fa-solid fa-check text-[color:var(--acc)] mr-1"></i>部隊ロゴのデータ化は無料</li><li><i class="fa-solid fa-check text-[color:var(--acc)] mr-1"></i>ドライ素材・濃色ボディ対応</li><li><i class="fa-solid fa-check text-[color:var(--acc)] mr-1"></i>見積書・請求書を発行</li></ul></div><div class="relative"><div class="absolute -inset-3 rounded-[2rem] bg-amber-400/30 rotate-2"></div><img src="/A.png" alt="左胸に丸いエンブレムをプリントしたネイビーTシャツ" class="relative w-full rounded-3xl shadow-xl object-cover aspect-square"></div></div></div>
-    </section>
-
-
-    <section class="py-14"><div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-black mb-8">部隊Tシャツで選ばれる理由</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5"><div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6 shadow-sm"><div class="w-11 h-11 rounded-xl bg-[color:var(--acc-soft)] text-[color:var(--acc)] flex items-center justify-center text-lg mb-4"><i class="fa-solid fa-location-dot"></i></div><h3 class="font-bold text-lg mb-2">横須賀の自社工房</h3><p class="text-sm text-slate-600 leading-relaxed">横須賀市内で製作しています。近くなら対面でのご相談もできます。</p></div>
-<div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6 shadow-sm"><div class="w-11 h-11 rounded-xl bg-[color:var(--acc-soft)] text-[color:var(--acc)] flex items-center justify-center text-lg mb-4"><i class="fa-solid fa-pen-nib"></i></div><h3 class="font-bold text-lg mb-2">ロゴのデータ化は無料</h3><p class="text-sm text-slate-600 leading-relaxed">部隊章や艦艇のマーク、手書きのデザインをスマホで撮って送るだけ。印刷用のデータにします。</p></div>
-<div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6 shadow-sm"><div class="w-11 h-11 rounded-xl bg-[color:var(--acc-soft)] text-[color:var(--acc)] flex items-center justify-center text-lg mb-4"><i class="fa-solid fa-shirt"></i></div><h3 class="font-bold text-lg mb-2">ドライ素材・濃色OK</h3><p class="text-sm text-slate-600 leading-relaxed">訓練や運動で着やすい速乾のドライTシャツ、ネイビーや黒などの濃い色にも対応します。</p></div>
-<div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6 shadow-sm"><div class="w-11 h-11 rounded-xl bg-[color:var(--acc-soft)] text-[color:var(--acc)] flex items-center justify-center text-lg mb-4"><i class="fa-solid fa-file-invoice"></i></div><h3 class="font-bold text-lg mb-2">見積書・請求書を発行</h3><p class="text-sm text-slate-600 leading-relaxed">部隊やグループでの集金・承認に使える見積書・請求書を発行します。</p></div></div>
-    </div></section>
-
-    <section class="py-14 bg-white"><div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-black mb-6">こんな用途で作られています</h2>
-        <ul class="grid sm:grid-cols-2 md:grid-cols-3 gap-3 text-sm font-bold"><li class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-3"><i class="fa-solid fa-check text-[color:var(--acc)] mr-2"></i>部隊・分隊のお揃いTシャツ</li><li class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-3"><i class="fa-solid fa-check text-[color:var(--acc)] mr-2"></i>艦艇の乗員Tシャツ</li><li class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-3"><i class="fa-solid fa-check text-[color:var(--acc)] mr-2"></i>同期会・OB会の記念T</li><li class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-3"><i class="fa-solid fa-check text-[color:var(--acc)] mr-2"></i>記念行事・イベントのスタッフT</li><li class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-3"><i class="fa-solid fa-check text-[color:var(--acc)] mr-2"></i>部隊の運動会・体力錬成用のドライT</li><li class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-3"><i class="fa-solid fa-check text-[color:var(--acc)] mr-2"></i>異動・退官の記念品</li></ul>
-    </div></section>
-
-    <section class="py-14"><div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-black mb-6">おすすめのプリント方法</h2>
-        <div class="grid md:grid-cols-2 gap-5 text-sm"><div class="border border-[color:var(--acc-soft)] rounded-2xl p-6"><h3 class="font-bold text-lg mb-2">同じデザインを全員分なら「単色シルクスクリーン」</h3><p class="text-slate-600 leading-relaxed">胸のワンポイントと背中のロゴなど、同じデザインをたくさん刷るのに向いた方法。洗濯に強く、枚数が多いほど安くなります。</p></div>
-<div class="border border-[color:var(--acc-soft)] rounded-2xl p-6"><h3 class="font-bold text-lg mb-2">多色のエンブレムなら「フルカラー（DTF）」</h3><p class="text-slate-600 leading-relaxed">色の多い部隊章や細かいエンブレムも、そのまま再現できます。版代がかからないので少ない枚数でも作りやすい方法です。</p></div></div>
-    </div></section>
-
-    <section class="py-14 bg-white"><div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-black mb-2">料金の目安（税抜）</h2>
-        <p class="text-sm text-slate-600 mb-8">ウェア本体代＋プリント代のシンプルな価格です。A4サイズ以内の片面プリントの場合。背中にも入れる場合は＋500円〜／枚。30枚以上・100枚以上のまとめ注文はさらに単価が下がります。</p>
-        <div class="grid md:grid-cols-3 gap-5"><div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6 text-center"><div class="font-bold mb-2">ハイクオリティ Tシャツ</div><div class="text-xs text-slate-500">ウェア本体 600円〜／枚</div><div class="text-xs text-slate-500">＋片面プリント 250円〜</div><div class="mt-3 text-3xl font-black text-[color:var(--acc)]">850円〜</div><div class="text-xs text-slate-500">1枚あたりコミコミ（税抜）</div></div>
-<div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6 text-center"><div class="font-bold mb-2">ロングスリーブ Tシャツ</div><div class="text-xs text-slate-500">ウェア本体 1,000円〜／枚</div><div class="text-xs text-slate-500">＋片面プリント 250円〜</div><div class="mt-3 text-3xl font-black text-[color:var(--acc)]">1,250円〜</div><div class="text-xs text-slate-500">1枚あたりコミコミ（税抜）</div></div>
-<div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6 text-center"><div class="font-bold mb-2">スウェット プルパーカー</div><div class="text-xs text-slate-500">ウェア本体 2,200円〜／枚</div><div class="text-xs text-slate-500">＋片面プリント 250円〜</div><div class="mt-3 text-3xl font-black text-[color:var(--acc)]">2,450円〜</div><div class="text-xs text-slate-500">1枚あたりコミコミ（税抜）</div></div></div>
-        <p class="text-xs text-slate-500 mt-4">※フルカラープリントは片面＋350円〜。刺繍はデザインの針数によって変わるため、お見積りでご案内します。</p>
-        <div class="mt-6"><a href="/#estimator" class="inline-block bg-[color:var(--acc-dark)] text-white px-6 py-3 rounded-xl font-bold">ウェア・枚数を選んで自動見積り →</a></div>
-    </div></section>
-
-    <section class="py-14"><div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-black mb-8">制作実績</h2>
-        <div class="grid md:grid-cols-3 gap-5"><div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6"><div class="text-xs font-bold text-[color:var(--acc)] mb-2">制作実績</div><h3 class="font-bold mb-2">スポーツ生地のオリジナルスポーツシャツ（合計15枚）</h3><p class="text-sm text-slate-600 leading-relaxed">速乾のスポーツ生地にプリント。軽くて着心地もよく、仕上がりも好評でした。コミコミ単価1,700円〜／枚。</p></div>
-<div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6"><div class="text-xs font-bold text-[color:var(--acc)] mb-2">制作実績</div><h3 class="font-bold mb-2">オリジナルデザインTシャツ（合計6枚）</h3><p class="text-sm text-slate-600 leading-relaxed">「オリジナルだからこそ」のデザインを少ない枚数で。コミコミ単価2,500円〜／枚。</p></div>
-<div class="bg-white border border-[color:var(--acc-soft)] rounded-2xl p-6"><div class="text-xs font-bold text-[color:var(--acc)] mb-2">制作実績</div><h3 class="font-bold mb-2">「MIKASA CAFE」Tシャツ（32枚〜都度発注）</h3><p class="text-sm text-slate-600 leading-relaxed">スマホの手書きラフ案から、デザイナーがロゴに清書。コミコミ単価3,000円〜／枚。</p></div></div>
-        <p class="mt-5 text-sm"><a href="/#portfolio" class="text-[color:var(--acc)] font-bold">実績の写真を見る →</a></p>
-    </div></section>
-
-    <section class="py-14 bg-white"><div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-black mb-8">ご注文の流れ</h2>
-        <ol class="grid md:grid-cols-4 gap-5 text-sm">
-            <li class="bg-[color:var(--acc-soft)] rounded-2xl p-5"><b class="block text-[color:var(--acc)] mb-1">1. 自動見積り</b>ウェア・プリント箇所・枚数を選ぶと、その場で金額が出ます。</li>
-            <li class="bg-[color:var(--acc-soft)] rounded-2xl p-5"><b class="block text-[color:var(--acc)] mb-1">2. 見積り・相談を送信</b>お名前とメールアドレス、デザインのイメージを送ってください。</li>
-            <li class="bg-[color:var(--acc-soft)] rounded-2xl p-5"><b class="block text-[color:var(--acc)] mb-1">3. デザイン確定</b>手書きのラフ画もデザイナーが清書。仕上がりイメージを確認します。</li>
-            <li class="bg-[color:var(--acc-soft)] rounded-2xl p-5"><b class="block text-[color:var(--acc)] mb-1">4. 製作・お届け</b>ご入金確認後に自社工房で製作し、原則1週間以内に発送します。</li>
-        </ol>
-    </div></section>
-
-    <section class="py-14"><div class="max-w-4xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-black mb-8">よくあるご質問</h2>
-        <div class="space-y-3"><details class="group bg-white border border-[color:var(--acc-soft)] rounded-2xl p-5"><summary class="cursor-pointer font-bold text-brand-dark flex justify-between items-center gap-4 list-none">Q. 部隊のロゴを使ったTシャツは作れますか？<i class="fa-solid fa-plus text-[color:var(--acc)] group-open:rotate-45 transition-transform"></i></summary><p class="mt-3 text-sm text-slate-600 leading-relaxed">はい。お手持ちのロゴ画像や手書きのデザインから、デザイナーが無料で印刷用のデータにします。ロゴの使用については、所属先のルールをご確認のうえご依頼ください。</p></details>
-<details class="group bg-white border border-[color:var(--acc-soft)] rounded-2xl p-5"><summary class="cursor-pointer font-bold text-brand-dark flex justify-between items-center gap-4 list-none">Q. ドライ素材やネイビーのTシャツでも作れますか？<i class="fa-solid fa-plus text-[color:var(--acc)] group-open:rotate-45 transition-transform"></i></summary><p class="mt-3 text-sm text-slate-600 leading-relaxed">はい、速乾のドライTシャツやネイビー・黒などの濃い色のボディにも対応しています。素材によって価格が変わるため、お見積りでご案内します。</p></details>
-<details class="group bg-white border border-[color:var(--acc-soft)] rounded-2xl p-5"><summary class="cursor-pointer font-bold text-brand-dark flex justify-between items-center gap-4 list-none">Q. 見積書・請求書は出してもらえますか？<i class="fa-solid fa-plus text-[color:var(--acc)] group-open:rotate-45 transition-transform"></i></summary><p class="mt-3 text-sm text-slate-600 leading-relaxed">はい、発行します。正式なお見積りの後にお振込みいただき、ご入金を確認してから製作します。</p></details>
-<details class="group bg-white border border-[color:var(--acc-soft)] rounded-2xl p-5"><summary class="cursor-pointer font-bold text-brand-dark flex justify-between items-center gap-4 list-none">Q. 1枚いくらですか？<i class="fa-solid fa-plus text-[color:var(--acc)] group-open:rotate-45 transition-transform"></i></summary><p class="mt-3 text-sm text-slate-600 leading-relaxed">Tシャツは1枚あたり税抜850円〜（ウェア本体600円〜＋片面プリント250円〜）です。背中にも入れる場合は＋500円〜／枚、まとめ注文はさらに単価が下がります。</p></details>
-<details class="group bg-white border border-[color:var(--acc-soft)] rounded-2xl p-5"><summary class="cursor-pointer font-bold text-brand-dark flex justify-between items-center gap-4 list-none">Q. 名前や番号を1枚ずつ変えられますか？<i class="fa-solid fa-plus text-[color:var(--acc)] group-open:rotate-45 transition-transform"></i></summary><p class="mt-3 text-sm text-slate-600 leading-relaxed">はい、できます。1枚ずつ違う名前・番号を入れられます。</p></details>
-<details class="group bg-white border border-[color:var(--acc-soft)] rounded-2xl p-5"><summary class="cursor-pointer font-bold text-brand-dark flex justify-between items-center gap-4 list-none">Q. 横須賀以外の駐屯地・基地からも注文できますか？<i class="fa-solid fa-plus text-[color:var(--acc)] group-open:rotate-45 transition-transform"></i></summary><p class="mt-3 text-sm text-slate-600 leading-relaxed">はい。ご相談から注文までWebとメールで完結し、完成品は郵送でお届けします。</p></details></div>
-    </div></section>
-
-    <section class="py-12 bg-white"><div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-xl font-black mb-5">ほかの用途から探す</h2>
-        <div class="flex flex-wrap gap-3"><a class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-2 text-sm font-bold hover:border-[color:var(--acc)]" href="/class-t.html">クラスTシャツ →</a><a class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-2 text-sm font-bold hover:border-[color:var(--acc)]" href="/bunkasai.html">文化祭・体育祭Tシャツ →</a><a class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-2 text-sm font-bold hover:border-[color:var(--acc)]" href="/team-wear.html">チーム・部活・サークルのお揃いウェア →</a><a class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-2 text-sm font-bold hover:border-[color:var(--acc)]" href="/hoodie.html">オリジナルパーカー（クラス・部活） →</a><a class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-2 text-sm font-bold hover:border-[color:var(--acc)]" href="/event-staff.html">イベント・スタッフTシャツ →</a><a class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-2 text-sm font-bold hover:border-[color:var(--acc)]" href="/sotsudan.html">卒団・卒業記念Tシャツ →</a><a class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-2 text-sm font-bold hover:border-[color:var(--acc)]" href="/uniform.html">飲食店・企業のユニフォーム →</a><a class="bg-white border border-[color:var(--acc-soft)] rounded-xl px-4 py-2 text-sm font-bold hover:border-[color:var(--acc)]" href="/yokosuka.html">横須賀のオリジナルTシャツ →</a></div>
-    </div></section>
-
-    <section class="py-16 bg-brand-dark text-white text-center"><div class="max-w-3xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-black mb-4">まずは10秒の自動見積りから</h2>
-        <p class="text-slate-300 text-sm mb-7">見積り・ご相談は無料です。通常、当日〜翌営業日にご連絡します。</p>
-        <a href="/#estimator" class="inline-block bg-[color:var(--acc)] hover:bg-[color:var(--acc-dark)] px-8 py-4 rounded-xl font-bold">自動見積りをする →</a>
-    </div></section>
-    </main>
+<main class="lp">
+<section class="base hero"><div class="w">
+ <div>
+  <div class="crumb"><a href="/">YokosukaPrint</a> ／ 自衛隊・部隊Tシャツ作成</div>
+  <h1>部隊・艦艇の<br>Tシャツを、<br>横須賀の工房で。</h1>
+  <p class="lead">横須賀の自社工房で、部隊・艦艇・同期会・記念行事のお揃いTシャツを1枚税抜850円〜で作っています。手持ちの部隊ロゴや手書きのデザインを、デザイナーが無料でデータにします。速乾のドライTシャツやネイビーなどの濃い色のボディにも対応しています。</p>
+  <div class="ctas"><a class="btn acc" href="/#estimator">10秒で自動見積り</a><a class="btn ghost" href="/#contact-form">ロゴ画像を送って相談する</a></div>
+  <div class="facts"><div><b>横須賀</b>自社工房で製作</div><div><b>無料</b>ロゴのデータ化</div><div><b>発行</b>見積書・請求書</div></div>
+ </div>
+ <div><div class="frame"><svg viewBox="0 0 460 300" width="100%" role="img" aria-label="イメージ図"><g fill="none" stroke="#F2F5F9" stroke-width="2.2" stroke-dasharray="6 5"><circle cx="95" cy="140" r="62"/><circle cx="95" cy="140" r="44"/><path d="M95 112 L95 168 M78 124 L112 124 M72 152 Q95 178 118 152"/></g><text x="95" y="245" text-anchor="middle" fill="#B4C0D2" font-size="15" font-weight="700" font-family="Noto Sans JP, sans-serif">手書き・画像のロゴ</text><path d="M190 140 L250 140" stroke="#B8935A" stroke-width="3" stroke-linecap="round"/><path d="M240 130 L252 140 L240 150" fill="none" stroke="#B8935A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><text x="220.0" y="124" text-anchor="middle" fill="#B8935A" font-size="13" font-weight="700" font-family="Noto Sans JP, sans-serif">無料でデータ化</text><path transform="translate(262 52) scale(1)" d="M60 20 L85 12 Q100 30 115 12 L140 20 L185 55 L160 85 L145 72 L145 185 L55 185 L55 72 L40 85 L15 55 Z" fill="#1A335A" stroke="#F2F5F9" stroke-width="2.00" stroke-linejoin="round" stroke-linecap="round"/><circle cx="362" cy="122" r="30" fill="none" stroke="#B8935A" stroke-width="3"/><circle cx="362" cy="122" r="21" fill="none" stroke="#B8935A" stroke-width="1.5"/><path d="M362 106 L362 138 M352 113 L372 113 M346 130 Q362 146 378 130" fill="none" stroke="#B8935A" stroke-width="2.5" stroke-linecap="round"/><text x="362" y="270" text-anchor="middle" fill="#B4C0D2" font-size="15" font-weight="700" font-family="Noto Sans JP, sans-serif">印刷用データで仕上げ</text></svg></div><div class="cap"><span>イメージ図</span><span>ロゴの使用は所属先のルールをご確認ください</span></div></div>
+</div></section>
+<section class="s"><div class="w"><h2>部隊の決まりごとに、<span class="hl">きちんと合わせる</span></h2><p class="intro">ロゴの位置や色、ボディの素材まで、部隊やグループのご希望に合わせて作ります。</p><div class="pts"><div class="pt"><div class="ic"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div><h3>横須賀の自社工房</h3><p>横須賀市内で製作しています。近くなら対面でのご相談もできます。</p></div><div class="pt"><div class="ic"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i></div><h3>ロゴのデータ化は無料</h3><p>部隊章や艦艇のマーク、手書きのデザインをスマホで撮って送るだけ。印刷用のデータにします。</p></div><div class="pt"><div class="ic"><i class="fa-solid fa-shirt" aria-hidden="true"></i></div><h3>ドライ素材・濃色OK</h3><p>訓練や運動で着やすい速乾のドライTシャツ、ネイビーや黒などの濃い色にも対応します。</p></div><div class="pt"><div class="ic"><i class="fa-solid fa-file-invoice" aria-hidden="true"></i></div><h3>見積書・請求書を発行</h3><p>部隊やグループでの集金・承認に使える見積書・請求書を発行します。</p></div></div></div></section>
+<section class="s base"><div class="w"><h2>ご注文の流れ</h2><p class="intro">デザインと注文内容が確定してから、原則1週間以内に発送します。</p><div class="tl"><div class="st"><div class="dot">1</div><div class="when">ステップ1</div><h3>自動見積り・相談</h3><p>ウェア・プリント箇所・枚数を選ぶと、その場で金額が出ます。</p></div><div class="st"><div class="dot">2</div><div class="when">ステップ2</div><h3>デザイン確定</h3><p>ロゴや手書きのラフ画をデザイナーが清書し、仕上がりイメージを確認します。</p></div><div class="st"><div class="dot">3</div><div class="when">ステップ3</div><h3>お振込み・製作</h3><p>ご入金を確認してから、自社工房で製作します。</p></div><div class="st"><div class="dot">4</div><div class="when">ステップ4</div><h3>お届け</h3><p>原則1週間以内に発送。全国に郵送でお届けします。</p></div></div><div class="note">記念行事や異動など、日付が決まっている場合は見積りのときにお知らせください。</div></div></section>
+<section class="s"><div class="w"><h2>こんな用途で作られています</h2><p class="intro">部隊・艦艇のお揃いから、同期会や退官の記念品まで。</p><div class="uses"><div class="use"><span class="ui"><i class="fa-solid fa-star" aria-hidden="true"></i></span>部隊・分隊のお揃いTシャツ</div><div class="use"><span class="ui"><i class="fa-solid fa-people-group" aria-hidden="true"></i></span>艦艇の乗員Tシャツ</div><div class="use"><span class="ui"><i class="fa-solid fa-flag" aria-hidden="true"></i></span>同期会・OB会の記念T</div><div class="use"><span class="ui"><i class="fa-solid fa-heart" aria-hidden="true"></i></span>記念行事・イベントのスタッフT</div><div class="use"><span class="ui"><i class="fa-solid fa-trophy" aria-hidden="true"></i></span>部隊の運動会・体力錬成用のドライT</div><div class="use"><span class="ui"><i class="fa-solid fa-gift" aria-hidden="true"></i></span>異動・退官の記念品</div></div></div></section>
+<section class="s paper"><div class="w"><h2>料金の目安</h2><p class="intro">ウェア本体＋プリント代のシンプルな価格です（税抜、A4以内の片面プリント）。</p>
+<table><tr><th>ウェア</th><th>内訳</th><th>1枚あたり</th></tr><tr class="rec"><td>ハイクオリティ Tシャツ<span class="badge">部隊Tの定番</span></td><td>ウェア600円〜＋プリント250円〜</td><td class="p">850円〜</td></tr><tr><td>ロングスリーブ Tシャツ</td><td>ウェア1,000円〜＋プリント250円〜</td><td class="p">1,250円〜</td></tr><tr><td>スウェット パーカー</td><td>ウェア2,200円〜＋プリント250円〜</td><td class="p">2,450円〜</td></tr></table>
+<p class="small">背中にも入れる場合は＋500円〜／枚。フルカラープリントは片面＋350円〜。刺繍はデザインの針数によってお見積り。30枚以上・100枚以上のまとめ注文はさらに単価が下がります。</p></div></section>
+<section class="s"><div class="w"><h2>よくある質問</h2><div class="faq"><details><summary>部隊のロゴを使ったTシャツは作れますか？</summary><p>はい。お手持ちのロゴ画像や手書きのデザインから、デザイナーが無料で印刷用のデータにします。ロゴの使用については、所属先のルールをご確認のうえご依頼ください。</p></details><details><summary>ドライ素材やネイビーのTシャツでも作れますか？</summary><p>はい、速乾のドライTシャツやネイビー・黒などの濃い色のボディにも対応しています。素材によって価格が変わるため、お見積りでご案内します。</p></details><details><summary>見積書・請求書は出してもらえますか？</summary><p>はい、発行します。正式なお見積りの後にお振込みいただき、ご入金を確認してから製作します。</p></details><details><summary>1枚いくらですか？</summary><p>Tシャツは1枚あたり税抜850円〜（ウェア本体600円〜＋片面プリント250円〜）です。背中にも入れる場合は＋500円〜／枚、まとめ注文はさらに単価が下がります。</p></details><details><summary>名前や番号を1枚ずつ変えられますか？</summary><p>はい、できます。1枚ずつ違う名前・番号を入れられます。</p></details><details><summary>横須賀以外の駐屯地・基地からも注文できますか？</summary><p>はい。ご相談から注文までWebとメールで完結し、完成品は郵送でお届けします。</p></details></div></div></section>
+<section class="s paper"><div class="w"><h2>ほかの用途から探す</h2><div class="rel" style="margin-top:20px"><a href="/class-t.html">クラスTシャツ</a><a href="/bunkasai.html">文化祭・体育祭Tシャツ</a><a href="/team-wear.html">チーム・部活・サークルのお揃いウェア</a><a href="/hoodie.html">オリジナルパーカー（クラス・部活）</a><a href="/event-staff.html">イベント・スタッフTシャツ</a><a href="/sotsudan.html">卒団・卒業記念Tシャツ</a><a href="/uniform.html">飲食店・企業のユニフォーム</a><a href="/yokosuka.html">横須賀のオリジナルTシャツ</a></div></div></section>
+<section class="s base end"><div class="w"><div><h2>まずは自動見積りで金額を確認</h2><p>見積り・相談は無料です。通常、当日〜翌営業日にご連絡します。</p></div><a class="btn acc" href="/#estimator">10秒で自動見積り</a></div></section>
+</main>
 
     <footer class="bg-brand-dark text-slate-400 border-t border-slate-800 py-10 text-xs">
         <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-6">
