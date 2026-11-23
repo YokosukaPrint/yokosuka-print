@@ -369,6 +369,7 @@ function gtag_report_conversion(url) {
             <!-- DESKTOP NAV -->
             <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
                 <a href="#features" class="hover:text-brand-sky transition-colors text-brand-slate">強み</a>
+                <a href="#usecases" class="hover:text-brand-sky transition-colors text-brand-slate">用途から探す</a>
                 <a href="#flow" class="hover:text-brand-sky transition-colors text-brand-slate">注文手順</a>
                 <a href="#portfolio" class="hover:text-brand-sky transition-colors text-brand-slate">実績一覧</a>
                 <a href="#methods" class="hover:text-brand-sky transition-colors text-brand-slate">選べる加工</a>
@@ -401,6 +402,7 @@ function gtag_report_conversion(url) {
         <!-- MOBILE NAV MENU -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-brand-water px-4 pt-2 pb-6 space-y-3">
             <a href="#features" class="block py-2 text-brand-slate hover:text-brand-sky font-medium border-b border-brand-light">Yokosukaの強み</a>
+            <a href="#usecases" class="block py-2 text-brand-slate hover:text-brand-sky font-medium border-b border-brand-light">用途から探す</a>
             <a href="#flow" class="block py-2 text-brand-slate hover:text-brand-sky font-medium border-b border-brand-light">かんたん注文手順</a>
             <a href="#portfolio" class="block py-2 text-brand-slate hover:text-brand-sky font-medium border-b border-brand-light">制作実績</a>
             <a href="#methods" class="block py-2 text-brand-slate hover:text-brand-sky font-medium border-b border-brand-light">選べる加工</a>
@@ -649,6 +651,58 @@ function gtag_report_conversion(url) {
                         <span class="text-[11px] font-semibold text-brand-sky bg-white px-2 py-1 rounded shadow-sm whitespace-nowrap">スピード製作・発送</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="usecases" class="py-20 bg-white border-t border-brand-water">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+                <span class="text-brand-sky font-bold tracking-widest uppercase text-xs block">USE CASES</span>
+                <h2 class="text-3xl font-extrabold tracking-tight text-brand-dark">用途から探す</h2>
+                <p class="text-sm sm:text-base text-brand-slate">作りたいものに合わせて、料金の目安やよくある質問をまとめた専用ページを用意しています。</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+                <a href="/class-t.html" class="group bg-white rounded-2xl border border-brand-water p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition flex items-start gap-4">
+                    <span class="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-lg" style="background:#E0F2FE;color:#0284C7"><i class="fa-solid fa-school"></i></span>
+                    <span><span class="block font-bold text-brand-dark group-hover:text-brand-sky">クラスTシャツ</span><span class="block text-xs text-brand-slate mt-1 leading-relaxed">クラス全員分。サイズ混在OK・名入れ対応</span></span>
+                </a>
+                <a href="/bunkasai.html" class="group bg-white rounded-2xl border border-brand-water p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition flex items-start gap-4">
+                    <span class="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-lg" style="background:#FFEDD5;color:#EA580C"><i class="fa-solid fa-champagne-glasses"></i></span>
+                    <span><span class="block font-bold text-brand-dark group-hover:text-brand-sky">文化祭・体育祭Tシャツ</span><span class="block text-xs text-brand-slate mt-1 leading-relaxed">行事の日から逆算して製作</span></span>
+                </a>
+                <a href="/team-wear.html" class="group bg-white rounded-2xl border border-brand-water p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition flex items-start gap-4">
+                    <span class="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-lg" style="background:#E0F2FE;color:#0EA5E9"><i class="fa-solid fa-futbol"></i></span>
+                    <span><span class="block font-bold text-brand-dark group-hover:text-brand-sky">チーム・部活・サークル</span><span class="block text-xs text-brand-slate mt-1 leading-relaxed">名前・背番号入り、スポーツ生地も</span></span>
+                </a>
+                <a href="/hoodie.html" class="group bg-white rounded-2xl border border-brand-water p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition flex items-start gap-4">
+                    <span class="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-lg" style="background:#E0E7FF;color:#6366F1"><i class="fa-solid fa-shirt"></i></span>
+                    <span><span class="block font-bold text-brand-dark group-hover:text-brand-sky">オリジナルパーカー</span><span class="block text-xs text-brand-slate mt-1 leading-relaxed">クラスパーカー・部活パーカー</span></span>
+                </a>
+                <a href="/event-staff.html" class="group bg-white rounded-2xl border border-brand-water p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition flex items-start gap-4">
+                    <span class="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-lg" style="background:#FEF9C3;color:#CA8A04"><i class="fa-solid fa-bullhorn"></i></span>
+                    <span><span class="block font-bold text-brand-dark group-hover:text-brand-sky">イベント・スタッフTシャツ</span><span class="block text-xs text-brand-slate mt-1 leading-relaxed">数十〜数百枚、見積書・請求書対応</span></span>
+                </a>
+                <a href="/sotsudan.html" class="group bg-white rounded-2xl border border-brand-water p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition flex items-start gap-4">
+                    <span class="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-lg" style="background:#D1FAE5;color:#059669"><i class="fa-solid fa-medal"></i></span>
+                    <span><span class="block font-bold text-brand-dark group-hover:text-brand-sky">卒団・卒業記念Tシャツ</span><span class="block text-xs text-brand-slate mt-1 leading-relaxed">全員の名前入りの記念Tシャツ</span></span>
+                </a>
+                <a href="/jieitai.html" class="group bg-white rounded-2xl border border-brand-water p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition flex items-start gap-4">
+                    <span class="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-lg" style="background:#DBEAFE;color:#1E3A8A"><i class="fa-solid fa-anchor"></i></span>
+                    <span><span class="block font-bold text-brand-dark group-hover:text-brand-sky">自衛隊・部隊Tシャツ</span><span class="block text-xs text-brand-slate mt-1 leading-relaxed">部隊ロゴのデータ化無料・ドライ素材</span></span>
+                </a>
+                <a href="/uniform.html" class="group bg-white rounded-2xl border border-brand-water p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition flex items-start gap-4">
+                    <span class="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-lg" style="background:#FCE7F3;color:#DB2777"><i class="fa-solid fa-mug-hot"></i></span>
+                    <span><span class="block font-bold text-brand-dark group-hover:text-brand-sky">飲食店・企業のユニフォーム</span><span class="block text-xs text-brand-slate mt-1 leading-relaxed">都度発注・ワンポイント刺繍</span></span>
+                </a>
+                <a href="/yokosuka.html" class="group bg-white rounded-2xl border border-brand-water p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition flex items-start gap-4">
+                    <span class="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-lg" style="background:#CCFBF1;color:#0F766E"><i class="fa-solid fa-location-dot"></i></span>
+                    <span><span class="block font-bold text-brand-dark group-hover:text-brand-sky">横須賀のオリジナルTシャツ</span><span class="block text-xs text-brand-slate mt-1 leading-relaxed">地元の工房。対面での相談も</span></span>
+                </a>
+                <a href="/en/unit-shirts.html" class="group bg-white rounded-2xl border border-brand-water p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition flex items-start gap-4" lang="en">
+                    <span class="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-lg" style="background:#FEE2E2;color:#B91C1C"><i class="fa-solid fa-flag-usa"></i></span>
+                    <span><span class="block font-bold text-brand-dark group-hover:text-brand-sky">Unit &amp; ship shirts (English)</span><span class="block text-xs text-brand-slate mt-1 leading-relaxed">For U.S. units, ships and squadrons</span></span>
+                </a>
             </div>
         </div>
     </section>
