@@ -319,6 +319,52 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}
 .work-meta{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:20px;font-size:15px}
 .work-meta strong{font-family:var(--disp);text-transform:uppercase;font-weight:800}
 @media(max-width:1000px){.work{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ===== Mobile only (≤560px): shorter page, swipe rows instead of long stacks ===== */
+.swipe-hint{display:none}
+@media(max-width:560px){
+  section.block{padding-block:44px}
+  .hero{padding-block:32px 40px;gap:28px}
+  .hero h1{font-size:50px}
+  .hero .col{gap:18px}
+  .sec-head{margin-bottom:22px;gap:10px}
+  .sec-head h2{font-size:36px}
+  .sec-head p{font-size:16px}
+  .strip .wrap{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding-block:12px;scrollbar-width:none}
+  .strip .wrap::-webkit-scrollbar{display:none}
+  .strip span{font-size:18px;white-space:nowrap}
+
+  /* Horizontal swipe rows */
+  .cards,.methods,.blanks{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;margin-inline:-5vw;padding:2px 5vw 10px;scroll-padding-inline:5vw;scrollbar-width:none}
+  .cards::-webkit-scrollbar,.methods::-webkit-scrollbar,.blanks::-webkit-scrollbar{display:none}
+  .cards > *,.blanks > *{flex:0 0 82%;scroll-snap-align:start}
+  .methods > div{flex:0 0 78%;scroll-snap-align:start;padding:20px 0 16px;border-bottom:0;border-right:1px solid #3A4757;padding-right:16px}
+  .methods{border-top:1.5px solid var(--on-ink)}
+  .methods h3{font-size:28px}
+  .card{padding:22px 20px}
+  .card h3{font-size:26px}
+  .blank{padding:20px}
+  .blank h3{font-size:24px}
+  .swipe-hint{display:block;margin:0 0 10px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+  .dark .swipe-hint{color:var(--accent-l)}
+  .also{margin-top:16px;padding:12px 0;gap:6px 16px}
+  .also span:not(.mono){font-size:17px}
+
+  /* Recent work: tighter */
+  .work{gap:10px}
+  .work figcaption{padding:8px 10px;font-size:13px}
+
+  /* How it works: number beside text */
+  .steps{gap:18px}
+  .steps li{display:grid;grid-template-columns:44px 1fr;column-gap:12px;row-gap:4px}
+  .steps .n{font-size:48px;grid-row:span 2}
+  .steps h3{font-size:18px}
+  .why{margin-top:28px !important}
+  .why > div{padding:18px 20px}
+  .why h3{font-size:24px}
+
+  .faq-list summary{min-height:56px;padding:14px 0;font-size:17px}
+}
 </style>
 
 <!-- Link to REGADES (operator) -->
@@ -366,6 +412,7 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}
       <div><span class="mono eyebrow">Who we print for</span><h2 class="disp">Big orders are our thing.</h2></div>
       <p>From 20 shirts for a division to hundreds for a base-wide event, we handle the artwork, printing and delivery timeline for you.</p>
     </div>
+    <p class="swipe-hint">Swipe for more →</p>
     <div class="cards">
       <div class="card"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V4l8 3 8-3v17"/><path d="M4 12l8 3 8-3"/></svg><h3>Unit &amp; ship shirts</h3><p>Squadron, division and ship tees, deployment and homecoming shirts, challenge-event gear.</p></div>
       <div class="card"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg><h3>Base events &amp; sports</h3><p>5K runs, softball and soccer teams, tournament shirts with individual names &amp; numbers, and full sublimated uniforms.</p></div>
@@ -391,6 +438,7 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}
 
   <section class="block dark"><div class="wrap">
     <div class="sec-head"><div><span class="mono eyebrow">What we print</span><h2 class="disp">Four ways to put your logo on it.</h2></div></div>
+    <p class="swipe-hint">Swipe for more →</p>
     <div class="methods">
       <div><span class="mono">Full color</span><h3>DTF print</h3><p>Photos, gradients, detailed crests. Any number of colors, no setup cost.</p><strong>Ships in about 1 week</strong></div>
       <div><span class="mono">Best for bulk</span><h3>Screen print</h3><p>Bold one- or two-color designs that hold up wash after wash. No screen fees.</p><strong>Turnaround: ask us</strong></div>
@@ -404,6 +452,7 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}
       <div><span class="mono eyebrow">The shirts we print on</span><h2 class="disp">Trusted blanks, stocked in Japan.</h2></div>
       <p>We print on the brands Japanese print shops rely on. Heavier fabric means a sturdier shirt; dry-fit is best for PT and sports.</p>
     </div>
+    <p class="swipe-hint">Swipe for more →</p>
     <div class="blanks">
       <article class="blank">
         <div class="blank-top"><span class="mono">United Athle</span><span class="model">5001-01</span></div>
